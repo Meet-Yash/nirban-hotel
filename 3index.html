@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nirban Hotel, Chirawa | Digital Menu & Online Ordering</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        argon: {
+                            dark: '#0B2519',
+                            DEFAULT: '#103828',
+                            light: '#1B4D3E',
+                            accent: '#D4AF37',
+                            goldHover: '#C5A028',
+                            bg: '#F4F7F5'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #F4F7F5; }
+        /* Custom smooth scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #1B4D3E; border-radius: 3px; }
+    </style>
+</head>
+<body class="bg-argon-bg text-gray-800 antialiased pb-28">
+
+    <!-- Top Header & Hero Section -->
+    <header class="bg-gradient-to-br from-argon-dark via-argon to-argon-light text-white shadow-xl relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-7xl mx-auto px-4 py-8 sm:py-12 relative z-10 text-center">
+            <div class="inline-block bg-argon-accent/20 border border-argon-accent/40 text-argon-accent text-xs sm:text-sm font-semibold px-4 py-1.5 rounded-full mb-3 uppercase tracking-widest">
+                <i class="fa-solid fa-fire-burner mr-1.5"></i> Authentic Non-Veg & Veg Delicacies
+            </div>
+            <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight mb-2 text-white">
+                Nirban Hotel <span class="text-argon-accent font-light">Chirawa</span>
+            </h1>
+            <p class="text-gray-300 text-sm sm:text-base max-w-xl mx-auto mb-6">
+                Welcome! Taste the legendary Lal Maas, Special Mutton, and Tandoori masterclasses right from your table or home.
+            </p>
+
+            <!-- Quick Action Buttons Header -->
+            <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+                <a href="tel:+919509590978" class="bg-white/10 hover:bg-white/20 border border-white/25 text-white px-4 py-2.5 rounded-xl font-medium text-sm flex items-center gap-2 transition duration-200">
+                    <i class="fa-solid fa-phone text-argon-accent"></i> Call Now
+                </a>
+                <button onclick="openScannerModal()" class="bg-argon-accent hover:bg-argon-goldHover text-argon-dark px-5 py-2.5 rounded-xl font-bold text-sm flex items-center gap-2 shadow-lg transition duration-200">
+                    <i class="fa-solid fa-qrcode"></i> UPI QR Scanner
+                </button>
+                <a href="#menu-section" class="bg-argon-light hover:bg-emerald-800 border border-emerald-600/50 text-white px-5 py-2.5 rounded-xl font-semibold text-sm flex items-center gap-2 transition duration-200">
+                    <i class="fa-solid fa-utensils text-argon-accent"></i> View Menu
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation & Category Tabs -->
+    <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-md border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+            <!-- Search bar -->
+            <div class="relative flex-1 max-w-md">
+                <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
+                    <i class="fa-solid fa-magnifying-glass text-sm"></i>
+                </span>
+                <input type="text" id="searchInput" oninput="filterMenu()" placeholder="Search dishes (e.g., Lal Maas, Butter Chicken)..." class="w-full pl-10 pr-4 py-2 bg-gray-100 focus:bg-white border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-argon transition duration-200">
+            </div>
+
+            <!-- Cart Trigger Button (Desktop & Tablet) -->
+            <button onclick="toggleCartDrawer()" class="hidden md:flex items-center gap-2.5 bg-argon text-white px-5 py-2 rounded-xl font-semibold text-sm hover:bg-argon-light transition shadow-md">
+                <i class="fa-solid fa-bag-shopping text-argon-accent"></i>
+                <span>Cart</span>
+                <span id="desktopCartCount" class="bg-argon-accent text-argon-dark font-bold text-xs px-2 py-0.5 rounded-full">0</span>
+            </button>
+        </div>
+
+        <!-- Category Horizontal Scroll -->
+        <div class="max-w-7xl mx-auto px-4 overflow-x-auto pb-3 pt-1 flex gap-2 no-scrollbar" id="categoryTabs">
+            <button onclick="switchCategory('all')" class="cat-btn whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-semibold bg-argon text-white transition shadow-sm" data-cat="all">All Dishes</button>
+            <button onclick="switchCategory('mutton')" class="cat-btn whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-semibold bg-gray-100 text-gray-700 hover:bg-gray-200 transition" data-cat="mutton">Mutton Special</button>
+            <button onclick="switchCategory('chicken')" class="cat-btn whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-semibold bg-gray-100 text-gray-700 hover:bg-gray-200 transition" data-cat="chicken">Chicken Special</button>
+            <button onclick="switchCategory('veg')" class="cat-btn whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-semibold bg-gray-100 text-gray-700 hover:bg-gray-200 transition" data-cat="veg">Veg Special</button>
+            <button onclick="switchCategory('snacks')" class="cat-btn whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-semibold bg-gray-100 text-gray-700 hover:bg-gray-200 transition" data-cat="snacks">Snacks & Starters</button>
+            <button onclick="switchCategory('fish')" class="cat-btn whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-semibold bg-gray-100 text-gray-700 hover:bg-gray-200 transition" data-cat="fish">Fish Special</button>
+            <button onclick="switchCategory('egg')" class="cat-btn whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-semibold bg-gray-100 text-gray-700 hover:bg-gray-200 transition" data-cat="egg">Egg Special</button>
+            <button onclick="switchCategory('rice')" class="cat-btn whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-semibold bg-gray-100 text-gray-700 hover:bg-gray-200 transition" data-cat="rice">Rice & Biryani</button>
+            <button onclick="switchCategory('roti')" class="cat-btn whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-semibold bg-gray-100 text-gray-700 hover:bg-gray-200 transition" data-cat="roti">Roti & Chapati</button>
+            <button onclick="switchCategory('salad')" class="cat-btn whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-semibold bg-gray-100 text-gray-700 hover:bg-gray-200 transition" data-cat="salad">Salads & Raita</button>
+            <button onclick="switchCategory('beverages')" class="cat-btn whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-semibold bg-gray-100 text-gray-700 hover:bg-gray-200 transition" data-cat="beverages">Beverages & Other</button>
+        </div>
+    </nav>
+
+    <!-- Main Menu Container -->
+    <main id="menu-section" class="max-w-7xl mx-auto px-4 py-6">
+        <div id="menuContainer" class="space-y-10">
+            <!-- Dynamically populated via JavaScript -->
+        </div>
+
+        <!-- Extra Charges Note Banner -->
+        <div class="mt-12 bg-white border border-emerald-900/10 rounded-2xl p-6 shadow-sm">
+            <h4 class="font-bold text-argon text-sm mb-2 uppercase tracking-wide flex items-center gap-2">
+                <i class="fa-solid fa-circle-info text-argon-accent"></i> Important Information & Charges
+            </h4>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm text-gray-600">
+                <div class="flex items-center gap-2 bg-gray-50 p-2.5 rounded-xl">
+                    <i class="fa-solid fa-check text-emerald-600"></i> Extra Salad Charge - ₹20 / Per Plate
+                </div>
+                <div class="flex items-center gap-2 bg-gray-50 p-2.5 rounded-xl">
+                    <i class="fa-solid fa-check text-emerald-600"></i> Extra Gravy Charge - ₹100 / Per Plate
+                </div>
+                <div class="flex items-center gap-2 bg-gray-50 p-2.5 rounded-xl">
+                    <i class="fa-solid fa-check text-emerald-600"></i> Green Chatni Charge - ₹20 / Per Plate
+                </div>
+                <div class="flex items-center gap-2 bg-gray-50 p-2.5 rounded-xl">
+                    <i class="fa-solid fa-check text-emerald-600"></i> Green Chilli Fry Charge - ₹30 / Per Plate
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Information -->
+    <footer class="bg-argon-dark text-gray-300 py-10 mt-16 border-t border-emerald-900">
+        <div class="max-w-7xl mx-auto px-4 text-center space-y-4">
+            <h2 class="text-xl font-bold text-white">Nirban Hotel, Chirawa</h2>
+            <p class="text-sm text-gray-400 max-w-md mx-auto">
+                Serving mouth-watering authentic dishes with the finest spices and traditional recipes in Chirawa.
+            </p>
+            <div class="flex justify-center gap-4 pt-2">
+                <a href="tel:+919509590978" class="w-10 h-10 rounded-full bg-argon-light flex items-center justify-center text-argon-accent hover:bg-emerald-800 transition">
+                    <i class="fa-solid fa-phone"></i>
+                </a>
+                <a href="https://wa.me/919509590978" target="_blank" class="w-10 h-10 rounded-full bg-emerald-700 flex items-center justify-center text-white hover:bg-emerald-600 transition">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+                <button onclick="openScannerModal()" class="w-10 h-10 rounded-full bg-argon-accent flex items-center justify-center text-argon-dark hover:bg-argon-goldHover transition">
+                    <i class="fa-solid fa-qrcode"></i>
+                </button>
+            </div>
+            <p class="text-xs text-gray-500 pt-6 border-t border-emerald-900/50">
+                © 2026 Nirban Hotel, Chirawa. All rights reserved. Designed for Excellence.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Mobile Fixed Bottom Navigation Bar -->
+    <div class="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-gray-200 px-4 py-3 flex items-center justify-between shadow-2xl md:hidden">
+        <a href="tel:+919509590978" class="flex items-center gap-2 bg-emerald-50 text-emerald-800 px-4 py-2.5 rounded-xl font-bold text-xs border border-emerald-200">
+            <i class="fa-solid fa-phone-volume text-sm text-emerald-600"></i> Call Us
+        </a>
+        <button onclick="toggleCartDrawer()" class="flex items-center gap-2 bg-argon text-white px-5 py-2.5 rounded-xl font-bold text-xs shadow-md">
+            <i class="fa-solid fa-bag-shopping text-argon-accent"></i>
+            <span id="mobileCartCount">0 Items</span>
+        </button>
+        <a href="https://wa.me/919509590978?text=Hello%20Nirban%20Hotel,%20I%20want%20to%20inquire%20about%20menu" target="_blank" class="flex items-center gap-2 bg-emerald-600 text-white px-4 py-2.5 rounded-xl font-bold text-xs shadow-md">
+            <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp
+        </a>
+    </div>
+
+    <!-- Cart Slide-Over Drawer -->
+    <div id="cartDrawer" class="fixed inset-0 z-50 overflow-hidden hidden">
+        <div class="absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity" onclick="toggleCartDrawer()"></div>
+        <div class="absolute inset-y-0 right-0 max-w-full flex pl-10">
+            <div class="w-screen max-w-md bg-white shadow-2xl flex flex-col">
+                <!-- Cart Header -->
+                <div class="p-5 bg-argon text-white flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-basket-shopping text-argon-accent text-lg"></i>
+                        <h2 class="font-bold text-lg">Your Order Cart</h2>
+                    </div>
+                    <button onclick="toggleCartDrawer()" class="text-gray-300 hover:text-white p-2">
+                        <i class="fa-solid fa-xmark text-lg"></i>
+                    </button>
+                </div>
+
+                <!-- Order Mode Selector -->
+                <div class="p-4 bg-emerald-50/60 border-b border-gray-100">
+                    <label class="block text-xs font-bold text-gray-700 uppercase mb-2">Select Order Type</label>
+                    <div class="grid grid-cols-3 gap-2">
+                        <button onclick="setOrderMode('Dine-In')" id="modeDineIn" class="order-mode-btn py-2 px-3 text-xs font-semibold rounded-xl bg-argon text-white border border-argon transition">Dine-In</button>
+                        <button onclick="setOrderMode('Delivery')" id="modeDelivery" class="order-mode-btn py-2 px-3 text-xs font-semibold rounded-xl bg-white text-gray-700 border border-gray-200 transition">Delivery</button>
+                        <button onclick="setOrderMode('Takeaway')" id="modeTakeaway" class="order-mode-btn py-2 px-3 text-xs font-semibold rounded-xl bg-white text-gray-700 border border-gray-200 transition">Takeaway</button>
+                    </div>
+                </div>
+
+                <!-- Customer Details Input Form -->
+                <div class="p-4 bg-gray-50 border-b border-gray-100 space-y-3">
+                    <div>
+                        <label class="block text-xs font-medium text-gray-600 mb-1">Your Name *</label>
+                        <input type="text" id="customerName" placeholder="Enter your full name" class="w-full px-3 py-2 text-sm bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-argon">
+                    </div>
+                    <div id="dynamicAddressContainer">
+                        <label id="addressLabel" class="block text-xs font-medium text-gray-600 mb-1">Table Number *</label>
+                        <input type="text" id="customerAddress" placeholder="e.g. Table No. 4" class="w-full px-3 py-2 text-sm bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-argon">
+                    </div>
+                </div>
+
+                <!-- Cart Items List -->
+                <div class="flex-1 overflow-y-auto p-4 space-y-3" id="cartItemsList">
+                    <!-- Populated dynamically -->
+                </div>
+
+                <!-- Cart Footer / Checkout -->
+                <div class="p-5 bg-white border-t border-gray-200 space-y-3 shadow-lg">
+                    <div class="flex justify-between items-center text-base font-bold text-gray-800">
+                        <span>Total Amount:</span>
+                        <span id="cartTotalPrice" class="text-emerald-700 text-lg">₹0</span>
+                    </div>
+                    <button onclick="placeWhatsAppOrder()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl shadow-lg flex items-center justify-center gap-2 transition duration-200 text-sm">
+                        <i class="fa-brands fa-whatsapp text-lg"></i> Send Order on WhatsApp (+91 95095 90978)
+                    </button>
+                    <button onclick="openScannerModal()" class="w-full bg-argon-accent hover:bg-argon-goldHover text-argon-dark font-bold py-2.5 px-4 rounded-xl flex items-center justify-center gap-2 transition duration-200 text-xs">
+                        <i class="fa-solid fa-qrcode"></i> Pay via PhonePe / UPI QR (9509590978)
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- UPI QR Scanner Modal -->
+    <div id="scannerModal" class="fixed inset-0 z-50 overflow-y-auto hidden flex items-center justify-center p-4">
+        <div class="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity" onclick="closeScannerModal()"></div>
+        <div class="relative bg-white rounded-3xl max-w-sm w-full p-6 shadow-2xl z-10 text-center space-y-4">
+            <div class="flex justify-between items-center border-b border-gray-100 pb-3">
+                <h3 class="font-bold text-lg text-argon flex items-center gap-2">
+                    <i class="fa-solid fa-qrcode text-argon-accent"></i> Nirban Hotel UPI QR
+                </h3>
+                <button onclick="closeScannerModal()" class="text-gray-400 hover:text-gray-600 p-1">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            
+            <p class="text-xs text-gray-500">Scan this QR using any UPI app (PhonePe, Google Pay, Paytm) to pay securely.</p>
+            
+            <!-- PhonePe QR Code Container resembling official screenshot -->
+            <div class="bg-argon-dark p-4 rounded-2xl shadow-inner border border-argon-accent/35 flex flex-col items-center">
+                <div class="text-white text-xs font-semibold mb-2 flex items-center gap-1.5">
+                    <span class="w-2.5 h-2.5 rounded-full bg-blue-500 inline-block"></span> State Bank Of India - 3085
+                </div>
+                <div class="bg-white p-3 rounded-xl shadow-md my-2">
+                    <!-- High quality reliable generated QR code placeholder or visual representation -->
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=upi://pay?pa=9509590978-n587@ibl&pn=Nirban%20Hotel&cu=INR" alt="Nirban Hotel UPI QR" class="w-44 h-44 object-contain mx-auto rounded-lg">
+                </div>
+                <div class="text-argon-accent font-mono text-xs mt-2 bg-black/40 px-3 py-1.5 rounded-lg border border-argon-accent/20 select-all">
+                    UPI ID: 9509590978-n587@ibl
+                </div>
+            </div>
+
+            <div class="text-xs text-gray-500">
+                Primary account for receiving money at Nirban Hotel, Chirawa.
+            </div>
+
+            <button onclick="closeScannerModal()" class="w-full bg-argon text-white font-bold py-2.5 rounded-xl text-sm hover:bg-argon-light transition">
+                Done / Close
+            </button>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toastNotification" class="fixed bottom-20 left-1/2 -translate-x-1/2 z-50 bg-argon-dark text-white px-5 py-2.5 rounded-2xl shadow-2xl text-xs font-medium hidden flex items-center gap-2 border border-argon-accent/30 transition-all duration-300">
+        <i class="fa-solid fa-circle-check text-argon-accent"></i>
+        <span id="toastMessage">Item added to cart!</span>
+    </div>
+
+    <!-- JavaScript Data & Logic -->
+    <script>
+        // Exact Real Menu Data extracted from official Nirban Hotel menu cards
+        const menuData = [
+            {
+                id: 'mutton',
+                title: 'Mutton Special',
+                icon: 'fa-bowl-food',
+                items: [
+                    { name: 'Nirban Special Mutton', half: 450, full: 860 },
+                    { name: 'Special Mutton', half: 450, full: 860 },
+                    { name: 'Afghani Mutton', half: 450, full: 860 },
+                    { name: 'Mutton Rogan Juice', half: 430, full: 800 },
+                    { name: 'Mutton Korma', half: 430, full: 820 },
+                    { name: 'Kadhai Mutton', half: 430, full: 820 },
+                    { name: 'Handi Mutton', half: 420, full: 800 },
+                    { name: 'Mutton Stew', half: 420, full: 800 },
+                    { name: 'Mutton Masala', half: 420, full: 800 },
+                    { name: 'Jodhpuri Mutton Masala', half: 460, full: 880 },
+                    { name: 'Rajasthani Laal Maas', half: 460, full: 880 }
+                ]
+            },
+            {
+                id: 'chicken',
+                title: 'Chicken Special',
+                icon: 'fa-drumstick-bite',
+                items: [
+                    { name: 'Nirban Special Chicken', half: 370, full: 700 },
+                    { name: 'Chicken Taka-Tak', half: 370, full: 700 },
+                    { name: 'Special Chicken', half: 370, full: 700 },
+                    { name: 'Afghani Chicken', half: 360, full: 680 },
+                    { name: 'Kadhai Chicken', half: 340, full: 640 },
+                    { name: 'Chicken Korma', half: 340, full: 640 },
+                    { name: 'Butter Chicken', half: 340, full: 620 },
+                    { name: 'Chicken Black Paper', half: 320, full: 600 },
+                    { name: 'Chicken Stew', half: 320, full: 600 },
+                    { name: 'Chicken Rogan Juice', half: 320, full: 600 },
+                    { name: 'Handi Chicken', half: 320, full: 600 },
+                    { name: 'Chicken Changeji', half: 300, full: 580 },
+                    { name: 'Chicken Masala', half: 300, full: 580 },
+                    { name: 'Chicken Curry', half: 300, full: 580 }
+                ]
+            },
+            {
+                id: 'veg',
+                title: 'Veg Special',
+                icon: 'fa-carrot',
+                items: [
+                    { name: 'Butter Paneer Masala', half: 220, full: 400 },
+                    { name: 'Khoya Paneer', half: 200, full: 380 },
+                    { name: 'Shahi Paneer', half: 190, full: 360 },
+                    { name: 'Kadhai Paneer', half: 190, full: 360 },
+                    { name: 'Mutter Paneer', half: 180, full: 340 },
+                    { name: 'Sev Tamatar', half: 140, full: 260 },
+                    { name: 'Dal Tadka', half: 130, full: 240 },
+                    { name: 'Dal Fry', half: 100, full: 180 }
+                ]
+            },
+            {
+                id: 'snacks',
+                title: 'Snacks & Starters',
+                icon: 'fa-fire',
+                items: [
+                    { name: 'Chicken Roasted Butter', half: 250, full: 480 },
+                    { name: 'Malai Chicken Roasted', half: 350, full: 680 },
+                    { name: 'Malai Afghani Leg Pices (4/8 Pcs)', half: 350, full: 700 },
+                    { name: 'Chicken Gardan Fry', half: 120, full: 240 },
+                    { name: 'Fish Fry', half: 240, full: 480 },
+                    { name: 'Bonless Fish Fry', half: 330, full: 660 },
+                    { name: 'Chicken Fry', half: 250, full: 480 },
+                    { name: 'Chicken Leg Fry (4/8 Pcs)', half: 250, full: 500 },
+                    { name: 'Mutton Dry (Sukha)', half: 360, full: 700 },
+                    { name: 'Chicken Dry (Sukha)', half: 260, full: 500 },
+                    { name: 'Afghani Leg Pices (4/8 Pcs)', half: 250, full: 500 }
+                ]
+            },
+            {
+                id: 'fish',
+                title: 'Fish Special',
+                icon: 'fa-fish',
+                items: [
+                    { name: 'Bon Less Fish Masala', half: 350, full: 680 },
+                    { name: 'Fish Korma (Singal Kanta)', half: 330, full: 620 },
+                    { name: 'Fish Masala (Singal Kanta)', half: 320, full: 620 },
+                    { name: 'Fish Curry (Singal Kanta)', half: 320, full: 620 }
+                ]
+            },
+            {
+                id: 'egg',
+                title: 'Egg Special',
+                icon: 'fa-egg',
+                items: [
+                    { name: 'Egg Curry (2 Eggs)', half: 0, full: 130 },
+                    { name: 'Egg Bhuji (3 Eggs)', half: 0, full: 90 },
+                    { name: 'Omlet (3 Eggs)', half: 0, full: 90 },
+                    { name: 'Egg Fry (2 Eggs)', half: 0, full: 50 },
+                    { name: 'Boil Egg (2 Eggs)', half: 0, full: 30 }
+                ]
+            },
+            {
+                id: 'rice',
+                title: 'Rice & Biryani Special',
+                icon: 'fa-plate-wheat',
+                items: [
+                    { name: 'Plain Rice', half: 80, full: 150 },
+                    { name: 'Jeera Rice', half: 100, full: 180 },
+                    { name: 'Paneer Biriyani', half: 170, full: 320 },
+                    { name: 'Chicken Biriyani', half: 160, full: 300 },
+                    { name: 'Egg Biriyani', half: 160, full: 300 },
+                    { name: 'Mutton Biriyani', half: 220, full: 400 }
+                ]
+            },
+            {
+                id: 'roti',
+                title: 'Roti & Chapati',
+                icon: 'fa-bread-slice',
+                items: [
+                    { name: 'Tandoori Roti Plain', half: 0, full: 12 },
+                    { name: 'Tandoori Roti Butter', half: 0, full: 17 },
+                    { name: 'Tawa Roti Plain', half: 0, full: 12 },
+                    { name: 'Tawa Roti Butter', half: 0, full: 17 }
+                ]
+            },
+            {
+                id: 'salad',
+                title: 'Salad & Raita',
+                icon: 'fa-leaf',
+                items: [
+                    { name: 'Green Salad', half: 0, full: 60 },
+                    { name: 'Onion Salad', half: 0, full: 20 },
+                    { name: 'Plain Papad', half: 0, full: 20 },
+                    { name: 'Masala Papad', half: 0, full: 60 },
+                    { name: 'Bundi Raita', half: 0, full: 100 },
+                    { name: 'Veg Raita', half: 0, full: 100 }
+                ]
+            },
+            {
+                id: 'beverages',
+                title: 'Beverages & Other',
+                icon: 'fa-cup-straw',
+                items: [
+                    { name: 'Curd Plain', half: 0, full: 30 },
+                    { name: 'Chhach', half: 0, full: 30 },
+                    { name: 'Namkeen Lassi', half: 0, full: 50 },
+                    { name: 'Sweet Lassi', half: 0, full: 50 },
+                    { name: 'Special Lassi', half: 0, full: 70 }
+                ]
+            }
+        ];
+
+        let cart = [];
+        let currentCategory = 'all';
+        let currentOrderMode = 'Dine-In';
+
+        // Render Menu on Page Load
+        function renderMenu(filterText = '') {
+            const container = document.getElementById('menuContainer');
+            container.innerHTML = '';
+
+            let filteredCategories = menuData.map(cat => {
+                let filteredItems = cat.items.filter(item => 
+                    item.name.toLowerCase().includes(filterText.toLowerCase())
+                );
+                return { ...cat, items: filteredItems };
+            }).filter(cat => cat.items.length > 0 && (currentCategory === 'all' || cat.id === currentCategory));
+
+            if (filteredCategories.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-16 bg-white rounded-3xl shadow-sm border border-gray-100">
+                        <i class="fa-solid fa-utensils text-4xl text-gray-300 mb-3"></i>
+                        <p class="text-gray-500 font-medium">No dishes found matching your search.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            filteredCategories.forEach(cat => {
+                let sectionEl = document.createElement('div');
+                sectionEl.className = 'bg-white rounded-3xl p-5 sm:p-6 shadow-sm border border-gray-100';
+                
+                let itemsHTML = cat.items.map(item => {
+                    let hasHalf = item.half > 0;
+                    return `
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between py-3.5 border-b border-gray-100 last:border-0 gap-3">
+                            <div class="flex-1 pr-2">
+                                <h4 class="font-bold text-gray-800 text-sm sm:text-base">${item.name}</h4>
+                            </div>
+                            <div class="flex items-center gap-3 self-end sm:self-center">
+                                ${hasHalf ? `
+                                    <div class="flex items-center gap-1.5 bg-gray-50 px-3 py-1.5 rounded-xl border border-gray-200">
+                                        <span class="text-xs text-gray-500 font-medium">Half:</span>
+                                        <span class="font-bold text-xs sm:text-sm text-emerald-800">₹${item.half}</span>
+                                        <button onclick="addToCart('${item.name}', 'Half', ${item.half}, '${cat.title}')" class="ml-1.5 w-7 h-7 bg-argon hover:bg-argon-light text-white rounded-lg text-xs flex items-center justify-center transition">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </button>
+                                    </div>
+                                ` : ''}
+                                <div class="flex items-center gap-1.5 bg-gray-50 px-3 py-1.5 rounded-xl border border-gray-200">
+                                    <span class="text-xs text-gray-500 font-medium">${hasHalf ? 'Full:' : 'Price:'}</span>
+                                    <span class="font-bold text-xs sm:text-sm text-emerald-800">₹${item.full}</span>
+                                    <button onclick="addToCart('${item.name}', 'Full', ${item.full}, '${cat.title}')" class="ml-1.5 w-7 h-7 bg-argon hover:bg-argon-light text-white rounded-lg text-xs flex items-center justify-center transition">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+
+                sectionEl.innerHTML = `
+                    <div class="flex items-center gap-3 mb-4 pb-2 border-b-2 border-argon-accent">
+                        <div class="w-8 h-8 rounded-xl bg-argon text-argon-accent flex items-center justify-center text-sm shadow-sm">
+                            <i class="fa-solid ${cat.icon}"></i>
+                        </div>
+                        <h3 class="text-lg font-extrabold text-argon">${cat.title}</h3>
+                    </div>
+                    <div class="divide-y divide-gray-100">
+                        ${itemsHTML}
+                    </div>
+                `;
+                container.appendChild(sectionEl);
+            });
+        }
+
+        // Category Switcher
+        function switchCategory(catId) {
+            currentCategory = catId;
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                if(btn.getAttribute('data-cat') === catId) {
+                    btn.className = 'cat-btn whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-semibold bg-argon text-white transition shadow-sm';
+                } else {
+                    btn.className = 'cat-btn whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-semibold bg-gray-100 text-gray-700 hover:bg-gray-200 transition';
+                }
+            });
+            renderMenu(document.getElementById('searchInput').value);
+        }
+
+        // Search Filter
+        function filterMenu() {
+            let query = document.getElementById('searchInput').value;
+            renderMenu(query);
+        }
+
+        // Cart Management
+        function addToCart(name, type, price, category) {
+            let existingIndex = cart.findIndex(item => item.name === name && item.type === type);
+            if (existingIndex > -1) {
+                cart[existingIndex].qty += 1;
+            } else {
+                cart.push({ name, type, price, category, qty: 1 });
+            }
+            updateCartUI();
+            showToast(`Added ${name} (${type}) to cart!`);
+        }
+
+        function updateQuantity(index, change) {
+            cart[index].qty += change;
+            if (cart[index].qty <= 0) {
+                cart.splice(index, 1);
+            }
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            let totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
+            let totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+            document.getElementById('desktopCartCount').innerText = totalCount;
+            document.getElementById('mobileCartCount').innerText = totalCount + (totalCount === 1 ? ' Item' : ' Items');
+            document.getElementById('cartTotalPrice').innerText = '₹' + totalPrice;
+
+            let cartListEl = document.getElementById('cartItemsList');
+            if (cart.length === 0) {
+                cartListEl.innerHTML = `
+                    <div class="text-center py-12 text-gray-400">
+                        <i class="fa-solid fa-cart-shopping text-3xl mb-2"></i>
+                        <p class="text-sm">Your cart is currently empty.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            cartListEl.innerHTML = cart.map((item, idx) => `
+                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-2xl border border-gray-100">
+                    <div>
+                        <h5 class="font-bold text-xs sm:text-sm text-gray-800">${item.name}</h5>
+                        <p class="text-xs text-gray-500">${item.type} • ₹${item.price} each</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="flex items-center gap-2 bg-white px-2.5 py-1 rounded-xl border border-gray-200">
+                            <button onclick="updateQuantity(${idx}, -1)" class="text-gray-500 hover:text-red-600 text-xs"><i class="fa-solid fa-minus"></i></button>
+                            <span class="font-bold text-xs w-4 text-center">${item.qty}</span>
+                            <button onclick="updateQuantity(${idx}, 1)" class="text-gray-500 hover:text-emerald-700 text-xs"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                        <span class="font-bold text-xs sm:text-sm text-emerald-800 min-w-[50px] text-right">₹${item.price * item.qty}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Order Mode Selector
+        function setOrderMode(mode) {
+            currentOrderMode = mode;
+            document.querySelectorAll('.order-mode-btn').forEach(btn => {
+                btn.className = 'order-mode-btn py-2 px-3 text-xs font-semibold rounded-xl bg-white text-gray-700 border border-gray-200 transition';
+            });
+            if(mode === 'Dine-In') {
+                document.getElementById('modeDineIn').className = 'order-mode-btn py-2 px-3 text-xs font-semibold rounded-xl bg-argon text-white border border-argon transition';
+                document.getElementById('addressLabel').innerText = 'Table Number *';
+                document.getElementById('customerAddress').placeholder = 'e.g. Table No. 4';
+            } else if(mode === 'Delivery') {
+                document.getElementById('modeDelivery').className = 'order-mode-btn py-2 px-3 text-xs font-semibold rounded-xl bg-argon text-white border border-argon transition';
+                document.getElementById('addressLabel').innerText = 'Delivery Address *';
+                document.getElementById('customerAddress').placeholder = 'e.g. Ward No. 4, Near Bus Stand';
+            } else {
+                document.getElementById('modeTakeaway').className = 'order-mode-btn py-2 px-3 text-xs font-semibold rounded-xl bg-argon text-white border border-argon transition';
+                document.getElementById('addressLabel').innerText = 'Vehicle / Notes (Optional)';
+                document.getElementById('customerAddress').placeholder = 'e.g. Pickup in 20 mins';
+            }
+        }
+
+        // Drawer toggle
+        function toggleCartDrawer() {
+            let drawer = document.getElementById('cartDrawer');
+            drawer.classList.toggle('hidden');
+        }
+
+        // Scanner Modal
+        function openScannerModal() {
+            document.getElementById('scannerModal').classList.remove('hidden');
+        }
+        function closeScannerModal() {
+            document.getElementById('scannerModal').classList.add('hidden');
+        }
+
+        // Toast notification helper
+        function showToast(msg) {
+            let toast = document.getElementById('toastNotification');
+            document.getElementById('toastMessage').innerText = msg;
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 2500);
+        }
+
+        // WhatsApp Order Dispatch
+        function placeWhatsAppOrder() {
+            let name = document.getElementById('customerName').value.trim();
+            let address = document.getElementById('customerAddress').value.trim();
+
+            if (!name) {
+                alert('Please enter your name before placing the order.');
+                document.getElementById('customerName').focus();
+                return;
+            }
+            if (currentOrderMode !== 'Takeaway' && !address) {
+                alert('Please enter your Table Number or Delivery Address.');
+                document.getElementById('customerAddress').focus();
+                return;
+            }
+            if (cart.length === 0) {
+                alert('Your cart is empty. Please add items first.');
+                return;
+            }
+
+            let totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+            let message = `🍽️ *NEW ORDER - NIRBAN HOTEL, CHIRAWA* 🍽️\n\n`;
+            message += `👤 *Customer:* ${name}\n`;
+            message += `📌 *Order Type:* ${currentOrderMode}\n`;
+            if(currentOrderMode === 'Delivery') {
+                message += `📍 *Delivery Address:* ${address}\n`;
+                message += `🗺️ *Google Maps Link:* https://maps.google.com/?q=${encodeURIComponent(address + ' Chirawa')}\n`;
+            } else if(currentOrderMode === 'Dine-In') {
+                message += `🪑 *Table No:* ${address}\n`;
+            } else {
+                message += `📝 *Notes:* ${address || 'Self Pickup'}\n`;
+            }
+            message += `\n🛒 *Ordered Items:*\n`;
+
+            cart.forEach((item, index) => {
+                message += `${index + 1}. ${item.name} (${item.type}) x ${item.qty} = ₹${item.price * item.qty}\n`;
+            });
+
+            message += `\n💰 *Total Amount:* *₹${totalPrice}*\n\n`;
+            message += `_Please confirm and process this order._`;
+
+            let encodedMsg = encodeURIComponent(message);
+            let whatsappURL = `https://wa.me/919509590978?text=${encodedMsg}`;
+            
+            window.open(whatsappURL, '_blank');
+        }
+
+        // Initialize menu on load
+        window.onload = function() {
+            renderMenu();
+        }
+    </script>
+</body>
+</html>

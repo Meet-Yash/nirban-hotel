@@ -1,1401 +1,1553 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nirban Hotel Chirawa | Best Non-Veg & Family Restaurant</title>
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <!-- FontAwesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            serif: ['Playfair Display', 'serif'],
-            sans: ['Plus Jakarta Sans', 'sans-serif'],
-          },
-          colors: {
-            brand: {
-              red: '#b91c1c',
-              gold: '#f59e0b',
-              dark: '#0f0f0f',
-              card: '#18181b'
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nirban Hotel Chirawa | Best Non-Veg & Family Restaurant</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            red: '#b91c1c',
+                            gold: '#f59e0b',
+                            dark: '#0f0f0f',
+                            card: '#18181b'
+                        }
+                    }
+                }
             }
-          }
         }
-      }
-    }
-  </script>
-  <style>
-    body { background-color: #09090b; color: #f4f4f5; }
-    .no-scrollbar::-webkit-scrollbar { display: none; }
-    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-  </style>
+    </script>
+    <style>
+        body {
+            background-color: #09090b;
+            color: #f4f4f5;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
 </head>
+
 <body class="font-sans antialiased selection:bg-amber-500 selection:text-black pb-28">
 
-  <!-- ================= CONFIG BANNER FOR OWNER DEMO ================= -->
-  <div class="bg-gradient-to-r from-red-800 via-amber-600 to-red-800 text-white text-xs sm:text-sm py-2 px-4 text-center font-medium">
-    🔥 <strong>Chirawa's #1 Authentic Non-Veg & Family Destination</strong> • Fresh Desi Mutton, Chicken, Tandoori & Veg Specials • Call: <a href="tel:+919509590978" class="underline font-bold">+91 95095 90978</a>
-  </div>
+    <!-- ================= CONFIG BANNER FOR OWNER DEMO ================= -->
+    <div
+        class="bg-gradient-to-r from-red-800 via-amber-600 to-red-800 text-white text-xs sm:text-sm py-2 px-4 text-center font-medium">
+        🔥 <strong>Chirawa's #1 Authentic Non-Veg & Family Destination</strong> • Fresh Desi Mutton, Chicken, Tandoori &
+        Veg Specials • Call: <a href="tel:+919509590978" class="underline font-bold">+91 95095 90978</a>
+    </div>
 
-  <!-- ================= NAVBAR ================= -->
-  <header class="sticky top-0 z-40 bg-zinc-950/90 backdrop-blur-md border-b border-zinc-800">
-    <div class="max-w-7xl mx-auto px-3 sm:px-4 py-3.5 flex items-center justify-between gap-2">
-      <div class="flex items-center gap-2.5 sm:gap-3">
-        <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-red-600 to-amber-500 flex items-center justify-center text-white font-serif font-bold text-lg sm:text-xl shadow-lg shadow-red-600/20 shrink-0">
-          N
+    <!-- ================= NAVBAR ================= -->
+    <header class="sticky top-0 z-40 bg-zinc-950/90 backdrop-blur-md border-b border-zinc-800">
+        <div class="max-w-7xl mx-auto px-3 sm:px-4 py-3.5 flex items-center justify-between gap-2">
+            <div class="flex items-center gap-2.5 sm:gap-3">
+                <div
+                    class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-red-600 to-amber-500 flex items-center justify-center text-white font-serif font-bold text-lg sm:text-xl shadow-lg shadow-red-600/20 shrink-0">
+                    N
+                </div>
+                <div>
+                    <h1 class="font-serif text-base sm:text-xl font-bold tracking-wide text-white leading-none">
+                        NIRBAN HOTEL
+                    </h1>
+                    <p class="text-[10px] sm:text-[11px] text-amber-400 font-medium tracking-wider uppercase mt-0.5">
+                        <i class="fa-solid fa-location-dot mr-1"></i>Chirawa, Rajasthan
+                    </p>
+                </div>
+            </div>
+
+            <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-zinc-300">
+                <a href="#menu" class="hover:text-amber-400 transition">Digital Menu</a>
+                <a href="#specials" class="hover:text-amber-400 transition">Chef's Special</a>
+                <a href="#reviews" class="hover:text-amber-400 transition">Reviews</a>
+                <a href="#location" class="hover:text-amber-400 transition">Location & Contact</a>
+            </nav>
+
+            <div class="flex items-center gap-2 sm:gap-2.5">
+                <!-- Visible on BOTH Mobile & Desktop -->
+                <a href="tel:+919509590978"
+                    class="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 text-xs font-semibold text-zinc-100 transition">
+                    <i class="fa-solid fa-phone-volume text-amber-400 animate-pulse"></i>
+                    <span class="hidden xs:inline sm:inline">Call</span>
+                </a>
+
+                <button onclick="toggleQrModal(true)"
+                    class="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-amber-500/40 text-xs font-semibold text-amber-400 transition"
+                    title="Open PhonePe QR Scanner">
+                    <i class="fa-solid fa-qrcode"></i>
+                    <span class="hidden sm:inline">Pay QR</span>
+                </button>
+
+                <button onclick="toggleCart(true)"
+                    class="relative flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-xl bg-gradient-to-r from-red-600 to-amber-600 hover:from-red-500 hover:to-amber-500 text-white font-semibold text-xs sm:text-sm shadow-lg shadow-red-600/30 transition">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span>Cart</span>
+                    <span id="navCartCount" class="bg-black/40 px-2 py-0.5 rounded-full text-xs">0</span>
+                </button>
+            </div>
         </div>
-        <div>
-          <h1 class="font-serif text-base sm:text-xl font-bold tracking-wide text-white leading-none">
-            NIRBAN HOTEL
-          </h1>
-          <p class="text-[10px] sm:text-[11px] text-amber-400 font-medium tracking-wider uppercase mt-0.5">
-            <i class="fa-solid fa-location-dot mr-1"></i>Chirawa, Rajasthan
-          </p>
+    </header>
+
+    <!-- ================= HERO SECTION ================= -->
+    <section class="relative overflow-hidden py-10 sm:py-20 border-b border-zinc-800/80"
+        style="background: radial-gradient(circle at top right, rgba(185,28,28,0.22), transparent 55%), radial-gradient(circle at bottom left, rgba(245,158,11,0.12), transparent 50%);">
+        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
+            <div>
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-950/70 border border-red-800/60 text-amber-400 text-xs font-semibold mb-4">
+                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                    Open Now • 11:00 AM – 11:30 PM
+                </div>
+                <h2 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight">
+                    Asli Rajasthani <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-red-500">Zayka</span> in
+                    Chirawa.
+                </h2>
+                <p class="text-zinc-400 text-base sm:text-lg mt-4 max-w-xl leading-relaxed">
+                    Famous for our rich Rajasthani Laal Maas, Nirban Special Mutton, Chicken Taka-Tak, Roasted Starters
+                    & Paneer Curries. Prepared fresh with authentic spices at Nirban Hotel.
+                </p>
+
+                <div class="flex flex-wrap items-center gap-3 sm:gap-4 mt-7">
+                    <a href="#menu"
+                        class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-red-600 to-amber-600 hover:from-red-500 hover:to-amber-500 text-white font-bold text-sm sm:text-base shadow-xl shadow-red-600/25 flex items-center gap-2 transition">
+                        <i class="fa-solid fa-utensils"></i> Order Online / View Menu
+                    </a>
+                    <a href="tel:+919509590978"
+                        class="px-5 py-3.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-zinc-200 font-semibold text-sm sm:text-base flex items-center gap-2 transition">
+                        <i class="fa-solid fa-phone text-amber-400"></i> +91 95095 90978
+                    </a>
+                    <button onclick="toggleQrModal(true)"
+                        class="px-4 py-3.5 rounded-xl bg-zinc-900/90 hover:bg-zinc-800 border border-amber-500/40 text-amber-400 font-semibold text-sm flex items-center gap-2 transition">
+                        <i class="fa-solid fa-qrcode"></i> Scan & Pay QR
+                    </button>
+                </div>
+
+                <!-- Trust Badges -->
+                <div class="grid grid-cols-3 gap-4 mt-9 pt-6 border-t border-zinc-800/80 max-w-md">
+                    <div>
+                        <div class="text-amber-400 font-bold text-lg sm:text-xl flex items-center gap-1">
+                            4.7 <i class="fa-solid fa-star text-sm"></i>
+                        </div>
+                        <p class="text-xs text-zinc-400">Customer Rating</p>
+                    </div>
+                    <div>
+                        <div class="text-white font-bold text-lg sm:text-xl">100% Fresh</div>
+                        <p class="text-xs text-zinc-400">Daily Cut & Spices</p>
+                    </div>
+                    <div>
+                        <div class="text-white font-bold text-lg sm:text-xl">Fast</div>
+                        <p class="text-xs text-zinc-400">Dine-in & Delivery</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Visual Showcase -->
+            <div class="relative">
+                <div class="relative rounded-3xl overflow-hidden border-2 border-zinc-800 shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=1000&q=80"
+                        alt="Nirban Hotel Special Non-Veg Thali & Curry"
+                        class="w-full h-[320px] sm:h-[420px] object-cover" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+                    <div class="absolute bottom-5 left-5 right-5 flex items-end justify-between">
+                        <div>
+                            <span
+                                class="bg-red-600 text-white text-[11px] font-bold px-2.5 py-1 rounded-md uppercase">Nirban
+                                Signature</span>
+                            <h3 class="text-white font-serif text-2xl font-bold mt-1.5">Rajasthani Laal Maas & Special
+                                Chicken</h3>
+                            <p class="text-zinc-300 text-xs mt-0.5">Slow-cooked in traditional handi with desi spices
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
 
-      <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-zinc-300">
-        <a href="#menu" class="hover:text-amber-400 transition">Digital Menu</a>
-        <a href="#specials" class="hover:text-amber-400 transition">Chef's Special</a>
-        <a href="#reviews" class="hover:text-amber-400 transition">Reviews</a>
-        <a href="#location" class="hover:text-amber-400 transition">Location & Contact</a>
-      </nav>
+    <!-- ================= DIGITAL QR MENU SECTION ================= -->
+    <section id="menu" class="max-w-7xl mx-auto px-4 py-12">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+            <div>
+                <span class="text-amber-400 text-xs font-bold uppercase tracking-widest">Official Rate Card • Nirban
+                    Hotel</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mt-1">Explore Our Full Menu</h2>
+                <p class="text-zinc-400 text-sm mt-1">Select Half or Full plate, add to cart, and send your order
+                    directly on WhatsApp (+91 95095 90978)!</p>
+            </div>
 
-      <div class="flex items-center gap-2 sm:gap-2.5">
-        <!-- Visible on BOTH Mobile & Desktop -->
-        <a href="tel:+919509590978" class="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 text-xs font-semibold text-zinc-100 transition">
-          <i class="fa-solid fa-phone-volume text-amber-400 animate-pulse"></i>
-          <span class="hidden xs:inline sm:inline">Call</span>
+            <!-- Search & Filter -->
+            <div class="flex flex-col sm:flex-row gap-3">
+                <div class="relative">
+                    <i
+                        class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-500 text-sm"></i>
+                    <input id="searchInput" oninput="renderMenu()" type="text"
+                        placeholder="Search Laal Maas, Paneer, Fish..."
+                        class="w-full sm:w-64 pl-9 pr-4 py-2.5 rounded-xl bg-zinc-900 border border-zinc-800 text-sm text-white focus:outline-none focus:border-amber-500" />
+                </div>
+                <select id="typeFilter" onchange="renderMenu()"
+                    class="px-3.5 py-2.5 rounded-xl bg-zinc-900 border border-zinc-800 text-sm text-zinc-200 focus:outline-none focus:border-amber-500">
+                    <option value="ALL">All Items (Non-Veg & Veg)</option>
+                    <option value="NONVEG">🔴 Non-Veg Only</option>
+                    <option value="VEG">🟢 Veg, Roti & Salad Only</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Category Pills -->
+        <div id="categoryTabs"
+            class="flex items-center gap-2.5 overflow-x-auto no-scrollbar pb-4 mb-6 border-b border-zinc-800">
+            <!-- Dynamically populated -->
+        </div>
+
+        <!-- Menu Grid -->
+        <div id="menuGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <!-- Dynamically populated -->
+        </div>
+
+        <!-- Extra Charges Note from Printed Menu Card -->
+        <div class="mt-10 bg-zinc-900/90 border border-zinc-800 rounded-2xl p-5">
+            <div class="flex items-center gap-2 text-amber-400 text-xs font-bold uppercase tracking-wider mb-3">
+                <i class="fa-solid fa-circle-info"></i> Additional Menu Notes & Extra Charges
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs text-zinc-300">
+                <div
+                    class="bg-zinc-950 px-3.5 py-2.5 rounded-xl border border-zinc-800/80 flex items-center justify-between">
+                    <span>• Extra Salad Charge</span>
+                    <strong class="text-amber-400">₹20/- Per Plate</strong>
+                </div>
+                <div
+                    class="bg-zinc-950 px-3.5 py-2.5 rounded-xl border border-zinc-800/80 flex items-center justify-between">
+                    <span>• Extra Gravy Charge</span>
+                    <strong class="text-amber-400">₹100/- Per Plate</strong>
+                </div>
+                <div
+                    class="bg-zinc-950 px-3.5 py-2.5 rounded-xl border border-zinc-800/80 flex items-center justify-between">
+                    <span>• Green Chatni Charge</span>
+                    <strong class="text-amber-400">₹20/- Per Plate</strong>
+                </div>
+                <div
+                    class="bg-zinc-950 px-3.5 py-2.5 rounded-xl border border-zinc-800/80 flex items-center justify-between">
+                    <span>• Green Chilli Fry Charge</span>
+                    <strong class="text-amber-400">₹30/- Per Plate</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= WHY NIRBAN HOTEL / HIGHLIGHTS ================= -->
+    <section id="specials" class="bg-zinc-900/50 border-y border-zinc-800 py-14">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="text-amber-400 text-xs font-bold uppercase tracking-widest">Why Chirawa Loves Us</span>
+                <h2 class="font-serif text-3xl font-bold text-white mt-1">The Nirban Hotel Promise</h2>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="p-6 rounded-2xl bg-zinc-900 border border-zinc-800">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-red-950 text-red-400 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-fire-burner"></i>
+                    </div>
+                    <h3 class="font-bold text-white text-lg">Desi Handi & Tandoor</h3>
+                    <p class="text-zinc-400 text-sm mt-1">Authentic Rajasthani spices ground in-house for rich,
+                        unforgettable gravy and smoky kebabs.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-zinc-900 border border-zinc-800">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-amber-950 text-amber-400 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <h3 class="font-bold text-white text-lg">100% Fresh Meat Daily</h3>
+                    <p class="text-zinc-400 text-sm mt-1">We never use frozen meat. Freshly sourced mutton, chicken, and
+                        single-kanta fish prepared daily.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-zinc-900 border border-zinc-800">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-green-950 text-green-400 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-qrcode"></i>
+                    </div>
+                    <h3 class="font-bold text-white text-lg">Smart QR & WhatsApp Order</h3>
+                    <p class="text-zinc-400 text-sm mt-1">No app download needed! Scan at your table or order from home
+                        in 30 seconds.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-zinc-900 border border-zinc-800">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-blue-950 text-blue-400 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <h3 class="font-bold text-white text-lg">Veg & Non-Veg Kitchen</h3>
+                    <p class="text-zinc-400 text-sm mt-1">From Jodhpuri Mutton & Laal Maas to Butter Paneer Masala &
+                        Tandoori Rotis for everyone.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= CUSTOMER REVIEWS ================= -->
+    <section id="reviews" class="max-w-7xl mx-auto px-4 py-14">
+        <h2 class="font-serif text-3xl font-bold text-white text-center mb-8">What Our Guests Say</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="p-6 rounded-2xl bg-zinc-900 border border-zinc-800">
+                <div class="flex text-amber-400 text-xs mb-3">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-zinc-300 text-sm italic">"Best Nirban Special Mutton and Rajasthani Laal Maas in Chirawa!
+                    The gravy is super rich and meat is always tender. Must visit for non-veg lovers."</p>
+                <p class="text-white font-semibold text-xs mt-4">— Vikram Shekhawat, Chirawa</p>
+            </div>
+            <div class="p-6 rounded-2xl bg-zinc-900 border border-zinc-800">
+                <div class="flex text-amber-400 text-xs mb-3">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-zinc-300 text-sm italic">"Chicken Taka-Tak, Malai Chicken Roasted and Butter Tandoori
+                    Roti combo is unbeatable here. Quick service and genuine rates."</p>
+                <p class="text-white font-semibold text-xs mt-4">— Rahul Jangir, Jhunjhunu Road</p>
+            </div>
+            <div class="p-6 rounded-2xl bg-zinc-900 border border-zinc-800">
+                <div class="flex text-amber-400 text-xs mb-3">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                </div>
+                <p class="text-zinc-300 text-sm italic">"Ordered Afghani Leg Pieces and Mutton Biryani for a home party.
+                    Packing was hygienic and taste was top-notch!"</p>
+                <p class="text-white font-semibold text-xs mt-4">— Sandeep Katewa, Pilani-Chirawa</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= LOCATION & TABLE BOOKING ================= -->
+    <section id="location" class="max-w-7xl mx-auto px-4 py-10">
+        <div class="grid md:grid-cols-2 gap-8 bg-zinc-900 border border-zinc-800 rounded-3xl p-6 sm:p-10">
+            <div>
+                <span class="text-amber-400 text-xs font-bold uppercase tracking-widest">Visit Or Contact Us</span>
+                <h3 class="font-serif text-3xl font-bold text-white mt-1">Nirban Hotel, Chirawa</h3>
+                <p class="text-zinc-400 text-sm mt-2">Veg & Non-Veg Family Restaurant • Dine-In, Takeaway & Local
+                    Delivery</p>
+
+                <div class="space-y-4 mt-6 text-sm">
+                    <div class="flex items-start gap-3">
+                        <i class="fa-solid fa-location-dot text-amber-400 mt-1"></i>
+                        <div>
+                            <strong class="text-white block">Address:</strong>
+                            <span class="text-zinc-400">Main Road, Chirawa, District Jhunjhunu, Rajasthan
+                                (333026)</span>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <i class="fa-solid fa-clock text-amber-400 mt-1"></i>
+                        <div>
+                            <strong class="text-white block">Opening Hours:</strong>
+                            <span class="text-zinc-400">Monday – Sunday: 11:00 AM to 11:30 PM</span>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <i class="fa-solid fa-phone-volume text-amber-400 mt-1"></i>
+                        <div>
+                            <strong class="text-white block">Direct Order / Call & WhatsApp:</strong>
+                            <a href="tel:+919509590978" class="text-amber-400 font-bold hover:underline">+91 95095
+                                90978</a>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <i class="fa-solid fa-building-columns text-amber-400 mt-1"></i>
+                        <div>
+                            <strong class="text-white block">Official UPI Payment ID:</strong>
+                            <span class="text-zinc-300 font-mono text-xs">9509590978-n587@ibl (State Bank of India -
+                                3085)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap gap-3 mt-7">
+                    <a href="tel:+919509590978"
+                        class="px-5 py-3 rounded-xl bg-red-600 hover:bg-red-500 text-white font-bold text-sm flex items-center gap-2 transition shadow-lg shadow-red-600/20">
+                        <i class="fa-solid fa-phone"></i> Call +91 95095 90978
+                    </a>
+                    <a href="https://wa.me/919509590978?text=Hi%20Nirban%20Hotel%2C%20I%20want%20to%20place%20an%20order%20/%20book%20a%20table."
+                        target="_blank"
+                        class="px-5 py-3 rounded-xl bg-green-600 hover:bg-green-500 text-white font-bold text-sm flex items-center gap-2 transition">
+                        <i class="fa-brands fa-whatsapp text-base"></i> Chat on WhatsApp
+                    </a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Nirban+Hotel+Chirawa+Rajasthan"
+                        target="_blank"
+                        class="px-4 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-bold text-sm flex items-center gap-2 transition">
+                        <i class="fa-solid fa-map-location-dot"></i> Google Maps
+                    </a>
+                </div>
+            </div>
+
+            <!-- Embedded Google Map for Chirawa -->
+            <div class="rounded-2xl overflow-hidden border border-zinc-800 h-72 md:h-auto">
+                <iframe src="https://www.google.com/maps?q=Nirban+Hotel+Chirawa+Rajasthan&output=embed" width="100%"
+                    height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= MOBILE STICKY QUICK CALL & WHATSAPP BAR ================= -->
+    <div class="fixed bottom-3 left-3 z-40 flex items-center gap-2 sm:hidden">
+        <a href="tel:+919509590978"
+            class="w-11 h-11 rounded-full bg-zinc-900 border border-amber-500/50 text-amber-400 flex items-center justify-center shadow-xl"
+            title="Call Nirban Hotel">
+            <i class="fa-solid fa-phone-volume"></i>
         </a>
-
-        <button onclick="toggleQrModal(true)" class="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-amber-500/40 text-xs font-semibold text-amber-400 transition" title="Open PhonePe QR Scanner">
-          <i class="fa-solid fa-qrcode"></i>
-          <span class="hidden sm:inline">Pay QR</span>
-        </button>
-
-        <button onclick="toggleCart(true)" class="relative flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-xl bg-gradient-to-r from-red-600 to-amber-600 hover:from-red-500 hover:to-amber-500 text-white font-semibold text-xs sm:text-sm shadow-lg shadow-red-600/30 transition">
-          <i class="fa-solid fa-bag-shopping"></i>
-          <span>Cart</span>
-          <span id="navCartCount" class="bg-black/40 px-2 py-0.5 rounded-full text-xs">0</span>
-        </button>
-      </div>
+        <a href="https://wa.me/919509590978?text=Hi%20Nirban%20Hotel%20Chirawa" target="_blank"
+            class="w-11 h-11 rounded-full bg-green-600 text-white flex items-center justify-center shadow-xl"
+            title="WhatsApp Nirban Hotel">
+            <i class="fa-brands fa-whatsapp text-lg"></i>
+        </a>
     </div>
-  </header>
 
-  <!-- ================= HERO SECTION ================= -->
-  <section class="relative overflow-hidden py-10 sm:py-20 border-b border-zinc-800/80" style="background: radial-gradient(circle at top right, rgba(185,28,28,0.22), transparent 55%), radial-gradient(circle at bottom left, rgba(245,158,11,0.12), transparent 50%);">
-    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
-      <div>
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-950/70 border border-red-800/60 text-amber-400 text-xs font-semibold mb-4">
-          <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-          Open Now • 11:00 AM – 11:30 PM
-        </div>
-        <h2 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight">
-          Asli Rajasthani <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-red-500">Zayka</span> in Chirawa.
-        </h2>
-        <p class="text-zinc-400 text-base sm:text-lg mt-4 max-w-xl leading-relaxed">
-          Famous for our rich Rajasthani Laal Maas, Nirban Special Mutton, Chicken Taka-Tak, Roasted Starters & Paneer Curries. Prepared fresh with authentic spices at Nirban Hotel.
-        </p>
-
-        <div class="flex flex-wrap items-center gap-3 sm:gap-4 mt-7">
-          <a href="#menu" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-red-600 to-amber-600 hover:from-red-500 hover:to-amber-500 text-white font-bold text-sm sm:text-base shadow-xl shadow-red-600/25 flex items-center gap-2 transition">
-            <i class="fa-solid fa-utensils"></i> Order Online / View Menu
-          </a>
-          <a href="tel:+919509590978" class="px-5 py-3.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-zinc-200 font-semibold text-sm sm:text-base flex items-center gap-2 transition">
-            <i class="fa-solid fa-phone text-amber-400"></i> +91 95095 90978
-          </a>
-          <button onclick="toggleQrModal(true)" class="px-4 py-3.5 rounded-xl bg-zinc-900/90 hover:bg-zinc-800 border border-amber-500/40 text-amber-400 font-semibold text-sm flex items-center gap-2 transition">
-            <i class="fa-solid fa-qrcode"></i> Scan & Pay QR
-          </button>
-        </div>
-
-        <!-- Trust Badges -->
-        <div class="grid grid-cols-3 gap-4 mt-9 pt-6 border-t border-zinc-800/80 max-w-md">
-          <div>
-            <div class="text-amber-400 font-bold text-lg sm:text-xl flex items-center gap-1">
-              4.7 <i class="fa-solid fa-star text-sm"></i>
+    <!-- ================= FLOATING BOTTOM CART BAR (MOBILE FRIENDLY) ================= -->
+    <div id="floatingCartBar" class="fixed bottom-3 left-28 sm:left-4 right-3 sm:right-4 max-w-3xl mx-auto z-40 hidden">
+        <div onclick="toggleCart(true)"
+            class="cursor-pointer bg-gradient-to-r from-red-700 via-red-600 to-amber-600 text-white p-3.5 sm:p-4 rounded-2xl shadow-2xl flex items-center justify-between border border-amber-400/30">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-black/30 flex items-center justify-center font-bold text-sm"
+                    id="bottomCartCount">0</div>
+                <div>
+                    <p class="text-[10px] sm:text-xs text-amber-200 uppercase font-semibold tracking-wider">Your Order
+                        Tray</p>
+                    <p class="text-sm sm:text-base font-extrabold" id="bottomCartTotal">₹0</p>
+                </div>
             </div>
-            <p class="text-xs text-zinc-400">Customer Rating</p>
-          </div>
-          <div>
-            <div class="text-white font-bold text-lg sm:text-xl">100% Fresh</div>
-            <p class="text-xs text-zinc-400">Daily Cut & Spices</p>
-          </div>
-          <div>
-            <div class="text-white font-bold text-lg sm:text-xl">Fast</div>
-            <p class="text-xs text-zinc-400">Dine-in & Delivery</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Hero Visual Showcase -->
-      <div class="relative">
-        <div class="relative rounded-3xl overflow-hidden border-2 border-zinc-800 shadow-2xl">
-          <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=1000&q=80" alt="Nirban Hotel Special Non-Veg Thali & Curry" class="w-full h-[320px] sm:h-[420px] object-cover" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
-          <div class="absolute bottom-5 left-5 right-5 flex items-end justify-between">
-            <div>
-              <span class="bg-red-600 text-white text-[11px] font-bold px-2.5 py-1 rounded-md uppercase">Nirban Signature</span>
-              <h3 class="text-white font-serif text-2xl font-bold mt-1.5">Rajasthani Laal Maas & Special Chicken</h3>
-              <p class="text-zinc-300 text-xs mt-0.5">Slow-cooked in traditional handi with desi spices</p>
+            <div class="flex items-center gap-2 font-bold text-xs sm:text-sm bg-black/30 px-3.5 py-2 rounded-xl">
+                <span>Checkout</span>
+                <i class="fa-solid fa-arrow-right"></i>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= DIGITAL QR MENU SECTION ================= -->
-  <section id="menu" class="max-w-7xl mx-auto px-4 py-12">
-    <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
-      <div>
-        <span class="text-amber-400 text-xs font-bold uppercase tracking-widest">Official Rate Card • Nirban Hotel</span>
-        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mt-1">Explore Our Full Menu</h2>
-        <p class="text-zinc-400 text-sm mt-1">Select Half or Full plate, add to cart, and send your order directly on WhatsApp (+91 95095 90978)!</p>
-      </div>
-
-      <!-- Search & Filter -->
-      <div class="flex flex-col sm:flex-row gap-3">
-        <div class="relative">
-          <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-500 text-sm"></i>
-          <input 
-            id="searchInput" 
-            oninput="renderMenu()" 
-            type="text" 
-            placeholder="Search Laal Maas, Paneer, Fish..." 
-            class="w-full sm:w-64 pl-9 pr-4 py-2.5 rounded-xl bg-zinc-900 border border-zinc-800 text-sm text-white focus:outline-none focus:border-amber-500"
-          />
-        </div>
-        <select id="typeFilter" onchange="renderMenu()" class="px-3.5 py-2.5 rounded-xl bg-zinc-900 border border-zinc-800 text-sm text-zinc-200 focus:outline-none focus:border-amber-500">
-          <option value="ALL">All Items (Non-Veg & Veg)</option>
-          <option value="NONVEG">🔴 Non-Veg Only</option>
-          <option value="VEG">🟢 Veg, Roti & Salad Only</option>
-        </select>
-      </div>
     </div>
 
-    <!-- Category Pills -->
-    <div id="categoryTabs" class="flex items-center gap-2.5 overflow-x-auto no-scrollbar pb-4 mb-6 border-b border-zinc-800">
-      <!-- Dynamically populated -->
-    </div>
-
-    <!-- Menu Grid -->
-    <div id="menuGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-      <!-- Dynamically populated -->
-    </div>
-
-    <!-- Extra Charges Note from Printed Menu Card -->
-    <div class="mt-10 bg-zinc-900/90 border border-zinc-800 rounded-2xl p-5">
-      <div class="flex items-center gap-2 text-amber-400 text-xs font-bold uppercase tracking-wider mb-3">
-        <i class="fa-solid fa-circle-info"></i> Additional Menu Notes & Extra Charges
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs text-zinc-300">
-        <div class="bg-zinc-950 px-3.5 py-2.5 rounded-xl border border-zinc-800/80 flex items-center justify-between">
-          <span>• Extra Salad Charge</span>
-          <strong class="text-amber-400">₹20/- Per Plate</strong>
-        </div>
-        <div class="bg-zinc-950 px-3.5 py-2.5 rounded-xl border border-zinc-800/80 flex items-center justify-between">
-          <span>• Extra Gravy Charge</span>
-          <strong class="text-amber-400">₹100/- Per Plate</strong>
-        </div>
-        <div class="bg-zinc-950 px-3.5 py-2.5 rounded-xl border border-zinc-800/80 flex items-center justify-between">
-          <span>• Green Chatni Charge</span>
-          <strong class="text-amber-400">₹20/- Per Plate</strong>
-        </div>
-        <div class="bg-zinc-950 px-3.5 py-2.5 rounded-xl border border-zinc-800/80 flex items-center justify-between">
-          <span>• Green Chilli Fry Charge</span>
-          <strong class="text-amber-400">₹30/- Per Plate</strong>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= WHY NIRBAN HOTEL / HIGHLIGHTS ================= -->
-  <section id="specials" class="bg-zinc-900/50 border-y border-zinc-800 py-14">
-    <div class="max-w-7xl mx-auto px-4">
-      <div class="text-center max-w-2xl mx-auto mb-10">
-        <span class="text-amber-400 text-xs font-bold uppercase tracking-widest">Why Chirawa Loves Us</span>
-        <h2 class="font-serif text-3xl font-bold text-white mt-1">The Nirban Hotel Promise</h2>
-      </div>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="p-6 rounded-2xl bg-zinc-900 border border-zinc-800">
-          <div class="w-12 h-12 rounded-xl bg-red-950 text-red-400 flex items-center justify-center text-xl mb-4">
-            <i class="fa-solid fa-fire-burner"></i>
-          </div>
-          <h3 class="font-bold text-white text-lg">Desi Handi & Tandoor</h3>
-          <p class="text-zinc-400 text-sm mt-1">Authentic Rajasthani spices ground in-house for rich, unforgettable gravy and smoky kebabs.</p>
-        </div>
-        <div class="p-6 rounded-2xl bg-zinc-900 border border-zinc-800">
-          <div class="w-12 h-12 rounded-xl bg-amber-950 text-amber-400 flex items-center justify-center text-xl mb-4">
-            <i class="fa-solid fa-award"></i>
-          </div>
-          <h3 class="font-bold text-white text-lg">100% Fresh Meat Daily</h3>
-          <p class="text-zinc-400 text-sm mt-1">We never use frozen meat. Freshly sourced mutton, chicken, and single-kanta fish prepared daily.</p>
-        </div>
-        <div class="p-6 rounded-2xl bg-zinc-900 border border-zinc-800">
-          <div class="w-12 h-12 rounded-xl bg-green-950 text-green-400 flex items-center justify-center text-xl mb-4">
-            <i class="fa-solid fa-qrcode"></i>
-          </div>
-          <h3 class="font-bold text-white text-lg">Smart QR & WhatsApp Order</h3>
-          <p class="text-zinc-400 text-sm mt-1">No app download needed! Scan at your table or order from home in 30 seconds.</p>
-        </div>
-        <div class="p-6 rounded-2xl bg-zinc-900 border border-zinc-800">
-          <div class="w-12 h-12 rounded-xl bg-blue-950 text-blue-400 flex items-center justify-center text-xl mb-4">
-            <i class="fa-solid fa-users"></i>
-          </div>
-          <h3 class="font-bold text-white text-lg">Veg & Non-Veg Kitchen</h3>
-          <p class="text-zinc-400 text-sm mt-1">From Jodhpuri Mutton & Laal Maas to Butter Paneer Masala & Tandoori Rotis for everyone.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= CUSTOMER REVIEWS ================= -->
-  <section id="reviews" class="max-w-7xl mx-auto px-4 py-14">
-    <h2 class="font-serif text-3xl font-bold text-white text-center mb-8">What Our Guests Say</h2>
-    <div class="grid md:grid-cols-3 gap-6">
-      <div class="p-6 rounded-2xl bg-zinc-900 border border-zinc-800">
-        <div class="flex text-amber-400 text-xs mb-3">
-          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-        </div>
-        <p class="text-zinc-300 text-sm italic">"Best Nirban Special Mutton and Rajasthani Laal Maas in Chirawa! The gravy is super rich and meat is always tender. Must visit for non-veg lovers."</p>
-        <p class="text-white font-semibold text-xs mt-4">— Vikram Shekhawat, Chirawa</p>
-      </div>
-      <div class="p-6 rounded-2xl bg-zinc-900 border border-zinc-800">
-        <div class="flex text-amber-400 text-xs mb-3">
-          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-        </div>
-        <p class="text-zinc-300 text-sm italic">"Chicken Taka-Tak, Malai Chicken Roasted and Butter Tandoori Roti combo is unbeatable here. Quick service and genuine rates."</p>
-        <p class="text-white font-semibold text-xs mt-4">— Rahul Jangir, Jhunjhunu Road</p>
-      </div>
-      <div class="p-6 rounded-2xl bg-zinc-900 border border-zinc-800">
-        <div class="flex text-amber-400 text-xs mb-3">
-          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
-        </div>
-        <p class="text-zinc-300 text-sm italic">"Ordered Afghani Leg Pieces and Mutton Biryani for a home party. Packing was hygienic and taste was top-notch!"</p>
-        <p class="text-white font-semibold text-xs mt-4">— Sandeep Katewa, Pilani-Chirawa</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= LOCATION & TABLE BOOKING ================= -->
-  <section id="location" class="max-w-7xl mx-auto px-4 py-10">
-    <div class="grid md:grid-cols-2 gap-8 bg-zinc-900 border border-zinc-800 rounded-3xl p-6 sm:p-10">
-      <div>
-        <span class="text-amber-400 text-xs font-bold uppercase tracking-widest">Visit Or Contact Us</span>
-        <h3 class="font-serif text-3xl font-bold text-white mt-1">Nirban Hotel, Chirawa</h3>
-        <p class="text-zinc-400 text-sm mt-2">Veg & Non-Veg Family Restaurant • Dine-In, Takeaway & Local Delivery</p>
-
-        <div class="space-y-4 mt-6 text-sm">
-          <div class="flex items-start gap-3">
-            <i class="fa-solid fa-location-dot text-amber-400 mt-1"></i>
-            <div>
-              <strong class="text-white block">Address:</strong>
-              <span class="text-zinc-400">Main Road, Chirawa, District Jhunjhunu, Rajasthan (333026)</span>
-            </div>
-          </div>
-          <div class="flex items-start gap-3">
-            <i class="fa-solid fa-clock text-amber-400 mt-1"></i>
-            <div>
-              <strong class="text-white block">Opening Hours:</strong>
-              <span class="text-zinc-400">Monday – Sunday: 11:00 AM to 11:30 PM</span>
-            </div>
-          </div>
-          <div class="flex items-start gap-3">
-            <i class="fa-solid fa-phone-volume text-amber-400 mt-1"></i>
-            <div>
-              <strong class="text-white block">Direct Order / Call & WhatsApp:</strong>
-              <a href="tel:+919509590978" class="text-amber-400 font-bold hover:underline">+91 95095 90978</a>
-            </div>
-          </div>
-          <div class="flex items-start gap-3">
-            <i class="fa-solid fa-building-columns text-amber-400 mt-1"></i>
-            <div>
-              <strong class="text-white block">Official UPI Payment ID:</strong>
-              <span class="text-zinc-300 font-mono text-xs">9509590978-n587@ibl (State Bank of India - 3085)</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="flex flex-wrap gap-3 mt-7">
-          <a href="tel:+919509590978" class="px-5 py-3 rounded-xl bg-red-600 hover:bg-red-500 text-white font-bold text-sm flex items-center gap-2 transition shadow-lg shadow-red-600/20">
-            <i class="fa-solid fa-phone"></i> Call +91 95095 90978
-          </a>
-          <a href="https://wa.me/919509590978?text=Hi%20Nirban%20Hotel%2C%20I%20want%20to%20place%20an%20order%20/%20book%20a%20table." target="_blank" class="px-5 py-3 rounded-xl bg-green-600 hover:bg-green-500 text-white font-bold text-sm flex items-center gap-2 transition">
-            <i class="fa-brands fa-whatsapp text-base"></i> Chat on WhatsApp
-          </a>
-          <a href="https://www.google.com/maps/search/?api=1&query=Nirban+Hotel+Chirawa+Rajasthan" target="_blank" class="px-4 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-bold text-sm flex items-center gap-2 transition">
-            <i class="fa-solid fa-map-location-dot"></i> Google Maps
-          </a>
-        </div>
-      </div>
-
-      <!-- Embedded Google Map for Chirawa -->
-      <div class="rounded-2xl overflow-hidden border border-zinc-800 h-72 md:h-auto">
-        <iframe 
-          src="https://www.google.com/maps?q=Nirban+Hotel+Chirawa+Rajasthan&output=embed" 
-          width="100%" 
-          height="100%" 
-          style="border:0;" 
-          allowfullscreen="" 
-          loading="lazy">
-        </iframe>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= MOBILE STICKY QUICK CALL & WHATSAPP BAR ================= -->
-  <div class="fixed bottom-3 left-3 z-40 flex items-center gap-2 sm:hidden">
-    <a href="tel:+919509590978" class="w-11 h-11 rounded-full bg-zinc-900 border border-amber-500/50 text-amber-400 flex items-center justify-center shadow-xl" title="Call Nirban Hotel">
-      <i class="fa-solid fa-phone-volume"></i>
-    </a>
-    <a href="https://wa.me/919509590978?text=Hi%20Nirban%20Hotel%20Chirawa" target="_blank" class="w-11 h-11 rounded-full bg-green-600 text-white flex items-center justify-center shadow-xl" title="WhatsApp Nirban Hotel">
-      <i class="fa-brands fa-whatsapp text-lg"></i>
-    </a>
-  </div>
-
-  <!-- ================= FLOATING BOTTOM CART BAR (MOBILE FRIENDLY) ================= -->
-  <div id="floatingCartBar" class="fixed bottom-3 left-28 sm:left-4 right-3 sm:right-4 max-w-3xl mx-auto z-40 hidden">
-    <div onclick="toggleCart(true)" class="cursor-pointer bg-gradient-to-r from-red-700 via-red-600 to-amber-600 text-white p-3.5 sm:p-4 rounded-2xl shadow-2xl flex items-center justify-between border border-amber-400/30">
-      <div class="flex items-center gap-3">
-        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-black/30 flex items-center justify-center font-bold text-sm" id="bottomCartCount">0</div>
-        <div>
-          <p class="text-[10px] sm:text-xs text-amber-200 uppercase font-semibold tracking-wider">Your Order Tray</p>
-          <p class="text-sm sm:text-base font-extrabold" id="bottomCartTotal">₹0</p>
-        </div>
-      </div>
-      <div class="flex items-center gap-2 font-bold text-xs sm:text-sm bg-black/30 px-3.5 py-2 rounded-xl">
-        <span>Checkout</span>
-        <i class="fa-solid fa-arrow-right"></i>
-      </div>
-    </div>
-  </div>
-
-  <!-- ================= STANDALONE PHONEPE / SBI QR SCANNER MODAL ================= -->
-  <div id="qrScannerModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
-    <div onclick="toggleQrModal(false)" class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
-    <div class="relative bg-zinc-950 border border-zinc-800 rounded-3xl max-w-sm w-full p-6 shadow-2xl z-10 text-center">
-      <button onclick="toggleQrModal(false)" class="absolute top-4 right-4 w-8 h-8 rounded-lg bg-zinc-900 text-zinc-400 hover:text-white flex items-center justify-center">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-
-      <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-blue-600/20 border border-blue-500/40 text-blue-400 text-xl mb-2">
-        <i class="fa-solid fa-building-columns"></i>
-      </div>
-      <h3 class="font-bold text-white text-lg">State Bank of India - 3085</h3>
-      <p class="text-xs text-green-400 font-medium mt-0.5">Primary account for receiving money</p>
-
-      <!-- White QR Card matching PhonePe Scanner -->
-      <div class="bg-white p-4 rounded-2xl my-4 inline-block shadow-xl relative">
-        <img 
-          src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=upi%3A%2F%2Fpay%3Fpa%3D9509590978-n587%40ibl%26pn%3DNirban%2520Hotel%2520Chirawa%26cu%3DINR" 
-          alt="Nirban Hotel PhonePe QR" 
-          class="w-52 h-52 mx-auto"
-        />
-        <div class="mt-2 pt-2 border-t border-zinc-200 flex items-center justify-center gap-2 text-[11px] font-bold text-zinc-700">
-          <span>PhonePe</span> • <span>GPay</span> • <span>Paytm</span> • <span>BHIM</span>
-        </div>
-      </div>
-
-      <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-3 flex items-center justify-between gap-2">
-        <div class="text-left">
-          <span class="text-[10px] uppercase text-zinc-500 block">Official UPI ID</span>
-          <span class="text-xs sm:text-sm font-mono font-bold text-amber-400">9509590978-n587@ibl</span>
-        </div>
-        <button onclick="copyUpiId()" class="px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-xs font-semibold text-white flex items-center gap-1.5 shrink-0">
-          <i class="fa-regular fa-copy"></i> <span id="copyBtnText">Copy</span>
-        </button>
-      </div>
-
-      <a href="upi://pay?pa=9509590978-n587@ibl&pn=Nirban%20Hotel%20Chirawa&cu=INR" class="mt-4 w-full py-3 rounded-xl bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-500 hover:to-emerald-500 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg">
-        <i class="fa-solid fa-mobile-screen-button"></i> Open UPI App to Pay
-      </a>
-    </div>
-  </div>
-
-  <!-- ================= SLIDE-OVER CART & CHECKOUT DRAWER ================= -->
-  <div id="cartModal" class="fixed inset-0 z-50 hidden">
-    <!-- Backdrop -->
-    <div onclick="toggleCart(false)" class="absolute inset-0 bg-black/75 backdrop-blur-sm"></div>
-    
-    <!-- Drawer -->
-    <div class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-zinc-950 border-l border-zinc-800 flex flex-col">
-      <!-- Header -->
-      <div class="p-5 border-b border-zinc-800 flex items-center justify-between">
-        <div>
-          <h3 class="font-serif text-xl font-bold text-white">Your Order Cart</h3>
-          <p class="text-xs text-zinc-400">Nirban Hotel, Chirawa • +91 95095 90978</p>
-        </div>
-        <button onclick="toggleCart(false)" class="w-9 h-9 rounded-lg bg-zinc-900 text-zinc-400 hover:text-white flex items-center justify-center">
-          <i class="fa-solid fa-xmark text-lg"></i>
-        </button>
-      </div>
-
-      <!-- Cart Items + Form Scroll Area -->
-      <div class="flex-1 overflow-y-auto p-5 space-y-6">
-        <!-- Items List -->
-        <div id="cartItemsList" class="space-y-3"></div>
-
-        <!-- Order Mode Selection -->
-        <div class="bg-zinc-900 p-4 rounded-2xl border border-zinc-800 space-y-3">
-          <label class="text-xs font-bold uppercase tracking-wider text-amber-400 block">1. Select Order Type</label>
-          <div class="grid grid-cols-3 gap-2 text-xs font-semibold">
-            <button type="button" onclick="setOrderMode('DELIVERY')" id="mode_DELIVERY" class="py-2.5 px-2 rounded-xl border border-amber-500 bg-amber-500/10 text-amber-400">
-              🛵 Delivery
+    <!-- ================= STANDALONE PHONEPE / SBI QR SCANNER MODAL ================= -->
+    <div id="qrScannerModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+        <div onclick="toggleQrModal(false)" class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+        <div
+            class="relative bg-zinc-950 border border-zinc-800 rounded-3xl max-w-sm w-full p-6 shadow-2xl z-10 text-center">
+            <button onclick="toggleQrModal(false)"
+                class="absolute top-4 right-4 w-8 h-8 rounded-lg bg-zinc-900 text-zinc-400 hover:text-white flex items-center justify-center">
+                <i class="fa-solid fa-xmark"></i>
             </button>
-            <button type="button" onclick="setOrderMode('DINEIN')" id="mode_DINEIN" class="py-2.5 px-2 rounded-xl border border-zinc-700 bg-zinc-800 text-zinc-300">
-              🍽️ Table QR
-            </button>
-            <button type="button" onclick="setOrderMode('TAKEAWAY')" id="mode_TAKEAWAY" class="py-2.5 px-2 rounded-xl border border-zinc-700 bg-zinc-800 text-zinc-300">
-              🛍️ Takeaway
-            </button>
-          </div>
 
-          <input id="custName" type="text" placeholder="Your Name *" class="w-full px-3.5 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-sm text-white" />
-          <input id="custPhone" type="tel" placeholder="Mobile Number *" class="w-full px-3.5 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-sm text-white" />
-          
-          <!-- Dynamic Field based on Order Mode -->
-          <div id="addressBox">
-            <textarea id="custAddress" rows="2" placeholder="Full Delivery Address / Landmark in Chirawa *" class="w-full px-3.5 py-2 rounded-xl bg-zinc-950 border border-zinc-800 text-sm text-white"></textarea>
-          </div>
-          <div id="tableBox" class="hidden">
-            <input id="custTable" type="text" placeholder="Enter Table Number (e.g. Table #4) *" class="w-full px-3.5 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-sm text-white" />
-          </div>
-          <input id="custNotes" type="text" placeholder="Cooking Note (e.g. Extra Spicy, Less Oil)" class="w-full px-3.5 py-2 rounded-xl bg-zinc-950 border border-zinc-800 text-sm text-white" />
-        </div>
+            <div
+                class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-blue-600/20 border border-blue-500/40 text-blue-400 text-xl mb-2">
+                <i class="fa-solid fa-building-columns"></i>
+            </div>
+            <h3 class="font-bold text-white text-lg">State Bank of India - 3085</h3>
+            <p class="text-xs text-green-400 font-medium mt-0.5">Primary account for receiving money</p>
 
-        <!-- Payment Selection (COD vs Instant UPI QR) -->
-        <div class="bg-zinc-900 p-4 rounded-2xl border border-zinc-800 space-y-3">
-          <label class="text-xs font-bold uppercase tracking-wider text-amber-400 block">2. Payment Method (0% Commission)</label>
-          <div class="grid grid-cols-2 gap-2 text-xs font-semibold">
-            <button type="button" onclick="setPaymentMethod('UPI')" id="pay_UPI" class="py-2.5 px-3 rounded-xl border border-green-500 bg-green-500/10 text-green-400">
-              📱 Instant UPI / QR
-            </button>
-            <button type="button" onclick="setPaymentMethod('COD')" id="pay_COD" class="py-2.5 px-3 rounded-xl border border-zinc-700 bg-zinc-800 text-zinc-300">
-              💵 Cash / Counter
-            </button>
-          </div>
+            <!-- White QR Card matching PhonePe Scanner -->
+            <div class="bg-white p-4 rounded-2xl my-4 inline-block shadow-xl relative">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=upi%3A%2F%2Fpay%3Fpa%3D9509590978-n587%40ibl%26pn%3DNirban%2520Hotel%2520Chirawa%26cu%3DINR"
+                    alt="Nirban Hotel PhonePe QR" class="w-52 h-52 mx-auto" />
+                <div
+                    class="mt-2 pt-2 border-t border-zinc-200 flex items-center justify-center gap-2 text-[11px] font-bold text-zinc-700">
+                    <span>PhonePe</span> • <span>GPay</span> • <span>Paytm</span> • <span>BHIM</span>
+                </div>
+            </div>
 
-          <!-- Dynamic UPI Box -->
-          <div id="upiScannerBox" class="text-center p-3.5 bg-zinc-950 rounded-xl border border-zinc-800">
-            <p class="text-xs font-bold text-white">State Bank of India - 3085</p>
-            <p class="text-[11px] text-zinc-400 mb-2">Scan with PhonePe / GPay / Paytm</p>
-            <img id="dynamicQrImg" src="" alt="UPI QR" class="w-40 h-40 mx-auto rounded-lg bg-white p-2 shadow-md" />
-            <p class="text-[11px] font-mono text-amber-400 mt-2">UPI ID: 9509590978-n587@ibl</p>
-            <a id="upiIntentBtn" href="#" class="mt-2.5 inline-block w-full py-2.5 rounded-lg bg-green-600 hover:bg-green-500 text-white font-bold text-xs">
-              Open UPI App to Pay Exact Bill
+            <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-3 flex items-center justify-between gap-2">
+                <div class="text-left">
+                    <span class="text-[10px] uppercase text-zinc-500 block">Official UPI ID</span>
+                    <span class="text-xs sm:text-sm font-mono font-bold text-amber-400">9509590978-n587@ibl</span>
+                </div>
+                <button onclick="copyUpiId()"
+                    class="px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-xs font-semibold text-white flex items-center gap-1.5 shrink-0">
+                    <i class="fa-regular fa-copy"></i> <span id="copyBtnText">Copy</span>
+                </button>
+            </div>
+
+            <a href="upi://pay?pa=9509590978-n587@ibl&pn=Nirban%20Hotel%20Chirawa&cu=INR"
+                class="mt-4 w-full py-3 rounded-xl bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-500 hover:to-emerald-500 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg">
+                <i class="fa-solid fa-mobile-screen-button"></i> Open UPI App to Pay
             </a>
-          </div>
         </div>
-
-        <!-- Form Error / Validation Banner -->
-        <div id="formErrorBanner" class="hidden p-3 rounded-xl bg-red-950/90 border border-red-700 text-red-200 text-xs font-medium text-center"></div>
-      </div>
-
-      <!-- Footer Bill & WhatsApp Trigger -->
-      <div class="p-5 border-t border-zinc-800 bg-zinc-900/90 space-y-3">
-        <div class="flex justify-between text-sm text-zinc-300">
-          <span>Total Payable</span>
-          <span id="drawerTotal" class="text-xl font-extrabold text-amber-400">₹0</span>
-        </div>
-        <button onclick="sendOrderToWhatsApp()" class="w-full py-3.5 rounded-xl bg-green-600 hover:bg-green-500 text-white font-bold text-base flex items-center justify-center gap-2 shadow-lg shadow-green-600/30 transition">
-          <i class="fa-brands fa-whatsapp text-xl"></i> Place Order on WhatsApp
-        </button>
-      </div>
     </div>
-  </div>
 
-  <!-- ================= FOOTER ================= -->
-  <footer class="border-t border-zinc-900 py-8 text-center text-xs text-zinc-500">
-    <p>© 2026 <strong>Nirban Hotel Chirawa</strong>. All Rights Reserved.</p>
-    <p class="mt-1">Order Helpline & WhatsApp: <a href="tel:+919509590978" class="text-amber-400 font-semibold">+91 95095 90978</a> • UPI: 9509590978-n587@ibl</p>
-  </footer>
+    <!-- ================= SLIDE-OVER CART & CHECKOUT DRAWER ================= -->
+    <div id="cartModal" class="fixed inset-0 z-50 hidden">
+        <!-- Backdrop -->
+        <div onclick="toggleCart(false)" class="absolute inset-0 bg-black/75 backdrop-blur-sm"></div>
 
-  <!-- ================= JAVASCRIPT LOGIC ================= -->
-  <script>
-    // 1. OFFICIAL NIRBAN HOTEL CONFIGURATION
-    const RESTAURANT_CONFIG = {
-      name: "Nirban Hotel Chirawa",
-      whatsappNumber: "919509590978",
-      upiId: "9509590978-n587@ibl",
-    };
+        <!-- Drawer -->
+        <div class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-zinc-950 border-l border-zinc-800 flex flex-col">
+            <!-- Header -->
+            <div class="p-5 border-b border-zinc-800 flex items-center justify-between">
+                <div>
+                    <h3 class="font-serif text-xl font-bold text-white">Your Order Cart</h3>
+                    <p class="text-xs text-zinc-400">Nirban Hotel, Chirawa • +91 95095 90978</p>
+                </div>
+                <button onclick="toggleCart(false)"
+                    class="w-9 h-9 rounded-lg bg-zinc-900 text-zinc-400 hover:text-white flex items-center justify-center">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
 
-    // 2. COMPLETE NIRBAN HOTEL MENU DATA (All 9 Categories & 66+ Real Items from Printed Menu)
-    const CATEGORIES = [
-      "All",
-      "Mutton Special",
-      "Chicken Special",
-      "Snacks & Roasted",
-      "Fish Special",
-      "Egg Special",
-      "Veg Special",
-      "Rice & Biriyani",
-      "Roti & Chapati",
-      "Salad, Lassi & Other"
-    ];
+            <!-- Cart Items + Form Scroll Area -->
+            <div class="flex-1 overflow-y-auto p-5 space-y-6">
+                <!-- Items List -->
+                <div id="cartItemsList" class="space-y-3"></div>
 
-    const MENU_ITEMS = [
-      // ================= MUTTON SPECIAL =================
-      {
-        id: 101,
-        name: "Nirban Special Mutton",
-        category: "Mutton Special",
-        isVeg: false,
-        bestseller: true,
-        desc: "Chef's signature slow-cooked tender desi mutton prepared in rich traditional Nirban spices.",
-        img: "https://images.unsplash.com/photo-1545247181-516773cae754?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 1, Full: 1 }
-      },
-      {
-        id: 102,
-        name: "Rajasthani Laal Maas",
-        category: "Mutton Special",
-        isVeg: false,
-        bestseller: true,
-        desc: "Authentic fiery Rajasthani mutton curry cooked with Mathania red chillies & desi ghee.",
-        img: "https://images.unsplash.com/photo-1574653853027-5382a3d23a15?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 460, Full: 880 }
-      },
-      {
-        id: 103,
-        name: "Jodhpuri Mutton Masala",
-        category: "Mutton Special",
-        isVeg: false,
-        bestseller: true,
-        desc: "Royal Jodhpuri style thick spicy mutton masala with aromatic whole गरम मसाला.",
-        img: "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 460, Full: 880 }
-      },
-      {
-        id: 104,
-        name: "Special Mutton",
-        category: "Mutton Special",
-        isVeg: false,
-        bestseller: false,
-        desc: "Rich homestyle mutton curry loaded with tender pieces and thick flavorful gravy.",
-        img: "https://images.unsplash.com/photo-1545247181-516773cae754?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 450, Full: 860 }
-      },
-      {
-        id: 105,
-        name: "Afghani Mutton",
-        category: "Mutton Special",
-        isVeg: false,
-        bestseller: false,
-        desc: "Creamy, mildly spiced royal white-gravy mutton cooked with cashew paste & black pepper.",
-        img: "https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 450, Full: 860 }
-      },
-      {
-        id: 106,
-        name: "Mutton Rogan Juice",
-        category: "Mutton Special",
-        isVeg: false,
-        bestseller: false,
-        desc: "Traditional juicy mutton rogan josh bursting with aromatic Kashmiri spices.",
-        img: "https://images.unsplash.com/photo-1574653853027-5382a3d23a15?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 430, Full: 800 }
-      },
-      {
-        id: 107,
-        name: "Mutton Corma",
-        category: "Mutton Special",
-        isVeg: false,
-        bestseller: false,
-        desc: "Mughlai style danedar mutton korma slow-simmered with browned onions and curd.",
-        img: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 430, Full: 820 }
-      },
-      {
-        id: 108,
-        name: "Kadhai Mutton",
-        category: "Mutton Special",
-        isVeg: false,
-        bestseller: false,
-        desc: "Tender mutton tossed in iron kadhai with bell peppers, onions & roasted coriander seeds.",
-        img: "https://images.unsplash.com/photo-1606491956689-2ea866880c84?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 430, Full: 820 }
-      },
-      {
-        id: 109,
-        name: "Handi Mutton",
-        category: "Mutton Special",
-        isVeg: false,
-        bestseller: true,
-        desc: "Slow-cooked desi goat meat in traditional handi with whole garlic & desi spices.",
-        img: "https://images.unsplash.com/photo-1545247181-516773cae754?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 420, Full: 800 }
-      },
-      {
-        id: 110,
-        name: "Mutton Stew",
-        category: "Mutton Special",
-        isVeg: false,
-        bestseller: false,
-        desc: "Lightly spiced whole-masala mutton stew cooked with ginger juliennes and whole red chillies.",
-        img: "https://images.unsplash.com/photo-1574653853027-5382a3d23a15?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 420, Full: 800 }
-      },
-      {
-        id: 111,
-        name: "Mutton Masala",
-        category: "Mutton Special",
-        isVeg: false,
-        bestseller: false,
-        desc: "Classic dhaba-style spicy mutton masala curry.",
-        img: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 420, Full: 800 }
-      },
+                <!-- Order Mode Selection -->
+                <div class="bg-zinc-900 p-4 rounded-2xl border border-zinc-800 space-y-3">
+                    <label class="text-xs font-bold uppercase tracking-wider text-amber-400 block">1. Select Order
+                        Type</label>
+                    <div class="grid grid-cols-3 gap-2 text-xs font-semibold">
+                        <button type="button" onclick="setOrderMode('DELIVERY')" id="mode_DELIVERY"
+                            class="py-2.5 px-2 rounded-xl border border-amber-500 bg-amber-500/10 text-amber-400">
+                            🛵 Delivery
+                        </button>
+                        <button type="button" onclick="setOrderMode('DINEIN')" id="mode_DINEIN"
+                            class="py-2.5 px-2 rounded-xl border border-zinc-700 bg-zinc-800 text-zinc-300">
+                            🍽️ Table QR
+                        </button>
+                        <button type="button" onclick="setOrderMode('TAKEAWAY')" id="mode_TAKEAWAY"
+                            class="py-2.5 px-2 rounded-xl border border-zinc-700 bg-zinc-800 text-zinc-300">
+                            🛍️ Takeaway
+                        </button>
+                    </div>
 
-      // ================= CHICKEN SPECIAL =================
-      {
-        id: 201,
-        name: "Nirban Special Chicken",
-        category: "Chicken Special",
-        isVeg: false,
-        bestseller: true,
-        desc: "Our #1 selling rich chicken curry prepared with secret Nirban Hotel roasted masala.",
-        img: "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 370, Full: 700 }
-      },
-      {
-        id: 202,
-        name: "Chicken Taka-Tak",
-        category: "Chicken Special",
-        isVeg: false,
-        bestseller: true,
-        desc: "Spicy tawa-style chopped chicken tossed with fresh tomatoes, green chillies & butter.",
-        img: "https://images.unsplash.com/photo-1606491956689-2ea866880c84?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 370, Full: 700 }
-      },
-      {
-        id: 203,
-        name: "Special Chicken",
-        category: "Chicken Special",
-        isVeg: false,
-        bestseller: false,
-        desc: "Rich, indulgent gravy chicken cooked with fresh cream and aromatic spices.",
-        img: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 370, Full: 700 }
-      },
-      {
-        id: 204,
-        name: "Afghani Chicken",
-        category: "Chicken Special",
-        isVeg: false,
-        bestseller: true,
-        desc: "velvety white cashew-cream gravy with tender roasted chicken pieces.",
-        img: "https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 360, Full: 680 }
-      },
-      {
-        id: 205,
-        name: "Butter Chicken",
-        category: "Chicken Special",
-        isVeg: false,
-        bestseller: true,
-        desc: "Tandoori chicken simmered in classic buttery, creamy tomato-cashew gravy.",
-        img: "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 340, Full: 620 }
-      },
-      {
-        id: 206,
-        name: "Kadhai Chicken",
-        category: "Chicken Special",
-        isVeg: false,
-        bestseller: false,
-        desc: "Spicy chicken tossed with capsicum, onion cubes & freshly pounded kadhai masala.",
-        img: "https://images.unsplash.com/photo-1606491956689-2ea866880c84?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 340, Full: 640 }
-      },
-      {
-        id: 207,
-        name: "Chicken Corma",
-        category: "Chicken Special",
-        isVeg: false,
-        bestseller: false,
-        desc: "Traditional Mughlai chicken korma with rich aromatic gravy.",
-        img: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 340, Full: 640 }
-      },
-      {
-        id: 208,
-        name: "Chicken Black Paper",
-        category: "Chicken Special",
-        isVeg: false,
-        bestseller: false,
-        desc: "Flavorful kali mirch chicken cooked in crushed black pepper & creamy yogurt gravy.",
-        img: "https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 320, Full: 600 }
-      },
-      {
-        id: 209,
-        name: "Chicken Stew",
-        category: "Chicken Special",
-        isVeg: false,
-        bestseller: false,
-        desc: "Whole spice onion-ginger chicken stew with light, soulful flavours.",
-        img: "https://images.unsplash.com/photo-1574653853027-5382a3d23a15?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 320, Full: 600 }
-      },
-      {
-        id: 210,
-        name: "Chicken Rogan Juice",
-        category: "Chicken Special",
-        isVeg: false,
-        bestseller: false,
-        desc: "Spicy, juicy Kashmiri-style chicken curry.",
-        img: "https://images.unsplash.com/photo-1545247181-516773cae754?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 320, Full: 600 }
-      },
-      {
-        id: 211,
-        name: "Handi Chicken",
-        category: "Chicken Special",
-        isVeg: false,
-        bestseller: true,
-        desc: "Slow-cooked chicken in clay pot for an earthy, smoky aroma.",
-        img: "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 320, Full: 600 }
-      },
-      {
-        id: 212,
-        name: "Chicken Changeji",
-        category: "Chicken Special",
-        isVeg: false,
-        bestseller: true,
-        desc: "Old Delhi style tangy & creamy Chicken Changezi.",
-        img: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 300, Full: 580 }
-      },
-      {
-        id: 213,
-        name: "Chicken Masala",
-        category: "Chicken Special",
-        isVeg: false,
-        bestseller: false,
-        desc: "Classic spicy desi chicken masala.",
-        img: "https://images.unsplash.com/photo-1606491956689-2ea866880c84?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 300, Full: 580 }
-      },
-      {
-        id: 214,
-        name: "Chicken Curry",
-        category: "Chicken Special",
-        isVeg: false,
-        bestseller: false,
-        desc: "Homestyle comforting desi chicken curry.",
-        img: "https://images.unsplash.com/photo-1545247181-516773cae754?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 300, Full: 580 }
-      },
+                    <input id="custName" type="text" placeholder="Your Name *"
+                        class="w-full px-3.5 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-sm text-white" />
+                    <input id="custPhone" type="tel" placeholder="Mobile Number *"
+                        class="w-full px-3.5 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-sm text-white" />
 
-      // ================= SNACKS & ROASTED =================
-      {
-        id: 301,
-        name: "Chicken Roasted Butter",
-        category: "Snacks & Roasted",
-        isVeg: false,
-        bestseller: true,
-        desc: "Smoky tandoori roasted chicken basted generously with melted butter & chaat masala.",
-        img: "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 250, Full: 480 }
-      },
-      {
-        id: 302,
-        name: "Malai Chicken Roasted",
-        category: "Snacks & Roasted",
-        isVeg: false,
-        bestseller: true,
-        desc: "Melt-in-mouth roasted chicken marinated in fresh cream, cheese & mild spices.",
-        img: "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 350, Full: 680 }
-      },
-      {
-        id: 303,
-        name: "Malai Afghani Leg Pices",
-        category: "Snacks & Roasted",
-        isVeg: false,
-        bestseller: true,
-        desc: "Juicy chicken drumsticks marinated in rich Afghani malai & roasted in tandoor.",
-        img: "https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=600&q=80",
-        variants: { "Half (4 Pcs)": 350, "Full (8 Pcs)": 700 }
-      },
-      {
-        id: 304,
-        name: "Chicken Gardan Fry",
-        category: "Snacks & Roasted",
-        isVeg: false,
-        bestseller: false,
-        desc: "Crispy, spicy masala fried chicken neck pieces.",
-        img: "https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 120, Full: 240 }
-      },
-      {
-        id: 305,
-        name: "Fish Fry",
-        category: "Snacks & Roasted",
-        isVeg: false,
-        bestseller: true,
-        desc: "Crispy golden fried fish coated in tangy Rajasthani lahsooni masala.",
-        img: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 240, Full: 480 }
-      },
-      {
-        id: 306,
-        name: "Bonless Fish Fry",
-        category: "Snacks & Roasted",
-        isVeg: false,
-        bestseller: true,
-        desc: "Zero-bone crispy fried fish fillets served with green mint chutney & onion rings.",
-        img: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 330, Full: 660 }
-      },
-      {
-        id: 307,
-        name: "Chicken Fry",
-        category: "Snacks & Roasted",
-        isVeg: false,
-        bestseller: false,
-        desc: "Classic crispy deep-fried masala chicken starter.",
-        img: "https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 250, Full: 480 }
-      },
-      {
-        id: 308,
-        name: "Chicken Leg Fry",
-        category: "Snacks & Roasted",
-        isVeg: false,
-        bestseller: false,
-        desc: "Spiced & crispy fried chicken leg pieces (4 Pcs Half / 8 Pcs Full).",
-        img: "https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=600&q=80",
-        variants: { "Half (4 Pcs)": 250, "Full (8 Pcs)": 500 }
-      },
-      {
-        id: 309,
-        name: "Mutton Dry (Sukha)",
-        category: "Snacks & Roasted",
-        isVeg: false,
-        bestseller: true,
-        desc: "Tender mutton pieces pan-roasted dry with black pepper, curry leaves & desi spices.",
-        img: "https://images.unsplash.com/photo-1545247181-516773cae754?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 360, Full: 700 }
-      },
-      {
-        id: 310,
-        name: "Chicken Dry (Sukha)",
-        category: "Snacks & Roasted",
-        isVeg: false,
-        bestseller: false,
-        desc: "Dry roasted masala chicken starter tossed with onions and green chillies.",
-        img: "https://images.unsplash.com/photo-1606491956689-2ea866880c84?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 260, Full: 500 }
-      },
-      {
-        id: 311,
-        name: "Afghani Leg Pices",
-        category: "Snacks & Roasted",
-        isVeg: false,
-        bestseller: false,
-        desc: "Creamy tandoori roasted Afghani chicken legs (4 Pcs Half / 8 Pcs Full).",
-        img: "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&w=600&q=80",
-        variants: { "Half (4 Pcs)": 250, "Full (8 Pcs)": 500 }
-      },
+                    <!-- Dynamic Field based on Order Mode -->
+                    <!-- <div id="addressBox">
+            <textarea id="custAddress" rows="2" placeholder="Full Delivery Address / Landmark in Chirawa *" class="w-full px-3.5 py-2 rounded-xl bg-zinc-950 border border-zinc-800 text-sm text-white"></textarea>
+          </div> -->
 
-      // ================= FISH SPECIAL =================
-      {
-        id: 401,
-        name: "Bon Less Fish Masala",
-        category: "Fish Special",
-        isVeg: false,
-        bestseller: true,
-        desc: "Boneless fish chunks simmered in thick, spicy onion-tomato garlic masala.",
-        img: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 350, Full: 680 }
-      },
-      {
-        id: 402,
-        name: "Fish Corma (Singal Kanta)",
-        category: "Fish Special",
-        isVeg: false,
-        bestseller: false,
-        desc: "Single-bone fresh fish cooked in rich Mughlai korma gravy.",
-        img: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 330, Full: 620 }
-      },
-      {
-        id: 403,
-        name: "Fish Masala (Singal Kanta)",
-        category: "Fish Special",
-        isVeg: false,
-        bestseller: false,
-        desc: "Single-kanta fish tossed in fiery desi masala gravy.",
-        img: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 320, Full: 620 }
-      },
-      {
-        id: 404,
-        name: "Fish Curry (Singal Kanta)",
-        category: "Fish Special",
-        isVeg: false,
-        bestseller: false,
-        desc: "Traditional homestyle tangy & spicy single-bone fish curry.",
-        img: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 320, Full: 620 }
-      },
 
-      // ================= EGG SPECIAL =================
-      {
-        id: 501,
-        name: "Egg Curry (2 Eggs)",
-        category: "Egg Special",
-        isVeg: false,
-        bestseller: true,
-        desc: "2 boiled & fried eggs simmered in spicy dhaba-style masala gravy.",
-        img: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=600&q=80",
-        variants: { Plate: 130 }
-      },
-      {
-        id: 502,
-        name: "Egg Bhuji (3 Eggs)",
-        category: "Egg Special",
-        isVeg: false,
-        bestseller: true,
-        desc: "3 eggs scrambled on hot tawa with finely chopped onions, tomatoes, green chillies & coriander.",
-        img: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=600&q=80",
-        variants: { Plate: 90 }
-      },
-      {
-        id: 503,
-        name: "Omlet (3 Eggs)",
-        category: "Egg Special",
-        isVeg: false,
-        bestseller: false,
-        desc: "Fluffy 3-egg masala omelette cooked with onions, chillies & black pepper.",
-        img: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=600&q=80",
-        variants: { Plate: 90 }
-      },
-      {
-        id: 504,
-        name: "Egg Fry (2 Eggs)",
-        category: "Egg Special",
-        isVeg: false,
-        bestseller: false,
-        desc: "Tawa masala fried boiled eggs topped with chaat masala & onion rings.",
-        img: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=600&q=80",
-        variants: { Plate: 50 }
-      },
-      {
-        id: 505,
-        name: "Boil Egg (2 Eggs)",
-        category: "Egg Special",
-        isVeg: false,
-        bestseller: false,
-        desc: "2 fresh boiled eggs served with black pepper and salt.",
-        img: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=600&q=80",
-        variants: { Plate: 30 }
-      },
+                    <!-- Dynamic Field based on Order Mode (With Live GPS Button) -->
+                    <div id="addressBox" class="space-y-2">
+                        <button type="button" onclick="getCustomerGPSLocation()" id="gpsBtn"
+                            class="w-full py-2.5 px-3 rounded-xl bg-amber-500/15 hover:bg-amber-500/25 border border-amber-500/50 text-amber-400 font-bold text-xs flex items-center justify-center gap-2 transition">
+                            <i class="fa-solid fa-location-crosshairs text-sm"></i>
+                            <span id="gpsBtnText">Detect My Current Location (GPS)</span>
+                        </button>
 
-      // ================= VEG SPECIAL =================
-      {
-        id: 601,
-        name: "Butter Paneer Masala",
-        category: "Veg Special",
-        isVeg: true,
-        bestseller: true,
-        desc: "Soft malai paneer cubes simmered in rich, creamy tomato-butter cashew gravy.",
-        img: "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 220, Full: 400 }
-      },
-      {
-        id: 602,
-        name: "Khoya Paneer",
-        category: "Veg Special",
-        isVeg: true,
-        bestseller: false,
-        desc: "Rich festive paneer curry cooked with pure mawa (khoya) and dry fruits.",
-        img: "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 200, Full: 380 }
-      },
-      {
-        id: 603,
-        name: "Shahi Paneer",
-        category: "Veg Special",
-        isVeg: true,
-        bestseller: true,
-        desc: "Mughlai style creamy & mildly sweet saffron-cashew paneer curry.",
-        img: "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 190, Full: 360 }
-      },
-      {
-        id: 604,
-        name: "Kadhai Paneer",
-        category: "Veg Special",
-        isVeg: true,
-        bestseller: true,
-        desc: "Cottage cheese tossed with bell peppers, onions & freshly ground kadhai masala.",
-        img: "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 190, Full: 360 }
-      },
-      {
-        id: 605,
-        name: "Mutter Paneer",
-        category: "Veg Special",
-        isVeg: true,
-        bestseller: false,
-        desc: "Homestyle green peas and soft paneer cooked in spiced tomato gravy.",
-        img: "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 180, Full: 340 }
-      },
-      {
-        id: 606,
-        name: "Sev Tamatar",
-        category: "Veg Special",
-        isVeg: true,
-        bestseller: true,
-        desc: "Rajasthani dhaba specialty tangy tomato curry topped with crispy ratlami sev.",
-        img: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 140, Full: 260 }
-      },
-      {
-        id: 607,
-        name: "Dal Tadka",
-        category: "Veg Special",
-        isVeg: true,
-        bestseller: false,
-        desc: "Yellow lentils tempered with desi ghee, jeera, garlic & red chillies.",
-        img: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 130, Full: 240 }
-      },
-      {
-        id: 608,
-        name: "Dal Fry",
-        category: "Veg Special",
-        isVeg: true,
-        bestseller: false,
-        desc: "Classic dhaba style creamy dal fry cooked with onions, tomatoes & spices.",
-        img: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 100, Full: 180 }
-      },
+                        <textarea id="custAddress" rows="2" placeholder="House No, Street / Landmark in Chirawa *"
+                            class="w-full px-3.5 py-2 rounded-xl bg-zinc-950 border border-zinc-800 text-sm text-white"></textarea>
+                    </div>
+                    <div id="tableBox" class="hidden">
+                        <input id="custTable" type="text" placeholder="Enter Table Number (e.g. Table #4) *"
+                            class="w-full px-3.5 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-sm text-white" />
+                    </div>
+                    <input id="custNotes" type="text" placeholder="Cooking Note (e.g. Extra Spicy, Less Oil)"
+                        class="w-full px-3.5 py-2 rounded-xl bg-zinc-950 border border-zinc-800 text-sm text-white" />
+                </div>
 
-      // ================= RICE & BIRIYANI =================
-      {
-        id: 701,
-        name: "Mutton Biriyani",
-        category: "Rice & Biriyani",
-        isVeg: false,
-        bestseller: true,
-        desc: "Aromatic long-grain basmati rice dum-cooked with tender spiced mutton pieces.",
-        img: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 220, Full: 400 }
-      },
-      {
-        id: 702,
-        name: "Chicken Biriyani",
-        category: "Rice & Biriyani",
-        isVeg: false,
-        bestseller: true,
-        desc: "Flavorful dum biryani layered with marinated chicken & whole spices.",
-        img: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 160, Full: 300 }
-      },
-      {
-        id: 703,
-        name: "Egg Biriyani",
-        category: "Rice & Biriyani",
-        isVeg: false,
-        bestseller: false,
-        desc: "Fragrant basmati rice cooked with spiced masala eggs & herbs.",
-        img: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 160, Full: 300 }
-      },
-      {
-        id: 704,
-        name: "Paneer Biriyani",
-        category: "Rice & Biriyani",
-        isVeg: true,
-        bestseller: false,
-        desc: "Royal vegetarian biryani loaded with spiced paneer cubes & basmati rice.",
-        img: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 170, Full: 320 }
-      },
-      {
-        id: 705,
-        name: "Jeera Rice",
-        category: "Rice & Biriyani",
-        isVeg: true,
-        bestseller: false,
-        desc: "Fluffy basmati rice tempered with roasted cumin seeds & coriander.",
-        img: "https://images.unsplash.com/photo-1516684732162-798a0062be99?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 100, Full: 180 }
-      },
-      {
-        id: 706,
-        name: "Plain Rice",
-        category: "Rice & Biriyani",
-        isVeg: true,
-        bestseller: false,
-        desc: "Steamed long-grain basmati rice, ideal with mutton or chicken curry.",
-        img: "https://images.unsplash.com/photo-1516684732162-798a0062be99?auto=format&fit=crop&w=600&q=80",
-        variants: { Half: 80, Full: 150 }
-      },
+                <!-- Payment Selection (COD vs Instant UPI QR) -->
+                <div class="bg-zinc-900 p-4 rounded-2xl border border-zinc-800 space-y-3">
+                    <label class="text-xs font-bold uppercase tracking-wider text-amber-400 block">2. Payment Method (0%
+                        Commission)</label>
+                    <div class="grid grid-cols-2 gap-2 text-xs font-semibold">
+                        <button type="button" onclick="setPaymentMethod('UPI')" id="pay_UPI"
+                            class="py-2.5 px-3 rounded-xl border border-green-500 bg-green-500/10 text-green-400">
+                            📱 Instant UPI / QR
+                        </button>
+                        <button type="button" onclick="setPaymentMethod('COD')" id="pay_COD"
+                            class="py-2.5 px-3 rounded-xl border border-zinc-700 bg-zinc-800 text-zinc-300">
+                            💵 Cash / Counter
+                        </button>
+                    </div>
 
-      // ================= ROTI & CHAPATI =================
-      {
-        id: 801,
-        name: "Tandoori Roti Butter",
-        category: "Roti & Chapati",
-        isVeg: true,
-        bestseller: true,
-        desc: "Crispy clay-oven whole wheat tandoori roti brushed with butter.",
-        img: "https://images.unsplash.com/photo-1626074353765-517a681e40be?auto=format&fit=crop&w=600&q=80",
-        variants: { Piece: 17 }
-      },
-      {
-        id: 802,
-        name: "Tandoori Roti Plain",
-        category: "Roti & Chapati",
-        isVeg: true,
-        bestseller: false,
-        desc: "Hot & crisp whole wheat roti baked fresh in clay tandoor.",
-        img: "https://images.unsplash.com/photo-1626074353765-517a681e40be?auto=format&fit=crop&w=600&q=80",
-        variants: { Piece: 12 }
-      },
-      {
-        id: 803,
-        name: "Tawa Roti Butter",
-        category: "Roti & Chapati",
-        isVeg: true,
-        bestseller: true,
-        desc: "Soft homestyle whole wheat tawa chapati topped with butter.",
-        img: "https://images.unsplash.com/photo-1626074353765-517a681e40be?auto=format&fit=crop&w=600&q=80",
-        variants: { Piece: 17 }
-      },
-      {
-        id: 804,
-        name: "Tawa Roti Plain",
-        category: "Roti & Chapati",
-        isVeg: true,
-        bestseller: false,
-        desc: "Soft & fresh homestyle whole wheat tawa phulka.",
-        img: "https://images.unsplash.com/photo-1626074353765-517a681e40be?auto=format&fit=crop&w=600&q=80",
-        variants: { Piece: 12 }
-      },
+                    <!-- Dynamic UPI Box -->
+                    <div id="upiScannerBox" class="text-center p-3.5 bg-zinc-950 rounded-xl border border-zinc-800">
+                        <p class="text-xs font-bold text-white">State Bank of India - 3085</p>
+                        <p class="text-[11px] text-zinc-400 mb-2">Scan with PhonePe / GPay / Paytm</p>
+                        <img id="dynamicQrImg" src="" alt="UPI QR"
+                            class="w-40 h-40 mx-auto rounded-lg bg-white p-2 shadow-md" />
+                        <p class="text-[11px] font-mono text-amber-400 mt-2">UPI ID: 9509590978-n587@ibl</p>
+                        <a id="upiIntentBtn" href="#"
+                            class="mt-2.5 inline-block w-full py-2.5 rounded-lg bg-green-600 hover:bg-green-500 text-white font-bold text-xs">
+                            Open UPI App to Pay Exact Bill
+                        </a>
+                    </div>
+                </div>
 
-      // ================= SALAD, LASSI & OTHER =================
-      {
-        id: 901,
-        name: "Green Salad",
-        category: "Salad, Lassi & Other",
-        isVeg: true,
-        bestseller: false,
-        desc: "Freshly sliced cucumber, tomatoes, onions, carrots, lemon & green chillies.",
-        img: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=600&q=80",
-        variants: { Plate: 60 }
-      },
-      {
-        id: 902,
-        name: "Onion Salad",
-        category: "Salad, Lassi & Other",
-        isVeg: true,
-        bestseller: false,
-        desc: "Fresh crunchy onion rings with lemon & green chilli.",
-        img: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=600&q=80",
-        variants: { Plate: 20 }
-      },
-      {
-        id: 903,
-        name: "Masala Papad",
-        category: "Salad, Lassi & Other",
-        isVeg: true,
-        bestseller: true,
-        desc: "Crispy roasted papad topped with tangy chopped onion-tomato-coriander chaat.",
-        img: "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=600&q=80",
-        variants: { Plate: 60 }
-      },
-      {
-        id: 904,
-        name: "Plain Papad",
-        category: "Salad, Lassi & Other",
-        isVeg: true,
-        bestseller: false,
-        desc: "Crispy roasted Rajasthani moong/urad papad.",
-        img: "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=600&q=80",
-        variants: { Piece: 20 }
-      },
-      {
-        id: 905,
-        name: "Special Lassi",
-        category: "Salad, Lassi & Other",
-        isVeg: true,
-        bestseller: true,
-        desc: "Thick creamy malai lassi topped with dry fruits.",
-        img: "https://images.unsplash.com/photo-1571934811356-5cc061b6821f?auto=format&fit=crop&w=600&q=80",
-        variants: { Glass: 70 }
-      },
-      {
-        id: 906,
-        name: "Sweet Lassi",
-        category: "Salad, Lassi & Other",
-        isVeg: true,
-        bestseller: false,
-        desc: "Chilled traditional sweet Punjabi lassi.",
-        img: "https://images.unsplash.com/photo-1571934811356-5cc061b6821f?auto=format&fit=crop&w=600&q=80",
-        variants: { Glass: 50 }
-      },
-      {
-        id: 907,
-        name: "Namkeen Lassi",
-        category: "Salad, Lassi & Other",
-        isVeg: true,
-        bestseller: false,
-        desc: "Refreshing salted lassi with roasted cumin & black salt.",
-        img: "https://images.unsplash.com/photo-1571934811356-5cc061b6821f?auto=format&fit=crop&w=600&q=80",
-        variants: { Glass: 50 }
-      },
-      {
-        id: 908,
-        name: "Chhach",
-        category: "Salad, Lassi & Other",
-        isVeg: true,
-        bestseller: false,
-        desc: "Cool desi masala buttermilk.",
-        img: "https://images.unsplash.com/photo-1571934811356-5cc061b6821f?auto=format&fit=crop&w=600&q=80",
-        variants: { Glass: 30 }
-      },
-      {
-        id: 909,
-        name: "Bundi Raita",
-        category: "Salad, Lassi & Other",
-        isVeg: true,
-        bestseller: true,
-        desc: "Chilled spiced yogurt mixed with crispy boondi & roasted jeera.",
-        img: "https://images.unsplash.com/photo-1571934811356-5cc061b6821f?auto=format&fit=crop&w=600&q=80",
-        variants: { Plate: 100 }
-      },
-      {
-        id: 910,
-        name: "Veg Raita",
-        category: "Salad, Lassi & Other",
-        isVeg: true,
-        bestseller: false,
-        desc: "Fresh curd mixed with finely chopped cucumber, tomatoes, onions & spices.",
-        img: "https://images.unsplash.com/photo-1571934811356-5cc061b6821f?auto=format&fit=crop&w=600&q=80",
-        variants: { Plate: 100 }
-      },
-      {
-        id: 911,
-        name: "Curd Plain",
-        category: "Salad, Lassi & Other",
-        isVeg: true,
-        bestseller: false,
-        desc: "Bowl of fresh, thick plain dahi.",
-        img: "https://images.unsplash.com/photo-1571934811356-5cc061b6821f?auto=format&fit=crop&w=600&q=80",
-        variants: { Bowl: 30 }
-      },
-      {
-        id: 912,
-        name: "Green Chilli Fry",
-        category: "Salad, Lassi & Other",
-        isVeg: true,
-        bestseller: false,
-        desc: "Tangy masala fried green chillies with lemon.",
-        img: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=600&q=80",
-        variants: { Plate: 30 }
-      },
-      {
-        id: 913,
-        name: "Green Chatni",
-        category: "Salad, Lassi & Other",
-        isVeg: true,
-        bestseller: false,
-        desc: "Freshly ground pudina-dhaniya spicy green chutney.",
-        img: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=600&q=80",
-        variants: { Plate: 20 }
-      },
-      {
-        id: 914,
-        name: "Extra Gravy Plate",
-        category: "Salad, Lassi & Other",
-        isVeg: false,
-        bestseller: false,
-        desc: "Extra bowl of rich spicy curry gravy.",
-        img: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=600&q=80",
-        variants: { Plate: 100 }
+                <!-- Form Error / Validation Banner -->
+                <div id="formErrorBanner"
+                    class="hidden p-3 rounded-xl bg-red-950/90 border border-red-700 text-red-200 text-xs font-medium text-center">
+                </div>
+            </div>
+
+            <!-- Footer Bill & WhatsApp Trigger -->
+            <div class="p-5 border-t border-zinc-800 bg-zinc-900/90 space-y-3">
+                <div class="flex justify-between text-sm text-zinc-300">
+                    <span>Total Payable</span>
+                    <span id="drawerTotal" class="text-xl font-extrabold text-amber-400">₹0</span>
+                </div>
+                <button onclick="sendOrderToWhatsApp()"
+                    class="w-full py-3.5 rounded-xl bg-green-600 hover:bg-green-500 text-white font-bold text-base flex items-center justify-center gap-2 shadow-lg shadow-green-600/30 transition">
+                    <i class="fa-brands fa-whatsapp text-xl"></i> Place Order on WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="border-t border-zinc-900 py-8 text-center text-xs text-zinc-500">
+        <p>© 2026 <strong>Nirban Hotel Chirawa</strong>. All Rights Reserved.</p>
+        <p class="mt-1">Order Helpline & WhatsApp: <a href="tel:+919509590978" class="text-amber-400 font-semibold">+91
+                95095 90978</a> • UPI: 9509590978-n587@ibl</p>
+    </footer>
+
+    <!-- ================= JAVASCRIPT LOGIC ================= -->
+    <script>
+        // 1. OFFICIAL NIRBAN HOTEL CONFIGURATION
+        const RESTAURANT_CONFIG = {
+            name: "Nirban Hotel Chirawa",
+            whatsappNumber: "919509590978",
+            upiId: "9509590978-n587@ibl",
+        };
+
+        // 2. COMPLETE NIRBAN HOTEL MENU DATA (All 9 Categories & 66+ Real Items from Printed Menu)
+        const CATEGORIES = [
+            "All",
+            "Mutton Special",
+            "Chicken Special",
+            "Snacks & Roasted",
+            "Fish Special",
+            "Egg Special",
+            "Veg Special",
+            "Rice & Biriyani",
+            "Roti & Chapati",
+            "Salad, Lassi & Other"
+        ];
+
+        const MENU_ITEMS = [
+            // ================= MUTTON SPECIAL =================
+            {
+                id: 101,
+                name: "Nirban Special Mutton",
+                category: "Mutton Special",
+                isVeg: false,
+                bestseller: true,
+                desc: "Chef's signature slow-cooked tender desi mutton prepared in rich traditional Nirban spices.",
+                img: "https://images.unsplash.com/photo-1545247181-516773cae754?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 1, Full: 1 }
+            },
+            {
+                id: 102,
+                name: "Rajasthani Laal Maas",
+                category: "Mutton Special",
+                isVeg: false,
+                bestseller: true,
+                desc: "Authentic fiery Rajasthani mutton curry cooked with Mathania red chillies & desi ghee.",
+                img: "https://images.unsplash.com/photo-1574653853027-5382a3d23a15?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 460, Full: 880 }
+            },
+            {
+                id: 103,
+                name: "Jodhpuri Mutton Masala",
+                category: "Mutton Special",
+                isVeg: false,
+                bestseller: true,
+                desc: "Royal Jodhpuri style thick spicy mutton masala with aromatic whole गरम मसाला.",
+                img: "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 460, Full: 880 }
+            },
+            {
+                id: 104,
+                name: "Special Mutton",
+                category: "Mutton Special",
+                isVeg: false,
+                bestseller: false,
+                desc: "Rich homestyle mutton curry loaded with tender pieces and thick flavorful gravy.",
+                img: "https://images.unsplash.com/photo-1545247181-516773cae754?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 450, Full: 860 }
+            },
+            {
+                id: 105,
+                name: "Afghani Mutton",
+                category: "Mutton Special",
+                isVeg: false,
+                bestseller: false,
+                desc: "Creamy, mildly spiced royal white-gravy mutton cooked with cashew paste & black pepper.",
+                img: "https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 450, Full: 860 }
+            },
+            {
+                id: 106,
+                name: "Mutton Rogan Juice",
+                category: "Mutton Special",
+                isVeg: false,
+                bestseller: false,
+                desc: "Traditional juicy mutton rogan josh bursting with aromatic Kashmiri spices.",
+                img: "https://images.unsplash.com/photo-1574653853027-5382a3d23a15?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 430, Full: 800 }
+            },
+            {
+                id: 107,
+                name: "Mutton Corma",
+                category: "Mutton Special",
+                isVeg: false,
+                bestseller: false,
+                desc: "Mughlai style danedar mutton korma slow-simmered with browned onions and curd.",
+                img: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 430, Full: 820 }
+            },
+            {
+                id: 108,
+                name: "Kadhai Mutton",
+                category: "Mutton Special",
+                isVeg: false,
+                bestseller: false,
+                desc: "Tender mutton tossed in iron kadhai with bell peppers, onions & roasted coriander seeds.",
+                img: "https://images.unsplash.com/photo-1606491956689-2ea866880c84?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 430, Full: 820 }
+            },
+            {
+                id: 109,
+                name: "Handi Mutton",
+                category: "Mutton Special",
+                isVeg: false,
+                bestseller: true,
+                desc: "Slow-cooked desi goat meat in traditional handi with whole garlic & desi spices.",
+                img: "https://images.unsplash.com/photo-1545247181-516773cae754?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 420, Full: 800 }
+            },
+            {
+                id: 110,
+                name: "Mutton Stew",
+                category: "Mutton Special",
+                isVeg: false,
+                bestseller: false,
+                desc: "Lightly spiced whole-masala mutton stew cooked with ginger juliennes and whole red chillies.",
+                img: "https://images.unsplash.com/photo-1574653853027-5382a3d23a15?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 420, Full: 800 }
+            },
+            {
+                id: 111,
+                name: "Mutton Masala",
+                category: "Mutton Special",
+                isVeg: false,
+                bestseller: false,
+                desc: "Classic dhaba-style spicy mutton masala curry.",
+                img: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 420, Full: 800 }
+            },
+
+            // ================= CHICKEN SPECIAL =================
+            {
+                id: 201,
+                name: "Nirban Special Chicken",
+                category: "Chicken Special",
+                isVeg: false,
+                bestseller: true,
+                desc: "Our #1 selling rich chicken curry prepared with secret Nirban Hotel roasted masala.",
+                img: "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 370, Full: 700 }
+            },
+            {
+                id: 202,
+                name: "Chicken Taka-Tak",
+                category: "Chicken Special",
+                isVeg: false,
+                bestseller: true,
+                desc: "Spicy tawa-style chopped chicken tossed with fresh tomatoes, green chillies & butter.",
+                img: "https://images.unsplash.com/photo-1606491956689-2ea866880c84?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 370, Full: 700 }
+            },
+            {
+                id: 203,
+                name: "Special Chicken",
+                category: "Chicken Special",
+                isVeg: false,
+                bestseller: false,
+                desc: "Rich, indulgent gravy chicken cooked with fresh cream and aromatic spices.",
+                img: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 370, Full: 700 }
+            },
+            {
+                id: 204,
+                name: "Afghani Chicken",
+                category: "Chicken Special",
+                isVeg: false,
+                bestseller: true,
+                desc: "velvety white cashew-cream gravy with tender roasted chicken pieces.",
+                img: "https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 360, Full: 680 }
+            },
+            {
+                id: 205,
+                name: "Butter Chicken",
+                category: "Chicken Special",
+                isVeg: false,
+                bestseller: true,
+                desc: "Tandoori chicken simmered in classic buttery, creamy tomato-cashew gravy.",
+                img: "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 340, Full: 620 }
+            },
+            {
+                id: 206,
+                name: "Kadhai Chicken",
+                category: "Chicken Special",
+                isVeg: false,
+                bestseller: false,
+                desc: "Spicy chicken tossed with capsicum, onion cubes & freshly pounded kadhai masala.",
+                img: "https://images.unsplash.com/photo-1606491956689-2ea866880c84?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 340, Full: 640 }
+            },
+            {
+                id: 207,
+                name: "Chicken Corma",
+                category: "Chicken Special",
+                isVeg: false,
+                bestseller: false,
+                desc: "Traditional Mughlai chicken korma with rich aromatic gravy.",
+                img: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 340, Full: 640 }
+            },
+            {
+                id: 208,
+                name: "Chicken Black Paper",
+                category: "Chicken Special",
+                isVeg: false,
+                bestseller: false,
+                desc: "Flavorful kali mirch chicken cooked in crushed black pepper & creamy yogurt gravy.",
+                img: "https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 320, Full: 600 }
+            },
+            {
+                id: 209,
+                name: "Chicken Stew",
+                category: "Chicken Special",
+                isVeg: false,
+                bestseller: false,
+                desc: "Whole spice onion-ginger chicken stew with light, soulful flavours.",
+                img: "https://images.unsplash.com/photo-1574653853027-5382a3d23a15?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 320, Full: 600 }
+            },
+            {
+                id: 210,
+                name: "Chicken Rogan Juice",
+                category: "Chicken Special",
+                isVeg: false,
+                bestseller: false,
+                desc: "Spicy, juicy Kashmiri-style chicken curry.",
+                img: "https://images.unsplash.com/photo-1545247181-516773cae754?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 320, Full: 600 }
+            },
+            {
+                id: 211,
+                name: "Handi Chicken",
+                category: "Chicken Special",
+                isVeg: false,
+                bestseller: true,
+                desc: "Slow-cooked chicken in clay pot for an earthy, smoky aroma.",
+                img: "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 320, Full: 600 }
+            },
+            {
+                id: 212,
+                name: "Chicken Changeji",
+                category: "Chicken Special",
+                isVeg: false,
+                bestseller: true,
+                desc: "Old Delhi style tangy & creamy Chicken Changezi.",
+                img: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 300, Full: 580 }
+            },
+            {
+                id: 213,
+                name: "Chicken Masala",
+                category: "Chicken Special",
+                isVeg: false,
+                bestseller: false,
+                desc: "Classic spicy desi chicken masala.",
+                img: "https://images.unsplash.com/photo-1606491956689-2ea866880c84?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 300, Full: 580 }
+            },
+            {
+                id: 214,
+                name: "Chicken Curry",
+                category: "Chicken Special",
+                isVeg: false,
+                bestseller: false,
+                desc: "Homestyle comforting desi chicken curry.",
+                img: "https://images.unsplash.com/photo-1545247181-516773cae754?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 300, Full: 580 }
+            },
+
+            // ================= SNACKS & ROASTED =================
+            {
+                id: 301,
+                name: "Chicken Roasted Butter",
+                category: "Snacks & Roasted",
+                isVeg: false,
+                bestseller: true,
+                desc: "Smoky tandoori roasted chicken basted generously with melted butter & chaat masala.",
+                img: "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 250, Full: 480 }
+            },
+            {
+                id: 302,
+                name: "Malai Chicken Roasted",
+                category: "Snacks & Roasted",
+                isVeg: false,
+                bestseller: true,
+                desc: "Melt-in-mouth roasted chicken marinated in fresh cream, cheese & mild spices.",
+                img: "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 350, Full: 680 }
+            },
+            {
+                id: 303,
+                name: "Malai Afghani Leg Pices",
+                category: "Snacks & Roasted",
+                isVeg: false,
+                bestseller: true,
+                desc: "Juicy chicken drumsticks marinated in rich Afghani malai & roasted in tandoor.",
+                img: "https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=600&q=80",
+                variants: { "Half (4 Pcs)": 350, "Full (8 Pcs)": 700 }
+            },
+            {
+                id: 304,
+                name: "Chicken Gardan Fry",
+                category: "Snacks & Roasted",
+                isVeg: false,
+                bestseller: false,
+                desc: "Crispy, spicy masala fried chicken neck pieces.",
+                img: "https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 120, Full: 240 }
+            },
+            {
+                id: 305,
+                name: "Fish Fry",
+                category: "Snacks & Roasted",
+                isVeg: false,
+                bestseller: true,
+                desc: "Crispy golden fried fish coated in tangy Rajasthani lahsooni masala.",
+                img: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 240, Full: 480 }
+            },
+            {
+                id: 306,
+                name: "Bonless Fish Fry",
+                category: "Snacks & Roasted",
+                isVeg: false,
+                bestseller: true,
+                desc: "Zero-bone crispy fried fish fillets served with green mint chutney & onion rings.",
+                img: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 330, Full: 660 }
+            },
+            {
+                id: 307,
+                name: "Chicken Fry",
+                category: "Snacks & Roasted",
+                isVeg: false,
+                bestseller: false,
+                desc: "Classic crispy deep-fried masala chicken starter.",
+                img: "https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 250, Full: 480 }
+            },
+            {
+                id: 308,
+                name: "Chicken Leg Fry",
+                category: "Snacks & Roasted",
+                isVeg: false,
+                bestseller: false,
+                desc: "Spiced & crispy fried chicken leg pieces (4 Pcs Half / 8 Pcs Full).",
+                img: "https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=600&q=80",
+                variants: { "Half (4 Pcs)": 250, "Full (8 Pcs)": 500 }
+            },
+            {
+                id: 309,
+                name: "Mutton Dry (Sukha)",
+                category: "Snacks & Roasted",
+                isVeg: false,
+                bestseller: true,
+                desc: "Tender mutton pieces pan-roasted dry with black pepper, curry leaves & desi spices.",
+                img: "https://images.unsplash.com/photo-1545247181-516773cae754?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 360, Full: 700 }
+            },
+            {
+                id: 310,
+                name: "Chicken Dry (Sukha)",
+                category: "Snacks & Roasted",
+                isVeg: false,
+                bestseller: false,
+                desc: "Dry roasted masala chicken starter tossed with onions and green chillies.",
+                img: "https://images.unsplash.com/photo-1606491956689-2ea866880c84?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 260, Full: 500 }
+            },
+            {
+                id: 311,
+                name: "Afghani Leg Pices",
+                category: "Snacks & Roasted",
+                isVeg: false,
+                bestseller: false,
+                desc: "Creamy tandoori roasted Afghani chicken legs (4 Pcs Half / 8 Pcs Full).",
+                img: "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&w=600&q=80",
+                variants: { "Half (4 Pcs)": 250, "Full (8 Pcs)": 500 }
+            },
+
+            // ================= FISH SPECIAL =================
+            {
+                id: 401,
+                name: "Bon Less Fish Masala",
+                category: "Fish Special",
+                isVeg: false,
+                bestseller: true,
+                desc: "Boneless fish chunks simmered in thick, spicy onion-tomato garlic masala.",
+                img: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 350, Full: 680 }
+            },
+            {
+                id: 402,
+                name: "Fish Corma (Singal Kanta)",
+                category: "Fish Special",
+                isVeg: false,
+                bestseller: false,
+                desc: "Single-bone fresh fish cooked in rich Mughlai korma gravy.",
+                img: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 330, Full: 620 }
+            },
+            {
+                id: 403,
+                name: "Fish Masala (Singal Kanta)",
+                category: "Fish Special",
+                isVeg: false,
+                bestseller: false,
+                desc: "Single-kanta fish tossed in fiery desi masala gravy.",
+                img: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 320, Full: 620 }
+            },
+            {
+                id: 404,
+                name: "Fish Curry (Singal Kanta)",
+                category: "Fish Special",
+                isVeg: false,
+                bestseller: false,
+                desc: "Traditional homestyle tangy & spicy single-bone fish curry.",
+                img: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 320, Full: 620 }
+            },
+
+            // ================= EGG SPECIAL =================
+            {
+                id: 501,
+                name: "Egg Curry (2 Eggs)",
+                category: "Egg Special",
+                isVeg: false,
+                bestseller: true,
+                desc: "2 boiled & fried eggs simmered in spicy dhaba-style masala gravy.",
+                img: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=600&q=80",
+                variants: { Plate: 130 }
+            },
+            {
+                id: 502,
+                name: "Egg Bhuji (3 Eggs)",
+                category: "Egg Special",
+                isVeg: false,
+                bestseller: true,
+                desc: "3 eggs scrambled on hot tawa with finely chopped onions, tomatoes, green chillies & coriander.",
+                img: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=600&q=80",
+                variants: { Plate: 90 }
+            },
+            {
+                id: 503,
+                name: "Omlet (3 Eggs)",
+                category: "Egg Special",
+                isVeg: false,
+                bestseller: false,
+                desc: "Fluffy 3-egg masala omelette cooked with onions, chillies & black pepper.",
+                img: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=600&q=80",
+                variants: { Plate: 90 }
+            },
+            {
+                id: 504,
+                name: "Egg Fry (2 Eggs)",
+                category: "Egg Special",
+                isVeg: false,
+                bestseller: false,
+                desc: "Tawa masala fried boiled eggs topped with chaat masala & onion rings.",
+                img: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=600&q=80",
+                variants: { Plate: 50 }
+            },
+            {
+                id: 505,
+                name: "Boil Egg (2 Eggs)",
+                category: "Egg Special",
+                isVeg: false,
+                bestseller: false,
+                desc: "2 fresh boiled eggs served with black pepper and salt.",
+                img: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=600&q=80",
+                variants: { Plate: 30 }
+            },
+
+            // ================= VEG SPECIAL =================
+            {
+                id: 601,
+                name: "Butter Paneer Masala",
+                category: "Veg Special",
+                isVeg: true,
+                bestseller: true,
+                desc: "Soft malai paneer cubes simmered in rich, creamy tomato-butter cashew gravy.",
+                img: "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 220, Full: 400 }
+            },
+            {
+                id: 602,
+                name: "Khoya Paneer",
+                category: "Veg Special",
+                isVeg: true,
+                bestseller: false,
+                desc: "Rich festive paneer curry cooked with pure mawa (khoya) and dry fruits.",
+                img: "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 200, Full: 380 }
+            },
+            {
+                id: 603,
+                name: "Shahi Paneer",
+                category: "Veg Special",
+                isVeg: true,
+                bestseller: true,
+                desc: "Mughlai style creamy & mildly sweet saffron-cashew paneer curry.",
+                img: "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 190, Full: 360 }
+            },
+            {
+                id: 604,
+                name: "Kadhai Paneer",
+                category: "Veg Special",
+                isVeg: true,
+                bestseller: true,
+                desc: "Cottage cheese tossed with bell peppers, onions & freshly ground kadhai masala.",
+                img: "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 190, Full: 360 }
+            },
+            {
+                id: 605,
+                name: "Mutter Paneer",
+                category: "Veg Special",
+                isVeg: true,
+                bestseller: false,
+                desc: "Homestyle green peas and soft paneer cooked in spiced tomato gravy.",
+                img: "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 180, Full: 340 }
+            },
+            {
+                id: 606,
+                name: "Sev Tamatar",
+                category: "Veg Special",
+                isVeg: true,
+                bestseller: true,
+                desc: "Rajasthani dhaba specialty tangy tomato curry topped with crispy ratlami sev.",
+                img: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 140, Full: 260 }
+            },
+            {
+                id: 607,
+                name: "Dal Tadka",
+                category: "Veg Special",
+                isVeg: true,
+                bestseller: false,
+                desc: "Yellow lentils tempered with desi ghee, jeera, garlic & red chillies.",
+                img: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 130, Full: 240 }
+            },
+            {
+                id: 608,
+                name: "Dal Fry",
+                category: "Veg Special",
+                isVeg: true,
+                bestseller: false,
+                desc: "Classic dhaba style creamy dal fry cooked with onions, tomatoes & spices.",
+                img: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 100, Full: 180 }
+            },
+
+            // ================= RICE & BIRIYANI =================
+            {
+                id: 701,
+                name: "Mutton Biriyani",
+                category: "Rice & Biriyani",
+                isVeg: false,
+                bestseller: true,
+                desc: "Aromatic long-grain basmati rice dum-cooked with tender spiced mutton pieces.",
+                img: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 220, Full: 400 }
+            },
+            {
+                id: 702,
+                name: "Chicken Biriyani",
+                category: "Rice & Biriyani",
+                isVeg: false,
+                bestseller: true,
+                desc: "Flavorful dum biryani layered with marinated chicken & whole spices.",
+                img: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 160, Full: 300 }
+            },
+            {
+                id: 703,
+                name: "Egg Biriyani",
+                category: "Rice & Biriyani",
+                isVeg: false,
+                bestseller: false,
+                desc: "Fragrant basmati rice cooked with spiced masala eggs & herbs.",
+                img: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 160, Full: 300 }
+            },
+            {
+                id: 704,
+                name: "Paneer Biriyani",
+                category: "Rice & Biriyani",
+                isVeg: true,
+                bestseller: false,
+                desc: "Royal vegetarian biryani loaded with spiced paneer cubes & basmati rice.",
+                img: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 170, Full: 320 }
+            },
+            {
+                id: 705,
+                name: "Jeera Rice",
+                category: "Rice & Biriyani",
+                isVeg: true,
+                bestseller: false,
+                desc: "Fluffy basmati rice tempered with roasted cumin seeds & coriander.",
+                img: "https://images.unsplash.com/photo-1516684732162-798a0062be99?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 100, Full: 180 }
+            },
+            {
+                id: 706,
+                name: "Plain Rice",
+                category: "Rice & Biriyani",
+                isVeg: true,
+                bestseller: false,
+                desc: "Steamed long-grain basmati rice, ideal with mutton or chicken curry.",
+                img: "https://images.unsplash.com/photo-1516684732162-798a0062be99?auto=format&fit=crop&w=600&q=80",
+                variants: { Half: 80, Full: 150 }
+            },
+
+            // ================= ROTI & CHAPATI =================
+            {
+                id: 801,
+                name: "Tandoori Roti Butter",
+                category: "Roti & Chapati",
+                isVeg: true,
+                bestseller: true,
+                desc: "Crispy clay-oven whole wheat tandoori roti brushed with butter.",
+                img: "https://images.unsplash.com/photo-1626074353765-517a681e40be?auto=format&fit=crop&w=600&q=80",
+                variants: { Piece: 17 }
+            },
+            {
+                id: 802,
+                name: "Tandoori Roti Plain",
+                category: "Roti & Chapati",
+                isVeg: true,
+                bestseller: false,
+                desc: "Hot & crisp whole wheat roti baked fresh in clay tandoor.",
+                img: "https://images.unsplash.com/photo-1626074353765-517a681e40be?auto=format&fit=crop&w=600&q=80",
+                variants: { Piece: 12 }
+            },
+            {
+                id: 803,
+                name: "Tawa Roti Butter",
+                category: "Roti & Chapati",
+                isVeg: true,
+                bestseller: true,
+                desc: "Soft homestyle whole wheat tawa chapati topped with butter.",
+                img: "https://images.unsplash.com/photo-1626074353765-517a681e40be?auto=format&fit=crop&w=600&q=80",
+                variants: { Piece: 17 }
+            },
+            {
+                id: 804,
+                name: "Tawa Roti Plain",
+                category: "Roti & Chapati",
+                isVeg: true,
+                bestseller: false,
+                desc: "Soft & fresh homestyle whole wheat tawa phulka.",
+                img: "https://images.unsplash.com/photo-1626074353765-517a681e40be?auto=format&fit=crop&w=600&q=80",
+                variants: { Piece: 12 }
+            },
+
+            // ================= SALAD, LASSI & OTHER =================
+            {
+                id: 901,
+                name: "Green Salad",
+                category: "Salad, Lassi & Other",
+                isVeg: true,
+                bestseller: false,
+                desc: "Freshly sliced cucumber, tomatoes, onions, carrots, lemon & green chillies.",
+                img: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=600&q=80",
+                variants: { Plate: 60 }
+            },
+            {
+                id: 902,
+                name: "Onion Salad",
+                category: "Salad, Lassi & Other",
+                isVeg: true,
+                bestseller: false,
+                desc: "Fresh crunchy onion rings with lemon & green chilli.",
+                img: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=600&q=80",
+                variants: { Plate: 20 }
+            },
+            {
+                id: 903,
+                name: "Masala Papad",
+                category: "Salad, Lassi & Other",
+                isVeg: true,
+                bestseller: true,
+                desc: "Crispy roasted papad topped with tangy chopped onion-tomato-coriander chaat.",
+                img: "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=600&q=80",
+                variants: { Plate: 60 }
+            },
+            {
+                id: 904,
+                name: "Plain Papad",
+                category: "Salad, Lassi & Other",
+                isVeg: true,
+                bestseller: false,
+                desc: "Crispy roasted Rajasthani moong/urad papad.",
+                img: "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=600&q=80",
+                variants: { Piece: 20 }
+            },
+            {
+                id: 905,
+                name: "Special Lassi",
+                category: "Salad, Lassi & Other",
+                isVeg: true,
+                bestseller: true,
+                desc: "Thick creamy malai lassi topped with dry fruits.",
+                img: "https://images.unsplash.com/photo-1571934811356-5cc061b6821f?auto=format&fit=crop&w=600&q=80",
+                variants: { Glass: 70 }
+            },
+            {
+                id: 906,
+                name: "Sweet Lassi",
+                category: "Salad, Lassi & Other",
+                isVeg: true,
+                bestseller: false,
+                desc: "Chilled traditional sweet Punjabi lassi.",
+                img: "https://images.unsplash.com/photo-1571934811356-5cc061b6821f?auto=format&fit=crop&w=600&q=80",
+                variants: { Glass: 50 }
+            },
+            {
+                id: 907,
+                name: "Namkeen Lassi",
+                category: "Salad, Lassi & Other",
+                isVeg: true,
+                bestseller: false,
+                desc: "Refreshing salted lassi with roasted cumin & black salt.",
+                img: "https://images.unsplash.com/photo-1571934811356-5cc061b6821f?auto=format&fit=crop&w=600&q=80",
+                variants: { Glass: 50 }
+            },
+            {
+                id: 908,
+                name: "Chhach",
+                category: "Salad, Lassi & Other",
+                isVeg: true,
+                bestseller: false,
+                desc: "Cool desi masala buttermilk.",
+                img: "https://images.unsplash.com/photo-1571934811356-5cc061b6821f?auto=format&fit=crop&w=600&q=80",
+                variants: { Glass: 30 }
+            },
+            {
+                id: 909,
+                name: "Bundi Raita",
+                category: "Salad, Lassi & Other",
+                isVeg: true,
+                bestseller: true,
+                desc: "Chilled spiced yogurt mixed with crispy boondi & roasted jeera.",
+                img: "https://images.unsplash.com/photo-1571934811356-5cc061b6821f?auto=format&fit=crop&w=600&q=80",
+                variants: { Plate: 100 }
+            },
+            {
+                id: 910,
+                name: "Veg Raita",
+                category: "Salad, Lassi & Other",
+                isVeg: true,
+                bestseller: false,
+                desc: "Fresh curd mixed with finely chopped cucumber, tomatoes, onions & spices.",
+                img: "https://images.unsplash.com/photo-1571934811356-5cc061b6821f?auto=format&fit=crop&w=600&q=80",
+                variants: { Plate: 100 }
+            },
+            {
+                id: 911,
+                name: "Curd Plain",
+                category: "Salad, Lassi & Other",
+                isVeg: true,
+                bestseller: false,
+                desc: "Bowl of fresh, thick plain dahi.",
+                img: "https://images.unsplash.com/photo-1571934811356-5cc061b6821f?auto=format&fit=crop&w=600&q=80",
+                variants: { Bowl: 30 }
+            },
+            {
+                id: 912,
+                name: "Green Chilli Fry",
+                category: "Salad, Lassi & Other",
+                isVeg: true,
+                bestseller: false,
+                desc: "Tangy masala fried green chillies with lemon.",
+                img: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=600&q=80",
+                variants: { Plate: 30 }
+            },
+            {
+                id: 913,
+                name: "Green Chatni",
+                category: "Salad, Lassi & Other",
+                isVeg: true,
+                bestseller: false,
+                desc: "Freshly ground pudina-dhaniya spicy green chutney.",
+                img: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=600&q=80",
+                variants: { Plate: 20 }
+            },
+            {
+                id: 914,
+                name: "Extra Gravy Plate",
+                category: "Salad, Lassi & Other",
+                isVeg: false,
+                bestseller: false,
+                desc: "Extra bowl of rich spicy curry gravy.",
+                img: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=600&q=80",
+                variants: { Plate: 100 }
+            }
+        ];
+
+        let activeCategory = "All";
+        let selectedVariants = {}; // Tracks Half/Full selection per item
+        let cart = [];
+        let orderMode = "DELIVERY";
+        let paymentMethod = "UPI";
+
+
+
+
+
+
+
+let customerGpsUrl = ""; // Yeh customer ka Google Maps link save rakhega
+
+function getCustomerGPSLocation() {
+  const btnText = document.getElementById("gpsBtnText");
+  const gpsBtn = document.getElementById("gpsBtn");
+  const addressInput = document.getElementById("custAddress");
+
+  if (!navigator.geolocation) {
+    alert("Aapke browser mein GPS support nahi hai. Kripya address type kar dein.");
+    return;
+  }
+
+  btnText.innerText = "Fetching GPS Location...";
+
+  navigator.geolocation.getCurrentPosition(
+    (position) => {
+      const lat = position.coords.latitude;
+      const lng = position.coords.longitude;
+      
+      // Direct Google Maps Direction Link
+      customerGpsUrl = `https://www.google.com/maps?q=${lat},${lng}`;
+
+      btnText.innerText = "✅ Live GPS Location Attached!";
+      gpsBtn.className = "w-full py-2.5 px-3 rounded-xl bg-green-500/20 border border-green-500 text-green-400 font-bold text-xs flex items-center justify-center gap-2 transition";
+
+      if (!addressInput.value.trim()) {
+        addressInput.placeholder = "GPS Locked! Bas apna Makan No. / Landmark likh dein (e.g. Near Bus Stand)";
       }
-    ];
+    },
+    (error) => {
+      btnText.innerText = "Detect My Current Location (GPS)";
+      alert("Location on nahi hai! Kripya phone ka GPS/Location on karein ya seedha address likh dein.");
+    },
+    { enableHighAccuracy: true, timeout: 10000 }
+  );
+}
 
-    let activeCategory = "All";
-    let selectedVariants = {}; // Tracks Half/Full selection per item
-    let cart = [];
-    let orderMode = "DELIVERY";
-    let paymentMethod = "UPI";
 
-    // Initialize default variants
-    MENU_ITEMS.forEach(item => {
-      selectedVariants[item.id] = Object.keys(item.variants)[0];
-    });
 
-    function renderCategoryTabs() {
-      const container = document.getElementById("categoryTabs");
-      container.innerHTML = CATEGORIES.map(cat => `
+
+
+
+
+
+
+
+
+
+        // Initialize default variants
+        MENU_ITEMS.forEach(item => {
+            selectedVariants[item.id] = Object.keys(item.variants)[0];
+        });
+
+        function renderCategoryTabs() {
+            const container = document.getElementById("categoryTabs");
+            container.innerHTML = CATEGORIES.map(cat => `
         <button 
           onclick="setCategory('${cat}')"
-          class="px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition ${
-            activeCategory === cat 
-              ? 'bg-gradient-to-r from-red-600 to-amber-600 text-white shadow-md' 
-              : 'bg-zinc-900 text-zinc-400 hover:text-white border border-zinc-800'
-          }"
+          class="px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition ${activeCategory === cat
+                    ? 'bg-gradient-to-r from-red-600 to-amber-600 text-white shadow-md'
+                    : 'bg-zinc-900 text-zinc-400 hover:text-white border border-zinc-800'
+                }"
         >
           ${cat}
         </button>
       `).join("");
-    }
+        }
 
-    function setCategory(cat) {
-      activeCategory = cat;
-      renderCategoryTabs();
-      renderMenu();
-    }
+        function setCategory(cat) {
+            activeCategory = cat;
+            renderCategoryTabs();
+            renderMenu();
+        }
 
-    function selectVariant(itemId, variantKey) {
-      selectedVariants[itemId] = variantKey;
-      renderMenu();
-    }
+        function selectVariant(itemId, variantKey) {
+            selectedVariants[itemId] = variantKey;
+            renderMenu();
+        }
 
-    function renderMenu() {
-      const search = document.getElementById("searchInput").value.toLowerCase();
-      const typeFilter = document.getElementById("typeFilter").value;
-      const grid = document.getElementById("menuGrid");
+        function renderMenu() {
+            const search = document.getElementById("searchInput").value.toLowerCase();
+            const typeFilter = document.getElementById("typeFilter").value;
+            const grid = document.getElementById("menuGrid");
 
-      const filtered = MENU_ITEMS.filter(item => {
-        const matchesCat = activeCategory === "All" || item.category === activeCategory;
-        const matchesSearch = item.name.toLowerCase().includes(search) || item.desc.toLowerCase().includes(search) || item.category.toLowerCase().includes(search);
-        const matchesType = typeFilter === "ALL" || (typeFilter === "NONVEG" && !item.isVeg) || (typeFilter === "VEG" && item.isVeg);
-        return matchesCat && matchesSearch && matchesType;
-      });
+            const filtered = MENU_ITEMS.filter(item => {
+                const matchesCat = activeCategory === "All" || item.category === activeCategory;
+                const matchesSearch = item.name.toLowerCase().includes(search) || item.desc.toLowerCase().includes(search) || item.category.toLowerCase().includes(search);
+                const matchesType = typeFilter === "ALL" || (typeFilter === "NONVEG" && !item.isVeg) || (typeFilter === "VEG" && item.isVeg);
+                return matchesCat && matchesSearch && matchesType;
+            });
 
-      if (filtered.length === 0) {
-        grid.innerHTML = `
+            if (filtered.length === 0) {
+                grid.innerHTML = `
           <div class="col-span-full text-center py-12 bg-zinc-900/50 rounded-2xl border border-zinc-800">
             <p class="text-zinc-400 text-sm">No dishes found matching your search. Try another keyword!</p>
           </div>
         `;
-        return;
-      }
+                return;
+            }
 
-      grid.innerHTML = filtered.map(item => {
-        const currentVariant = selectedVariants[item.id];
-        const currentPrice = item.variants[currentVariant];
-        const variantKeys = Object.keys(item.variants);
+            grid.innerHTML = filtered.map(item => {
+                const currentVariant = selectedVariants[item.id];
+                const currentPrice = item.variants[currentVariant];
+                const variantKeys = Object.keys(item.variants);
 
-        return `
+                return `
           <div class="bg-zinc-900/90 border border-zinc-800/90 rounded-2xl overflow-hidden flex flex-col justify-between hover:border-zinc-700 transition group">
             <div>
               <div class="relative h-44 overflow-hidden">
@@ -1419,11 +1571,10 @@
                   ${variantKeys.map(vKey => `
                     <button 
                       onclick="selectVariant(${item.id}, '${vKey}')"
-                      class="px-3 py-1 rounded-lg text-xs font-semibold border transition ${
-                        currentVariant === vKey 
-                          ? 'border-amber-500 bg-amber-500/15 text-amber-300' 
-                          : 'border-zinc-800 bg-zinc-950 text-zinc-400'
-                      }"
+                      class="px-3 py-1 rounded-lg text-xs font-semibold border transition ${currentVariant === vKey
+                        ? 'border-amber-500 bg-amber-500/15 text-amber-300'
+                        : 'border-zinc-800 bg-zinc-950 text-zinc-400'
+                    }"
                     >
                       ${vKey}: ₹${item.variants[vKey]}
                     </button>
@@ -1446,62 +1597,62 @@
             </div>
           </div>
         `;
-      }).join("");
-    }
+            }).join("");
+        }
 
-    function addToCart(itemId) {
-      const item = MENU_ITEMS.find(i => i.id === itemId);
-      const variant = selectedVariants[itemId];
-      const price = item.variants[variant];
-      const cartKey = `${itemId}_${variant}`;
+        function addToCart(itemId) {
+            const item = MENU_ITEMS.find(i => i.id === itemId);
+            const variant = selectedVariants[itemId];
+            const price = item.variants[variant];
+            const cartKey = `${itemId}_${variant}`;
 
-      const existing = cart.find(c => c.cartKey === cartKey);
-      if (existing) {
-        existing.qty += 1;
-      } else {
-        cart.push({
-          cartKey,
-          name: item.name,
-          variant,
-          price,
-          qty: 1
-        });
-      }
-      updateCartUI();
-    }
+            const existing = cart.find(c => c.cartKey === cartKey);
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({
+                    cartKey,
+                    name: item.name,
+                    variant,
+                    price,
+                    qty: 1
+                });
+            }
+            updateCartUI();
+        }
 
-    function changeQty(cartKey, delta) {
-      const item = cart.find(c => c.cartKey === cartKey);
-      if (!item) return;
-      item.qty += delta;
-      if (item.qty <= 0) {
-        cart = cart.filter(c => c.cartKey !== cartKey);
-      }
-      updateCartUI();
-    }
+        function changeQty(cartKey, delta) {
+            const item = cart.find(c => c.cartKey === cartKey);
+            if (!item) return;
+            item.qty += delta;
+            if (item.qty <= 0) {
+                cart = cart.filter(c => c.cartKey !== cartKey);
+            }
+            updateCartUI();
+        }
 
-    function updateCartUI() {
-      const totalItems = cart.reduce((sum, i) => sum + i.qty, 0);
-      const totalAmount = cart.reduce((sum, i) => sum + i.qty * i.price, 0);
+        function updateCartUI() {
+            const totalItems = cart.reduce((sum, i) => sum + i.qty, 0);
+            const totalAmount = cart.reduce((sum, i) => sum + i.qty * i.price, 0);
 
-      document.getElementById("navCartCount").innerText = totalItems;
-      document.getElementById("bottomCartCount").innerText = totalItems;
-      document.getElementById("bottomCartTotal").innerText = `₹${totalAmount}`;
-      document.getElementById("drawerTotal").innerText = `₹${totalAmount}`;
+            document.getElementById("navCartCount").innerText = totalItems;
+            document.getElementById("bottomCartCount").innerText = totalItems;
+            document.getElementById("bottomCartTotal").innerText = `₹${totalAmount}`;
+            document.getElementById("drawerTotal").innerText = `₹${totalAmount}`;
 
-      const floatingBar = document.getElementById("floatingCartBar");
-      if (totalItems > 0) {
-        floatingBar.classList.remove("hidden");
-      } else {
-        floatingBar.classList.add("hidden");
-      }
+            const floatingBar = document.getElementById("floatingCartBar");
+            if (totalItems > 0) {
+                floatingBar.classList.remove("hidden");
+            } else {
+                floatingBar.classList.add("hidden");
+            }
 
-      // Render Drawer List
-      const listEl = document.getElementById("cartItemsList");
-      if (cart.length === 0) {
-        listEl.innerHTML = `<p class="text-center text-zinc-500 text-sm py-8">Your cart is empty. Add delicious dishes from the menu!</p>`;
-      } else {
-        listEl.innerHTML = cart.map(c => `
+            // Render Drawer List
+            const listEl = document.getElementById("cartItemsList");
+            if (cart.length === 0) {
+                listEl.innerHTML = `<p class="text-center text-zinc-500 text-sm py-8">Your cart is empty. Add delicious dishes from the menu!</p>`;
+            } else {
+                listEl.innerHTML = cart.map(c => `
           <div class="flex items-center justify-between bg-zinc-900 p-3 rounded-xl border border-zinc-800">
             <div>
               <h4 class="text-sm font-bold text-white">${c.name}</h4>
@@ -1514,111 +1665,130 @@
             </div>
           </div>
         `).join("");
-      }
+            }
 
-      // Update Dynamic Zero-Commission UPI Link & QR (Using official 9509590978-n587@ibl)
-      const upiUrl = `upi://pay?pa=${RESTAURANT_CONFIG.upiId}&pn=${encodeURIComponent(RESTAURANT_CONFIG.name)}${totalAmount > 0 ? `&am=${totalAmount}` : ''}&cu=INR`;
-      document.getElementById("upiIntentBtn").href = upiUrl;
-      document.getElementById("dynamicQrImg").src = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(upiUrl)}`;
-    }
-
-    function toggleCart(show) {
-      const modal = document.getElementById("cartModal");
-      document.getElementById("formErrorBanner").classList.add("hidden");
-      if (show) modal.classList.remove("hidden");
-      else modal.classList.add("hidden");
-    }
-
-    function toggleQrModal(show) {
-      const modal = document.getElementById("qrScannerModal");
-      if (show) modal.classList.remove("hidden");
-      else modal.classList.add("hidden");
-    }
-
-    function copyUpiId() {
-      const tempInput = document.createElement("input");
-      tempInput.value = RESTAURANT_CONFIG.upiId;
-      document.body.appendChild(tempInput);
-      tempInput.select();
-      document.execCommand("copy");
-      document.body.removeChild(tempInput);
-
-      const copyText = document.getElementById("copyBtnText");
-      copyText.innerText = "Copied!";
-      setTimeout(() => { copyText.innerText = "Copy"; }, 2000);
-    }
-
-    function showFormError(msg) {
-      const banner = document.getElementById("formErrorBanner");
-      banner.innerText = msg;
-      banner.classList.remove("hidden");
-    }
-
-    function setOrderMode(mode) {
-      orderMode = mode;
-      ["DELIVERY", "DINEIN", "TAKEAWAY"].forEach(m => {
-        const btn = document.getElementById(`mode_${m}`);
-        if (m === mode) {
-          btn.className = "py-2.5 px-2 rounded-xl border border-amber-500 bg-amber-500/10 text-amber-400";
-        } else {
-          btn.className = "py-2.5 px-2 rounded-xl border border-zinc-700 bg-zinc-800 text-zinc-300";
+            // Update Dynamic Zero-Commission UPI Link & QR (Using official 9509590978-n587@ibl)
+            const upiUrl = `upi://pay?pa=${RESTAURANT_CONFIG.upiId}&pn=${encodeURIComponent(RESTAURANT_CONFIG.name)}${totalAmount > 0 ? `&am=${totalAmount}` : ''}&cu=INR`;
+            document.getElementById("upiIntentBtn").href = upiUrl;
+            document.getElementById("dynamicQrImg").src = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(upiUrl)}`;
         }
-      });
 
-      document.getElementById("addressBox").classList.toggle("hidden", mode !== "DELIVERY");
-      document.getElementById("tableBox").classList.toggle("hidden", mode !== "DINEIN");
-    }
+        function toggleCart(show) {
+            const modal = document.getElementById("cartModal");
+            document.getElementById("formErrorBanner").classList.add("hidden");
+            if (show) modal.classList.remove("hidden");
+            else modal.classList.add("hidden");
+        }
 
-    function setPaymentMethod(method) {
-      paymentMethod = method;
-      document.getElementById("pay_UPI").className = method === "UPI"
-        ? "py-2.5 px-3 rounded-xl border border-green-500 bg-green-500/10 text-green-400"
-        : "py-2.5 px-3 rounded-xl border border-zinc-700 bg-zinc-800 text-zinc-300";
-      document.getElementById("pay_COD").className = method === "COD"
-        ? "py-2.5 px-3 rounded-xl border border-amber-500 bg-amber-500/10 text-amber-400"
-        : "py-2.5 px-3 rounded-xl border border-zinc-700 bg-zinc-800 text-zinc-300";
+        function toggleQrModal(show) {
+            const modal = document.getElementById("qrScannerModal");
+            if (show) modal.classList.remove("hidden");
+            else modal.classList.add("hidden");
+        }
 
-      document.getElementById("upiScannerBox").classList.toggle("hidden", method !== "UPI");
-    }
+        function copyUpiId() {
+            const tempInput = document.createElement("input");
+            tempInput.value = RESTAURANT_CONFIG.upiId;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
 
-    function sendOrderToWhatsApp() {
-      document.getElementById("formErrorBanner").classList.add("hidden");
+            const copyText = document.getElementById("copyBtnText");
+            copyText.innerText = "Copied!";
+            setTimeout(() => { copyText.innerText = "Copy"; }, 2000);
+        }
 
-      if (cart.length === 0) {
-        showFormError("Please add at least one dish to your cart first!");
-        return;
-      }
-      const name = document.getElementById("custName").value.trim();
-      const phone = document.getElementById("custPhone").value.trim();
-      const address = document.getElementById("custAddress").value.trim();
-      const tableNo = document.getElementById("custTable").value.trim();
-      const notes = document.getElementById("custNotes").value.trim();
+        function showFormError(msg) {
+            const banner = document.getElementById("formErrorBanner");
+            banner.innerText = msg;
+            banner.classList.remove("hidden");
+        }
 
-      if (!name || !phone) {
-        showFormError("Please enter your Name and Mobile Number!");
-        return;
-      }
-      if (orderMode === "DELIVERY" && !address) {
-        showFormError("Please enter your Delivery Address in Chirawa!");
-        return;
-      }
-      if (orderMode === "DINEIN" && !tableNo) {
-        showFormError("Please enter your Table Number!");
-        return;
-      }
+        function setOrderMode(mode) {
+            orderMode = mode;
+            ["DELIVERY", "DINEIN", "TAKEAWAY"].forEach(m => {
+                const btn = document.getElementById(`mode_${m}`);
+                if (m === mode) {
+                    btn.className = "py-2.5 px-2 rounded-xl border border-amber-500 bg-amber-500/10 text-amber-400";
+                } else {
+                    btn.className = "py-2.5 px-2 rounded-xl border border-zinc-700 bg-zinc-800 text-zinc-300";
+                }
+            });
 
-      const totalAmount = cart.reduce((sum, i) => sum + i.qty * i.price, 0);
-      const itemLines = cart.map((c, idx) => `${idx + 1}. ${c.name} (${c.variant}) x ${c.qty} = ₹${c.qty * c.price}`).join("\n");
+            document.getElementById("addressBox").classList.toggle("hidden", mode !== "DELIVERY");
+            document.getElementById("tableBox").classList.toggle("hidden", mode !== "DINEIN");
+        }
 
-      let locationDetail = "";
-      if (orderMode === "DELIVERY") {
-        locationDetail = `📍 *Address:* ${address}\n🗺️ *Map Link:* https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address + " Chirawa")}`;
-      }
-      if (orderMode === "DINEIN") locationDetail = `🍽️ *Table No:* ${tableNo}`;
-      if (orderMode === "TAKEAWAY") locationDetail = `🛍️ *Order Type:* Self-Pickup / Takeaway`;
+        function setPaymentMethod(method) {
+            paymentMethod = method;
+            document.getElementById("pay_UPI").className = method === "UPI"
+                ? "py-2.5 px-3 rounded-xl border border-green-500 bg-green-500/10 text-green-400"
+                : "py-2.5 px-3 rounded-xl border border-zinc-700 bg-zinc-800 text-zinc-300";
+            document.getElementById("pay_COD").className = method === "COD"
+                ? "py-2.5 px-3 rounded-xl border border-amber-500 bg-amber-500/10 text-amber-400"
+                : "py-2.5 px-3 rounded-xl border border-zinc-700 bg-zinc-800 text-zinc-300";
 
-      const message = 
-`🔥 *NEW ORDER - NIRBAN HOTEL CHIRAWA* 🔥
+            document.getElementById("upiScannerBox").classList.toggle("hidden", method !== "UPI");
+        }
+
+        function sendOrderToWhatsApp() {
+            document.getElementById("formErrorBanner").classList.add("hidden");
+
+            if (cart.length === 0) {
+                showFormError("Please add at least one dish to your cart first!");
+                return;
+            }
+            const name = document.getElementById("custName").value.trim();
+            const phone = document.getElementById("custPhone").value.trim();
+            const address = document.getElementById("custAddress").value.trim();
+            const tableNo = document.getElementById("custTable").value.trim();
+            const notes = document.getElementById("custNotes").value.trim();
+
+            if (!name || !phone) {
+                showFormError("Please enter your Name and Mobile Number!");
+                return;
+            }
+            if (orderMode === "DELIVERY" && !address) {
+                showFormError("Please enter your Delivery Address in Chirawa!");
+                return;
+            }
+            if (orderMode === "DINEIN" && !tableNo) {
+                showFormError("Please enter your Table Number!");
+                return;
+            }
+
+            const totalAmount = cart.reduce((sum, i) => sum + i.qty * i.price, 0);
+            const itemLines = cart.map((c, idx) => `${idx + 1}. ${c.name} (${c.variant}) x ${c.qty} = ₹${c.qty * c.price}`).join("\n");
+
+            let locationDetail = "";
+
+
+
+            // if (orderMode === "DELIVERY") {
+            //     locationDetail = `📍 *Address:* ${address}\n🗺️ *Map Link:* https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address + " Chirawa")}`;
+            // }
+            // if (orderMode === "DINEIN") locationDetail = `🍽️ *Table No:* ${tableNo}`;
+            // if (orderMode === "TAKEAWAY") locationDetail = `🛍️ *Order Type:* Self-Pickup / Takeaway`;
+
+
+if (orderMode === "DELIVERY") {
+  // Agar GPS liya hai toh woh link jayega, warna typed address se Google Map search link ban jayega
+  const mapLink = customerGpsUrl 
+    ? customerGpsUrl 
+    : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address + " Chirawa")}`;
+    
+  locationDetail = `📍 *Address:* ${address}\n🗺️ *Delivery Map Link:* ${mapLink}`;
+}
+if (orderMode === "DINEIN") locationDetail = `🍽️ *Table No:* ${tableNo}`;
+if (orderMode === "TAKEAWAY") locationDetail = `🛍️ *Order Type:* Self-Pickup / Takeaway`;
+
+
+
+
+
+            const message =
+                `🔥 *NEW ORDER - NIRBAN HOTEL CHIRAWA* 🔥
 ------------------------------
 👤 *Customer:* ${name}
 📞 *Phone:* ${phone}
@@ -1632,14 +1802,15 @@ ${itemLines}
 💳 *Payment:* ${paymentMethod === 'UPI' ? 'UPI QR (9509590978-n587@ibl)' : 'Cash on Delivery / Counter'}
 ${notes ? `📝 *Note:* ${notes}` : ''}`;
 
-      const waUrl = `https://wa.me/${RESTAURANT_CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`;
-      window.open(waUrl, "_blank");
-    }
+            const waUrl = `https://wa.me/${RESTAURANT_CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`;
+            window.open(waUrl, "_blank");
+        }
 
-    // Initial load
-    renderCategoryTabs();
-    renderMenu();
-    updateCartUI();
-  </script>
+        // Initial load
+        renderCategoryTabs();
+        renderMenu();
+        updateCartUI();
+    </script>
 </body>
+
 </html>

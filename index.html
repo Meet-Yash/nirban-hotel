@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nirban Hotel Chirawa | Best Non-Veg & Family Restaurant</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['Playfair Display', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              red: '#b91c1c',
+              gold: '#f59e0b',
+              dark: '#0f0f0f',
+              card: '#18181b'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background-color: #09090b; color: #f4f4f5; }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="font-sans antialiased selection:bg-amber-500 selection:text-black pb-24">
+
+  <!-- ================= CONFIG BANNER FOR OWNER DEMO ================= -->
+  <div class="bg-gradient-to-r from-red-800 via-amber-600 to-red-800 text-white text-xs sm:text-sm py-2 px-4 text-center font-medium">
+    🔥 <strong>Chirawa's #1 Authentic Non-Veg Destination</strong> • Fresh Desi Mutton, Tandoori & Handi Specials • Fast Local Delivery
+  </div>
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="sticky top-0 z-40 bg-zinc-950/90 backdrop-blur-md border-b border-zinc-800">
+    <div class="max-w-7xl mx-auto px-4 py-3.5 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-red-600 to-amber-500 flex items-center justify-center text-white font-serif font-bold text-xl shadow-lg shadow-red-600/20">
+          N
+        </div>
+        <div>
+          <h1 class="font-serif text-lg sm:text-xl font-bold tracking-wide text-white leading-none">
+            NIRBAN HOTEL
+          </h1>
+          <p class="text-[11px] text-amber-400 font-medium tracking-wider uppercase mt-0.5">
+            <i class="fa-solid fa-location-dot mr-1"></i>Chirawa, Rajasthan
+          </p>
+        </div>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-zinc-300">
+        <a href="#menu" class="hover:text-amber-400 transition">Digital Menu</a>
+        <a href="#specials" class="hover:text-amber-400 transition">Chef's Special</a>
+        <a href="#reviews" class="hover:text-amber-400 transition">Reviews</a>
+        <a href="#location" class="hover:text-amber-400 transition">Location & Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="tel:+919509590978" class="hidden sm:flex items-center gap-2 px-3.5 py-2 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-xs font-semibold text-zinc-200 transition">
+          <i class="fa-solid fa-phone text-amber-400"></i> Call Now
+        </a>
+        <button onclick="toggleCart(true)" class="relative flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-red-600 to-amber-600 hover:from-red-500 hover:to-amber-500 text-white font-semibold text-sm shadow-lg shadow-red-600/30 transition">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span>Cart</span>
+          <span id="navCartCount" class="bg-black/40 px-2 py-0.5 rounded-full text-xs">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section class="relative overflow-hidden py-12 sm:py-20 border-b border-zinc-800/80" style="background: radial-gradient(circle at top right, rgba(185,28,28,0.22), transparent 55%), radial-gradient(circle at bottom left, rgba(245,158,11,0.12), transparent 50%);">
+    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-950/70 border border-red-800/60 text-amber-400 text-xs font-semibold mb-4">
+          <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+          Open Now • 11:00 AM – 11:30 PM
+        </div>
+        <h2 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight">
+          Asli Rajasthani <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-red-500">Zayka</span> in Chirawa.
+        </h2>
+        <p class="text-zinc-400 text-base sm:text-lg mt-4 max-w-xl leading-relaxed">
+          Famous for our rich Lal Maas, Desi Mutton Handi, Smoky Tandoori Chicken & Hyderabadi Biryani. Prepared fresh with authentic spices at Nirban Hotel.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-4 mt-7">
+          <a href="#menu" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-red-600 to-amber-600 hover:from-red-500 hover:to-amber-500 text-white font-bold text-sm sm:text-base shadow-xl shadow-red-600/25 flex items-center gap-2 transition">
+            <i class="fa-solid fa-utensils"></i> Order Online / View QR Menu
+          </a>
+          <a href="#location" class="px-5 py-3.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-zinc-200 font-semibold text-sm sm:text-base flex items-center gap-2 transition">
+            <i class="fa-solid fa-diamond-turn-right text-amber-400"></i> Get Directions
+          </a>
+        </div>
+
+        <!-- Trust Badges -->
+        <div class="grid grid-cols-3 gap-4 mt-9 pt-6 border-t border-zinc-800/80 max-w-md">
+          <div>
+            <div class="text-amber-400 font-bold text-lg sm:text-xl flex items-center gap-1">
+              4.6 <i class="fa-solid fa-star text-sm"></i>
+            </div>
+            <p class="text-xs text-zinc-400">Google Rating</p>
+          </div>
+          <div>
+            <div class="text-white font-bold text-lg sm:text-xl">100% Fresh</div>
+            <p class="text-xs text-zinc-400">Daily Cut & Spices</p>
+          </div>
+          <div>
+            <div class="text-white font-bold text-lg sm:text-xl">Fast</div>
+            <p class="text-xs text-zinc-400">Dine-in & Delivery</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual Showcase -->
+      <div class="relative">
+        <div class="relative rounded-3xl overflow-hidden border-2 border-zinc-800 shadow-2xl">
+          <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=1000&q=80" alt="Nirban Hotel Special Non-Veg Thali & Curry" class="w-full h-[340px] sm:h-[420px] object-cover" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
+          <div class="absolute bottom-5 left-5 right-5 flex items-end justify-between">
+            <div>
+              <span class="bg-red-600 text-white text-[11px] font-bold px-2.5 py-1 rounded-md uppercase">Bestseller</span>
+              <h3 class="text-white font-serif text-2xl font-bold mt-1">Special Handi Mutton & Butter Chicken</h3>
+              <p class="text-zinc-300 text-xs mt-0.5">Slow-cooked in traditional clay pot with desi ghee</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= DIGITAL QR MENU SECTION ================= -->
+  <section id="menu" class="max-w-7xl mx-auto px-4 py-12">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+      <div>
+        <span class="text-amber-400 text-xs font-bold uppercase tracking-widest">Instant Digital Menu</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mt-1">Explore Our Menu</h2>
+        <p class="text-zinc-400 text-sm mt-1">Select Half or Full plate, add to cart, and place your order directly on WhatsApp!</p>
+      </div>
+
+      <!-- Search & Filter -->
+      <div class="flex flex-col sm:flex-row gap-3">
+        <div class="relative">
+          <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-500 text-sm"></i>
+          <input 
+            id="searchInput" 
+            oninput="renderMenu()" 
+            type="text" 
+            placeholder="Search Mutton, Chicken, Roti..." 
+            class="w-full sm:w-64 pl-9 pr-4 py-2.5 rounded-xl bg-zinc-900 border border-zinc-800 text-sm text-white focus:outline-none focus:border-amber-500"
+          />
+        </div>
+        <select id="typeFilter" onchange="renderMenu()" class="px-3.5 py-2.5 rounded-xl bg-zinc-900 border border-zinc-800 text-sm text-zinc-200 focus:outline-none focus:border-amber-500">
+          <option value="ALL">All Items (Non-Veg & Veg)</option>
+          <option value="NONVEG">🔴 Non-Veg Only</option>
+          <option value="VEG">🟢 Veg & Breads Only</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Category Pills -->
+    <div id="categoryTabs" class="flex items-center gap-2.5 overflow-x-auto no-scrollbar pb-4 mb-6 border-b border-zinc-800">
+      <!-- Dynamically populated -->
+    </div>
+
+    <!-- Menu Grid -->
+    <div id="menuGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <!-- Dynamically populated -->
+    </div>
+  </section>
+
+  <!-- ================= WHY NIRBAN HOTEL / HIGHLIGHTS ================= -->
+  <section id="specials" class="bg-zinc-900/50 border-y border-zinc-800 py-14">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="text-amber-400 text-xs font-bold uppercase tracking-widest">Why Chirawa Loves Us</span>
+        <h2 class="font-serif text-3xl font-bold text-white mt-1">The Nirban Hotel Promise</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="p-6 rounded-2xl bg-zinc-900 border border-zinc-800">
+          <div class="w-12 h-12 rounded-xl bg-red-950 text-red-400 flex items-center justify-center text-xl mb-4">
+            <i class="fa-solid fa-fire-burner"></i>
+          </div>
+          <h3 class="font-bold text-white text-lg">Desi Handi & Tandoor</h3>
+          <p class="text-zinc-400 text-sm mt-1">Authentic Rajasthani spices ground in-house for rich, unforgettable gravy and smoky kebabs.</p>
+        </div>
+        <div class="p-6 rounded-2xl bg-zinc-900 border border-zinc-800">
+          <div class="w-12 h-12 rounded-xl bg-amber-950 text-amber-400 flex items-center justify-center text-xl mb-4">
+            <i class="fa-solid fa-award"></i>
+          </div>
+          <h3 class="font-bold text-white text-lg">100% Fresh Meat Daily</h3>
+          <p class="text-zinc-400 text-sm mt-1">We never use frozen meat. Freshly sourced mutton, chicken, and fish prepared every single day.</p>
+        </div>
+        <div class="p-6 rounded-2xl bg-zinc-900 border border-zinc-800">
+          <div class="w-12 h-12 rounded-xl bg-green-950 text-green-400 flex items-center justify-center text-xl mb-4">
+            <i class="fa-solid fa-qrcode"></i>
+          </div>
+          <h3 class="font-bold text-white text-lg">Smart QR & WhatsApp Order</h3>
+          <p class="text-zinc-400 text-sm mt-1">No app download needed! Scan at your table or order from home in 30 seconds.</p>
+        </div>
+        <div class="p-6 rounded-2xl bg-zinc-900 border border-zinc-800">
+          <div class="w-12 h-12 rounded-xl bg-blue-950 text-blue-400 flex items-center justify-center text-xl mb-4">
+            <i class="fa-solid fa-users"></i>
+          </div>
+          <h3 class="font-bold text-white text-lg">Family & Party Seating</h3>
+          <p class="text-zinc-400 text-sm mt-1">Comfortable AC/Non-AC seating for friends, families, birthday parties, and bulk catering orders.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CUSTOMER REVIEWS ================= -->
+  <section id="reviews" class="max-w-7xl mx-auto px-4 py-14">
+    <h2 class="font-serif text-3xl font-bold text-white text-center mb-8">What Our Guests Say</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="p-6 rounded-2xl bg-zinc-900 border border-zinc-800">
+        <div class="flex text-amber-400 text-xs mb-3">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        </div>
+        <p class="text-zinc-300 text-sm italic">"Best Mutton Handi and Lal Maas in Chirawa! The gravy is super rich and meat is always tender. Must visit for non-veg lovers."</p>
+        <p class="text-white font-semibold text-xs mt-4">— Vikram Shekhawat, Chirawa</p>
+      </div>
+      <div class="p-6 rounded-2xl bg-zinc-900 border border-zinc-800">
+        <div class="flex text-amber-400 text-xs mb-3">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        </div>
+        <p class="text-zinc-300 text-sm italic">"Butter Chicken and Garlic Naan combo is unbeatable here. Quick service and reasonable rates."</p>
+        <p class="text-white font-semibold text-xs mt-4">— Rahul Jangir, Jhunjhunu Road</p>
+      </div>
+      <div class="p-6 rounded-2xl bg-zinc-900 border border-zinc-800">
+        <div class="flex text-amber-400 text-xs mb-3">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+        </div>
+        <p class="text-zinc-300 text-sm italic">"Ordered Chicken Tikka and Biryani for a home party. Packing was hygienic and taste was top-notch!"</p>
+        <p class="text-white font-semibold text-xs mt-4">— Sandeep Katewa, Pilani-Chirawa</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= LOCATION & TABLE BOOKING ================= -->
+  <section id="location" class="max-w-7xl mx-auto px-4 py-10">
+    <div class="grid md:grid-cols-2 gap-8 bg-zinc-900 border border-zinc-800 rounded-3xl p-6 sm:p-10">
+      <div>
+        <span class="text-amber-400 text-xs font-bold uppercase tracking-widest">Visit Or Contact Us</span>
+        <h3 class="font-serif text-3xl font-bold text-white mt-1">Nirban Hotel, Chirawa</h3>
+        <p class="text-zinc-400 text-sm mt-2">Non-Veg & Family Restaurant • Dine-In, Takeaway & Local Delivery</p>
+
+        <div class="space-y-4 mt-6 text-sm">
+          <div class="flex items-start gap-3">
+            <i class="fa-solid fa-location-dot text-amber-400 mt-1"></i>
+            <div>
+              <strong class="text-white block">Address:</strong>
+              <span class="text-zinc-400">Main Road, Chirawa, District Jhunjhunu, Rajasthan (333026)</span>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <i class="fa-solid fa-clock text-amber-400 mt-1"></i>
+            <div>
+              <strong class="text-white block">Opening Hours:</strong>
+              <span class="text-zinc-400">Monday – Sunday: 11:00 AM to 11:30 PM</span>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <i class="fa-solid fa-phone-volume text-amber-400 mt-1"></i>
+            <div>
+              <strong class="text-white block">Direct Order / Inquiry:</strong>
+              <span class="text-zinc-400">+91 98765 43210 (Update Owner's Number Here)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-3 mt-7">
+          <a href="https://www.google.com/maps/search/?api=1&query=Nirban+Hotel+Chirawa+Rajasthan" target="_blank" class="px-5 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-bold text-sm flex items-center gap-2 transition">
+            <i class="fa-solid fa-map-location-dot"></i> Open in Google Maps
+          </a>
+          <a href="https://wa.me/919876543210?text=Hi%20Nirban%20Hotel%2C%20I%20want%20to%20book%20a%20table%20/%20inquire%20about%20an%20order." target="_blank" class="px-5 py-3 rounded-xl bg-green-600 hover:bg-green-500 text-white font-bold text-sm flex items-center gap-2 transition">
+            <i class="fa-brands fa-whatsapp text-base"></i> Chat on WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- Embedded Google Map for Chirawa -->
+      <div class="rounded-2xl overflow-hidden border border-zinc-800 h-72 md:h-auto">
+        <iframe 
+          src="https://www.google.com/maps?q=Nirban+Hotel+Chirawa+Rajasthan&output=embed" 
+          width="100%" 
+          height="100%" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FLOATING BOTTOM CART BAR (MOBILE FRIENDLY) ================= -->
+  <div id="floatingCartBar" class="fixed bottom-4 left-4 right-4 max-w-3xl mx-auto z-40 hidden">
+    <div onclick="toggleCart(true)" class="cursor-pointer bg-gradient-to-r from-red-700 via-red-600 to-amber-600 text-white p-4 rounded-2xl shadow-2xl flex items-center justify-between border border-amber-400/30">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-black/30 flex items-center justify-center font-bold text-sm" id="bottomCartCount">0</div>
+        <div>
+          <p class="text-xs text-amber-200 uppercase font-semibold tracking-wider">Your Order Tray</p>
+          <p class="text-base font-extrabold" id="bottomCartTotal">₹0</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 font-bold text-sm bg-black/30 px-4 py-2.5 rounded-xl">
+        <span>Checkout / Send Order</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= SLIDE-OVER CART & CHECKOUT DRAWER ================= -->
+  <div id="cartModal" class="fixed inset-0 z-50 hidden">
+    <!-- Backdrop -->
+    <div onclick="toggleCart(false)" class="absolute inset-0 bg-black/75 backdrop-blur-sm"></div>
+    
+    <!-- Drawer -->
+    <div class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-zinc-950 border-l border-zinc-800 flex flex-col">
+      <!-- Header -->
+      <div class="p-5 border-b border-zinc-800 flex items-center justify-between">
+        <div>
+          <h3 class="font-serif text-xl font-bold text-white">Your Order Cart</h3>
+          <p class="text-xs text-zinc-400">Nirban Hotel, Chirawa</p>
+        </div>
+        <button onclick="toggleCart(false)" class="w-9 h-9 rounded-lg bg-zinc-900 text-zinc-400 hover:text-white flex items-center justify-center">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+
+      <!-- Cart Items + Form Scroll Area -->
+      <div class="flex-1 overflow-y-auto p-5 space-y-6">
+        <!-- Items List -->
+        <div id="cartItemsList" class="space-y-3"></div>
+
+        <!-- Order Mode Selection -->
+        <div class="bg-zinc-900 p-4 rounded-2xl border border-zinc-800 space-y-3">
+          <label class="text-xs font-bold uppercase tracking-wider text-amber-400 block">1. Select Order Type</label>
+          <div class="grid grid-cols-3 gap-2 text-xs font-semibold">
+            <button type="button" onclick="setOrderMode('DELIVERY')" id="mode_DELIVERY" class="py-2.5 px-2 rounded-xl border border-amber-500 bg-amber-500/10 text-amber-400">
+              🛵 Delivery
+            </button>
+            <button type="button" onclick="setOrderMode('DINEIN')" id="mode_DINEIN" class="py-2.5 px-2 rounded-xl border border-zinc-700 bg-zinc-800 text-zinc-300">
+              🍽️ Table QR
+            </button>
+            <button type="button" onclick="setOrderMode('TAKEAWAY')" id="mode_TAKEAWAY" class="py-2.5 px-2 rounded-xl border border-zinc-700 bg-zinc-800 text-zinc-300">
+              🛍️ Takeaway
+            </button>
+          </div>
+
+          <input id="custName" type="text" placeholder="Your Name *" class="w-full px-3.5 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-sm text-white" />
+          <input id="custPhone" type="tel" placeholder="Mobile Number *" class="w-full px-3.5 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-sm text-white" />
+          
+          <!-- Dynamic Field based on Order Mode -->
+          <div id="addressBox">
+            <textarea id="custAddress" rows="2" placeholder="Full Delivery Address / Landmark in Chirawa *" class="w-full px-3.5 py-2 rounded-xl bg-zinc-950 border border-zinc-800 text-sm text-white"></textarea>
+          </div>
+          <div id="tableBox" class="hidden">
+            <input id="custTable" type="text" placeholder="Enter Table Number (e.g. Table #4) *" class="w-full px-3.5 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-sm text-white" />
+          </div>
+          <input id="custNotes" type="text" placeholder="Cooking Note (e.g. Extra Spicy, Less Oil)" class="w-full px-3.5 py-2 rounded-xl bg-zinc-950 border border-zinc-800 text-sm text-white" />
+        </div>
+
+        <!-- Payment Selection (COD vs Instant UPI QR) -->
+        <div class="bg-zinc-900 p-4 rounded-2xl border border-zinc-800 space-y-3">
+          <label class="text-xs font-bold uppercase tracking-wider text-amber-400 block">2. Payment Method (0% Commission)</label>
+          <div class="grid grid-cols-2 gap-2 text-xs font-semibold">
+            <button type="button" onclick="setPaymentMethod('UPI')" id="pay_UPI" class="py-2.5 px-3 rounded-xl border border-green-500 bg-green-500/10 text-green-400">
+              📱 Instant UPI / QR
+            </button>
+            <button type="button" onclick="setPaymentMethod('COD')" id="pay_COD" class="py-2.5 px-3 rounded-xl border border-zinc-700 bg-zinc-800 text-zinc-300">
+              💵 Cash / Pay at Counter
+            </button>
+          </div>
+
+          <!-- Dynamic UPI Box -->
+          <div id="upiScannerBox" class="text-center p-3 bg-zinc-950 rounded-xl border border-zinc-800">
+            <p class="text-xs text-zinc-300 mb-2">Scan with GPay / PhonePe / Paytm or click button below:</p>
+            <img id="dynamicQrImg" src="" alt="UPI QR" class="w-36 h-36 mx-auto rounded-lg bg-white p-1.5" />
+            <a id="upiIntentBtn" href="#" class="mt-3 inline-block w-full py-2 rounded-lg bg-green-600 hover:bg-green-500 text-white font-bold text-xs">
+              Open UPI App to Pay
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Bill & WhatsApp Trigger -->
+      <div class="p-5 border-t border-zinc-800 bg-zinc-900/90 space-y-3">
+        <div class="flex justify-between text-sm text-zinc-300">
+          <span>Total Payable</span>
+          <span id="drawerTotal" class="text-xl font-extrabold text-amber-400">₹0</span>
+        </div>
+        <button onclick="sendOrderToWhatsApp()" class="w-full py-3.5 rounded-xl bg-green-600 hover:bg-green-500 text-white font-bold text-base flex items-center justify-center gap-2 shadow-lg shadow-green-600/30 transition">
+          <i class="fa-brands fa-whatsapp text-xl"></i> Place Order on WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="border-t border-zinc-900 py-8 text-center text-xs text-zinc-500">
+    <p>© 2026 <strong>Nirban Hotel Chirawa</strong>. All Rights Reserved.</p>
+    <p class="mt-1">Digital QR & Ordering System Powered by Custom Web Architecture</p>
+  </footer>
+
+  <!-- ================= JAVASCRIPT LOGIC ================= -->
+  <script>
+    // 1. OWNER CONFIGURATION (Change WhatsApp & UPI ID here before pitching)
+    const RESTAURANT_CONFIG = {
+      name: "Nirban Hotel Chirawa",
+      whatsappNumber: "919876543210", // <-- Yahan Nirban Hotel ka WhatsApp Number daalna
+      upiId: "nirbanhotel@okaxis",    // <-- Yahan Owner ki UPI ID daalna
+    };
+
+    // 2. COMPLETE NIRBAN HOTEL MENU DATA (With Half/Full Variants)
+    const CATEGORIES = [
+      "All",
+      "Mutton & Handi Specials",
+      "Chicken Main Course",
+      "Tandoori & Starters",
+      "Egg & Fish",
+      "Biryani & Rice",
+      "Roti & Naan"
+    ];
+
+    const MENU_ITEMS = [
+      {
+        id: 1,
+        name: "Rajasthani Lal Maas (Desi Ghee)",
+        category: "Mutton & Handi Specials",
+        isVeg: false,
+        bestseller: true,
+        desc: "Signature fiery Rajasthani mutton curry cooked with Mathania red chillies & pure desi ghee.",
+        img: "https://images.unsplash.com/photo-1545247181-516773cae754?auto=format&fit=crop&w=600&q=80",
+        variants: { Half: 280, Full: 520 }
+      },
+      {
+        id: 2,
+        name: "Nirban Special Handi Mutton",
+        category: "Mutton & Handi Specials",
+        isVeg: false,
+        bestseller: true,
+        desc: "Slow-cooked tender goat meat in clay pot with whole spices and rich onion-garlic gravy.",
+        img: "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=600&q=80",
+        variants: { Half: 270, Full: 500 }
+      },
+      {
+        id: 3,
+        name: "Mutton Rogan Josh",
+        category: "Mutton & Handi Specials",
+        isVeg: false,
+        bestseller: false,
+        desc: "Aromatic Kashmiri style mutton curry bursting with authentic desi flavours.",
+        img: "https://images.unsplash.com/photo-1574653853027-5382a3d23a15?auto=format&fit=crop&w=600&q=80",
+        variants: { Half: 260, Full: 480 }
+      },
+      {
+        id: 4,
+        name: "Butter Chicken (Boneless / Bone)",
+        category: "Chicken Main Course",
+        isVeg: false,
+        bestseller: true,
+        desc: "Charcoal-grilled chicken tikka simmered in rich, creamy tomato-butter cashew gravy.",
+        img: "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=600&q=80",
+        variants: { Half: 220, Full: 400 }
+      },
+      {
+        id: 5,
+        name: "Kadhai Chicken Masala",
+        category: "Chicken Main Course",
+        isVeg: false,
+        bestseller: false,
+        desc: "Spicy chicken tossed with bell peppers, onions, and freshly pounded kadhai masala.",
+        img: "https://images.unsplash.com/photo-1606491956689-2ea866880c84?auto=format&fit=crop&w=600&q=80",
+        variants: { Half: 210, Full: 380 }
+      },
+      {
+        id: 6,
+        name: "Chicken Rara Desi Style",
+        category: "Chicken Main Course",
+        isVeg: false,
+        bestseller: true,
+        desc: "Succulent chicken pieces cooked in a thick, flavorful minced chicken keema gravy.",
+        img: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=600&q=80",
+        variants: { Half: 240, Full: 440 }
+      },
+      {
+        id: 7,
+        name: "Tandoori Chicken (Roasted)",
+        category: "Tandoori & Starters",
+        isVeg: false,
+        bestseller: true,
+        desc: "Marinated in hung curd & smoky tandoori masala, roasted to perfection in clay oven.",
+        img: "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&w=600&q=80",
+        variants: { Half: 200, Full: 380 }
+      },
+      {
+        id: 8,
+        name: "Chicken Tikka / Malai Tikka (8 Pcs)",
+        category: "Tandoori & Starters",
+        isVeg: false,
+        bestseller: false,
+        desc: "Juicy boneless chicken chunks skewered in tandoor, served with mint chutney & onion rings.",
+        img: "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&w=600&q=80",
+        variants: { Plate: 260 }
+      },
+      {
+        id: 9,
+        name: "Hyderabadi Chicken Dum Biryani",
+        category: "Biryani & Rice",
+        isVeg: false,
+        bestseller: true,
+        desc: "Long-grain basmati rice layered with marinated chicken, saffron, and raita.",
+        img: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=600&q=80",
+        variants: { Half: 140, Full: 250 }
+      },
+      {
+        id: 10,
+        name: "Desi Egg Curry (Dhaba Style)",
+        category: "Egg & Fish",
+        isVeg: false,
+        bestseller: false,
+        desc: "Boiled fried eggs simmered in spicy onion-tomato dhaba masala.",
+        img: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=600&q=80",
+        variants: { Half: 100, Full: 170 }
+      },
+      {
+        id: 11,
+        name: "Butter Tandoori Roti",
+        category: "Roti & Naan",
+        isVeg: true,
+        bestseller: false,
+        desc: "Crispy clay-oven whole wheat roti topped with butter.",
+        img: "https://images.unsplash.com/photo-1626074353765-517a681e40be?auto=format&fit=crop&w=600&q=80",
+        variants: { Piece: 15 }
+      },
+      {
+        id: 12,
+        name: "Butter Garlic Naan",
+        category: "Roti & Naan",
+        isVeg: true,
+        bestseller: true,
+        desc: "Soft leavened tandoori naan topped with fresh chopped garlic, coriander, and butter.",
+        img: "https://images.unsplash.com/photo-1626074353765-517a681e40be?auto=format&fit=crop&w=600&q=80",
+        variants: { Piece: 45 }
+      }
+    ];
+
+    let activeCategory = "All";
+    let selectedVariants = {}; // Tracks Half/Full selection per item
+    let cart = [];
+    let orderMode = "DELIVERY";
+    let paymentMethod = "UPI";
+
+    // Initialize default variants
+    MENU_ITEMS.forEach(item => {
+      selectedVariants[item.id] = Object.keys(item.variants)[0];
+    });
+
+    function renderCategoryTabs() {
+      const container = document.getElementById("categoryTabs");
+      container.innerHTML = CATEGORIES.map(cat => `
+        <button 
+          onclick="setCategory('${cat}')"
+          class="px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition ${
+            activeCategory === cat 
+              ? 'bg-gradient-to-r from-red-600 to-amber-600 text-white shadow-md' 
+              : 'bg-zinc-900 text-zinc-400 hover:text-white border border-zinc-800'
+          }"
+        >
+          ${cat}
+        </button>
+      `).join("");
+    }
+
+    function setCategory(cat) {
+      activeCategory = cat;
+      renderCategoryTabs();
+      renderMenu();
+    }
+
+    function selectVariant(itemId, variantKey) {
+      selectedVariants[itemId] = variantKey;
+      renderMenu();
+    }
+
+    function renderMenu() {
+      const search = document.getElementById("searchInput").value.toLowerCase();
+      const typeFilter = document.getElementById("typeFilter").value;
+      const grid = document.getElementById("menuGrid");
+
+      const filtered = MENU_ITEMS.filter(item => {
+        const matchesCat = activeCategory === "All" || item.category === activeCategory;
+        const matchesSearch = item.name.toLowerCase().includes(search) || item.desc.toLowerCase().includes(search);
+        const matchesType = typeFilter === "ALL" || (typeFilter === "NONVEG" && !item.isVeg) || (typeFilter === "VEG" && item.isVeg);
+        return matchesCat && matchesSearch && matchesType;
+      });
+
+      grid.innerHTML = filtered.map(item => {
+        const currentVariant = selectedVariants[item.id];
+        const currentPrice = item.variants[currentVariant];
+        const variantKeys = Object.keys(item.variants);
+
+        return `
+          <div class="bg-zinc-900/90 border border-zinc-800/90 rounded-2xl overflow-hidden flex flex-col justify-between hover:border-zinc-700 transition group">
+            <div>
+              <div class="relative h-44 overflow-hidden">
+                <img src="${item.img}" alt="${item.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                <div class="absolute top-3 left-3 flex items-center gap-2">
+                  <span class="px-2 py-0.5 rounded bg-black/80 text-[11px] font-bold ${item.isVeg ? 'text-green-400' : 'text-red-400'}">
+                    ${item.isVeg ? '🟢 VEG' : '🔴 NON-VEG'}
+                  </span>
+                  ${item.bestseller ? '<span class="px-2 py-0.5 rounded bg-amber-500 text-black text-[11px] font-extrabold">★ BESTSELLER</span>' : ''}
+                </div>
+              </div>
+              <div class="p-4">
+                <h3 class="font-bold text-white text-base">${item.name}</h3>
+                <p class="text-zinc-400 text-xs mt-1 line-clamp-2">${item.desc}</p>
+
+                <!-- Variant Pills (Half / Full) -->
+                <div class="flex items-center gap-2 mt-3">
+                  ${variantKeys.map(vKey => `
+                    <button 
+                      onclick="selectVariant(${item.id}, '${vKey}')"
+                      class="px-3 py-1 rounded-lg text-xs font-semibold border transition ${
+                        currentVariant === vKey 
+                          ? 'border-amber-500 bg-amber-500/15 text-amber-300' 
+                          : 'border-zinc-800 bg-zinc-950 text-zinc-400'
+                      }"
+                    >
+                      ${vKey}: ₹${item.variants[vKey]}
+                    </button>
+                  `).join("")}
+                </div>
+              </div>
+            </div>
+
+            <div class="px-4 pb-4 pt-2 flex items-center justify-between border-t border-zinc-800/60">
+              <div>
+                <span class="text-xs text-zinc-400">${currentVariant}</span>
+                <div class="text-lg font-extrabold text-white">₹${currentPrice}</div>
+              </div>
+              <button 
+                onclick="addToCart(${item.id})"
+                class="px-4 py-2 rounded-xl bg-gradient-to-r from-red-600 to-amber-600 hover:from-red-500 hover:to-amber-500 text-white font-bold text-xs shadow-md transition flex items-center gap-1.5"
+              >
+                <i class="fa-solid fa-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function addToCart(itemId) {
+      const item = MENU_ITEMS.find(i => i.id === itemId);
+      const variant = selectedVariants[itemId];
+      const price = item.variants[variant];
+      const cartKey = `${itemId}_${variant}`;
+
+      const existing = cart.find(c => c.cartKey === cartKey);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({
+          cartKey,
+          name: item.name,
+          variant,
+          price,
+          qty: 1
+        });
+      }
+      updateCartUI();
+    }
+
+    function changeQty(cartKey, delta) {
+      const item = cart.find(c => c.cartKey === cartKey);
+      if (!item) return;
+      item.qty += delta;
+      if (item.qty <= 0) {
+        cart = cart.filter(c => c.cartKey !== cartKey);
+      }
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      const totalItems = cart.reduce((sum, i) => sum + i.qty, 0);
+      const totalAmount = cart.reduce((sum, i) => sum + i.qty * i.price, 0);
+
+      document.getElementById("navCartCount").innerText = totalItems;
+      document.getElementById("bottomCartCount").innerText = totalItems;
+      document.getElementById("bottomCartTotal").innerText = `₹${totalAmount}`;
+      document.getElementById("drawerTotal").innerText = `₹${totalAmount}`;
+
+      const floatingBar = document.getElementById("floatingCartBar");
+      if (totalItems > 0) {
+        floatingBar.classList.remove("hidden");
+      } else {
+        floatingBar.classList.add("hidden");
+      }
+
+      // Render Drawer List
+      const listEl = document.getElementById("cartItemsList");
+      if (cart.length === 0) {
+        listEl.innerHTML = `<p class="text-center text-zinc-500 text-sm py-8">Your cart is empty. Add delicious dishes from the menu!</p>`;
+      } else {
+        listEl.innerHTML = cart.map(c => `
+          <div class="flex items-center justify-between bg-zinc-900 p-3 rounded-xl border border-zinc-800">
+            <div>
+              <h4 class="text-sm font-bold text-white">${c.name}</h4>
+              <p class="text-xs text-amber-400">${c.variant} • ₹${c.price} each</p>
+            </div>
+            <div class="flex items-center gap-2 bg-zinc-950 px-2.5 py-1 rounded-lg border border-zinc-800">
+              <button onclick="changeQty('${c.cartKey}', -1)" class="text-zinc-400 hover:text-white font-bold px-1">-</button>
+              <span class="text-xs font-bold text-white">${c.qty}</span>
+              <button onclick="changeQty('${c.cartKey}', 1)" class="text-amber-400 hover:text-amber-300 font-bold px-1">+</button>
+            </div>
+          </div>
+        `).join("");
+      }
+
+      // Update Dynamic Zero-Commission UPI Link & QR
+      const upiUrl = `upi://pay?pa=${RESTAURANT_CONFIG.upiId}&pn=${encodeURIComponent(RESTAURANT_CONFIG.name)}&am=${totalAmount}&cu=INR`;
+      document.getElementById("upiIntentBtn").href = upiUrl;
+      document.getElementById("dynamicQrImg").src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upiUrl)}`;
+    }
+
+    function toggleCart(show) {
+      const modal = document.getElementById("cartModal");
+      if (show) modal.classList.remove("hidden");
+      else modal.classList.add("hidden");
+    }
+
+    function setOrderMode(mode) {
+      orderMode = mode;
+      ["DELIVERY", "DINEIN", "TAKEAWAY"].forEach(m => {
+        const btn = document.getElementById(`mode_${m}`);
+        if (m === mode) {
+          btn.className = "py-2.5 px-2 rounded-xl border border-amber-500 bg-amber-500/10 text-amber-400";
+        } else {
+          btn.className = "py-2.5 px-2 rounded-xl border border-zinc-700 bg-zinc-800 text-zinc-300";
+        }
+      });
+
+      document.getElementById("addressBox").classList.toggle("hidden", mode !== "DELIVERY");
+      document.getElementById("tableBox").classList.toggle("hidden", mode !== "DINEIN");
+    }
+
+    function setPaymentMethod(method) {
+      paymentMethod = method;
+      document.getElementById("pay_UPI").className = method === "UPI"
+        ? "py-2.5 px-3 rounded-xl border border-green-500 bg-green-500/10 text-green-400"
+        : "py-2.5 px-3 rounded-xl border border-zinc-700 bg-zinc-800 text-zinc-300";
+      document.getElementById("pay_COD").className = method === "COD"
+        ? "py-2.5 px-3 rounded-xl border border-amber-500 bg-amber-500/10 text-amber-400"
+        : "py-2.5 px-3 rounded-xl border border-zinc-700 bg-zinc-800 text-zinc-300";
+
+      document.getElementById("upiScannerBox").classList.toggle("hidden", method !== "UPI");
+    }
+
+    function sendOrderToWhatsApp() {
+      if (cart.length === 0) {
+        alert("Please add at least one item to your cart!");
+        return;
+      }
+      const name = document.getElementById("custName").value.trim();
+      const phone = document.getElementById("custPhone").value.trim();
+      const address = document.getElementById("custAddress").value.trim();
+      const tableNo = document.getElementById("custTable").value.trim();
+      const notes = document.getElementById("custNotes").value.trim();
+
+      if (!name || !phone) {
+        alert("Please enter your Name and Mobile Number!");
+        return;
+      }
+      if (orderMode === "DELIVERY" && !address) {
+        alert("Please enter your Delivery Address in Chirawa!");
+        return;
+      }
+      if (orderMode === "DINEIN" && !tableNo) {
+        alert("Please enter your Table Number!");
+        return;
+      }
+
+      const totalAmount = cart.reduce((sum, i) => sum + i.qty * i.price, 0);
+      const itemLines = cart.map((c, idx) => `${idx + 1}. ${c.name} (${c.variant}) x ${c.qty} = ₹${c.qty * c.price}`).join("\n");
+
+      let locationDetail = "";
+      if (orderMode === "DELIVERY") locationDetail = `📍 *Address:* ${address}`;
+      if (orderMode === "DINEIN") locationDetail = `🍽️ *Table No:* ${tableNo}`;
+      if (orderMode === "TAKEAWAY") locationDetail = `🛍️ *Order Type:* Self-Pickup / Takeaway`;
+
+      const message = 
+`🔥 *NEW ORDER - NIRBAN HOTEL CHIRAWA* 🔥
+------------------------------
+👤 *Customer:* ${name}
+📞 *Phone:* ${phone}
+🛵 *Mode:* ${orderMode}
+${locationDetail}
+------------------------------
+📋 *ORDER ITEMS:*
+${itemLines}
+------------------------------
+💰 *TOTAL BILL: ₹${totalAmount}*
+💳 *Payment:* ${paymentMethod === 'UPI' ? 'Paid via UPI QR (Verify on Soundbox)' : 'Cash on Delivery / Counter'}
+${notes ? `📝 *Note:* ${notes}` : ''}`;
+
+      const waUrl = `https://wa.me/${RESTAURANT_CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`;
+      window.open(waUrl, "_blank");
+    }
+
+    // Initial load
+    renderCategoryTabs();
+    renderMenu();
+    updateCartUI();
+  </script>
+</body>
+</html>

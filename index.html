@@ -543,7 +543,7 @@
 
 
                     <!-- Dynamic Field based on Order Mode (With Live GPS Button) -->
-                    <div id="addressBox" class="space-y-2">
+                    <!-- <div id="addressBox" class="space-y-2">
                         <button type="button" onclick="getCustomerGPSLocation()" id="gpsBtn"
                             class="w-full py-2.5 px-3 rounded-xl bg-amber-500/15 hover:bg-amber-500/25 border border-amber-500/50 text-amber-400 font-bold text-xs flex items-center justify-center gap-2 transition">
                             <i class="fa-solid fa-location-crosshairs text-sm"></i>
@@ -552,7 +552,58 @@
 
                         <textarea id="custAddress" rows="2" placeholder="House No, Street / Landmark in Chirawa *"
                             class="w-full px-3.5 py-2 rounded-xl bg-zinc-950 border border-zinc-800 text-sm text-white"></textarea>
+                    </div> -->
+
+
+
+
+                    <!-- Dynamic Field based on Order Mode (With Smart GPS + Fallback) -->
+                    <div id="addressBox" class="space-y-2.5">
+                        <button type="button" onclick="getCustomerGPSLocation()" id="gpsBtn"
+                            class="w-full py-2.5 px-3 rounded-xl bg-amber-500/15 hover:bg-amber-500/25 border border-amber-500/50 text-amber-400 font-bold text-xs flex items-center justify-center gap-2 transition">
+                            <i class="fa-solid fa-location-crosshairs text-sm"></i>
+                            <span id="gpsBtnText">Detect My Current Location (GPS)</span>
+                        </button>
+
+                        <!-- Ye box tabhi khulega jab user Location Deny/Block kar dega -->
+                        <div id="gpsHelpBox"
+                            class="hidden p-3 rounded-xl bg-red-950/60 border border-red-800/80 text-[11px] text-zinc-200 space-y-1.5">
+                            <p class="font-bold text-red-400 flex items-center gap-1.5">
+                                <i class="fa-solid fa-circle-exclamation"></i> Location Permission Blocked!
+                            </p>
+                            <p class="text-zinc-300 leading-relaxed">
+                                Dobara GPS on karne ke liye upar browser address bar ke paas <strong>🔒 (Lock / Tune
+                                    icon)</strong> par tap karein &rarr; <strong>Permissions</strong> &rarr;
+                                <strong>Location को Allow</strong> karke page refresh karein.
+                            </p>
+                            <p class="text-amber-400 font-semibold pt-0.5">
+                                👇 Ya bina GPS ke niche apna Area / Landmark select karke address likh dein:
+                            </p>
+                        </div>
+
+                        <!-- Quick Chirawa Landmarks (1-Click Fallback agar GPS na chale) -->
+                        <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5">
+                            <span class="text-[10px] text-zinc-500 whitespace-nowrap">Quick Area:</span>
+                            <button type="button" onclick="addLandmark('Near Bus Stand, Chirawa')"
+                                class="px-2 py-1 rounded-md bg-zinc-950 border border-zinc-800 text-[10px] text-zinc-300 hover:border-amber-500 whitespace-nowrap">+
+                                Bus Stand</button>
+                            <button type="button" onclick="addLandmark('Station Road, Chirawa')"
+                                class="px-2 py-1 rounded-md bg-zinc-950 border border-zinc-800 text-[10px] text-zinc-300 hover:border-amber-500 whitespace-nowrap">+
+                                Station Rd</button>
+                            <button type="button" onclick="addLandmark('Pilani Road, Chirawa')"
+                                class="px-2 py-1 rounded-md bg-zinc-950 border border-zinc-800 text-[10px] text-zinc-300 hover:border-amber-500 whitespace-nowrap">+
+                                Pilani Rd</button>
+                            <button type="button" onclick="addLandmark('Sabzi Mandi, Chirawa')"
+                                class="px-2 py-1 rounded-md bg-zinc-950 border border-zinc-800 text-[10px] text-zinc-300 hover:border-amber-500 whitespace-nowrap">+
+                                Sabzi Mandi</button>
+                        </div>
+
+                        <textarea id="custAddress" rows="2" placeholder="House No, Street / Landmark in Chirawa *"
+                            class="w-full px-3.5 py-2 rounded-xl bg-zinc-950 border border-zinc-800 text-sm text-white focus:outline-none focus:border-amber-500"></textarea>
                     </div>
+
+
+
                     <div id="tableBox" class="hidden">
                         <input id="custTable" type="text" placeholder="Enter Table Number (e.g. Table #4) *"
                             class="w-full px-3.5 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-sm text-white" />
@@ -1441,45 +1492,90 @@
 
 
 
+        let customerGpsUrl = "";
 
-let customerGpsUrl = ""; // Yeh customer ka Google Maps link save rakhega
+        function addLandmark(areaText) {
+            const addressInput = document.getElementById("custAddress");
+            if (!addressInput.value.includes(areaText)) {
+                addressInput.value = addressInput.value.trim()
+                    ? `${addressInput.value.trim()}, ${areaText}`
+                    : areaText;
+            }
+            addressInput.focus();
+        }
 
-function getCustomerGPSLocation() {
-  const btnText = document.getElementById("gpsBtnText");
-  const gpsBtn = document.getElementById("gpsBtn");
-  const addressInput = document.getElementById("custAddress");
+        async function getCustomerGPSLocation() {
+            const btnText = document.getElementById("gpsBtnText");
+            const gpsBtn = document.getElementById("gpsBtn");
+            const helpBox = document.getElementById("gpsHelpBox");
+            const addressInput = document.getElementById("custAddress");
 
-  if (!navigator.geolocation) {
-    alert("Aapke browser mein GPS support nahi hai. Kripya address type kar dein.");
-    return;
-  }
+            if (!navigator.geolocation) {
+                alert("Aapke browser mein GPS support nahi hai. Niche address type kar dein.");
+                return;
+            }
 
-  btnText.innerText = "Fetching GPS Location...";
+            // Hide help box before trying
+            if (helpBox) helpBox.classList.add("hidden");
+            btnText.innerText = "Checking Location Permission...";
 
-  navigator.geolocation.getCurrentPosition(
-    (position) => {
-      const lat = position.coords.latitude;
-      const lng = position.coords.longitude;
-      
-      // Direct Google Maps Direction Link
-      customerGpsUrl = `https://www.google.com/maps?q=${lat},${lng}`;
+            // Check if browser already knows permission is denied
+            if (navigator.permissions && navigator.permissions.query) {
+                try {
+                    const permStatus = await navigator.permissions.query({ name: "geolocation" });
 
-      btnText.innerText = "✅ Live GPS Location Attached!";
-      gpsBtn.className = "w-full py-2.5 px-3 rounded-xl bg-green-500/20 border border-green-500 text-green-400 font-bold text-xs flex items-center justify-center gap-2 transition";
+                    // Agar user upar Lock icon se permission wapas "Allow" kare, toh automatically GPS le lo!
+                    permStatus.onchange = () => {
+                        if (permStatus.state === "granted") {
+                            getCustomerGPSLocation();
+                        }
+                    };
 
-      if (!addressInput.value.trim()) {
-        addressInput.placeholder = "GPS Locked! Bas apna Makan No. / Landmark likh dein (e.g. Near Bus Stand)";
-      }
-    },
-    (error) => {
-      btnText.innerText = "Detect My Current Location (GPS)";
-      alert("Location on nahi hai! Kripya phone ka GPS/Location on karein ya seedha address likh dein.");
-    },
-    { enableHighAccuracy: true, timeout: 10000 }
-  );
-}
+                    if (permStatus.state === "denied") {
+                        btnText.innerText = "🔄 Retry GPS (After Allowing from Lock Icon)";
+                        if (helpBox) helpBox.classList.remove("hidden");
+                        addressInput.focus();
+                        return;
+                    }
+                } catch (e) {
+                    // Kuch browsers permissions API support nahi karte, toh seedha getCurrentPosition chalega
+                }
+            }
 
+            btnText.innerText = "Fetching Live GPS...";
 
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    const lat = position.coords.latitude;
+                    const lng = position.coords.longitude;
+                    customerGpsUrl = `https://www.google.com/maps?q=${lat},${lng}`;
+
+                    if (helpBox) helpBox.classList.add("hidden");
+                    btnText.innerText = "✅ Live GPS Location Attached!";
+                    gpsBtn.className = "w-full py-2.5 px-3 rounded-xl bg-green-500/20 border border-green-500 text-green-400 font-bold text-xs flex items-center justify-center gap-2 transition";
+
+                    if (!addressInput.value.trim()) {
+                        addressInput.placeholder = "GPS Locked! Bas apna Makan No. / Landmark likh dein";
+                    }
+                },
+                (error) => {
+                    if (error.code === 1) {
+                        // Error Code 1 = PERMISSION_DENIED (User clicked Block/Deny)
+                        btnText.innerText = "🔄 Retry GPS (Permission Blocked)";
+                        if (helpBox) helpBox.classList.remove("hidden");
+                        addressInput.focus();
+                    } else if (error.code === 2) {
+                        // Error Code 2 = POSITION_UNAVAILABLE (Phone GPS Switch Off)
+                        btnText.innerText = "🔄 Turn On Phone GPS & Tap to Retry";
+                        alert("Aapke phone ka GPS/Location switch band hai. Upar notification bar se Location ON karke dobara button dabayein.");
+                    } else {
+                        // Error Code 3 = TIMEOUT
+                        btnText.innerText = "🔄 Network Slow - Tap to Retry GPS";
+                    }
+                },
+                { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+            );
+        }
 
 
 
@@ -1772,16 +1868,16 @@ function getCustomerGPSLocation() {
             // if (orderMode === "TAKEAWAY") locationDetail = `🛍️ *Order Type:* Self-Pickup / Takeaway`;
 
 
-if (orderMode === "DELIVERY") {
-  // Agar GPS liya hai toh woh link jayega, warna typed address se Google Map search link ban jayega
-  const mapLink = customerGpsUrl 
-    ? customerGpsUrl 
-    : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address + " Chirawa")}`;
-    
-  locationDetail = `📍 *Address:* ${address}\n🗺️ *Delivery Map Link:* ${mapLink}`;
-}
-if (orderMode === "DINEIN") locationDetail = `🍽️ *Table No:* ${tableNo}`;
-if (orderMode === "TAKEAWAY") locationDetail = `🛍️ *Order Type:* Self-Pickup / Takeaway`;
+            if (orderMode === "DELIVERY") {
+                // Agar GPS liya hai toh woh link jayega, warna typed address se Google Map search link ban jayega
+                const mapLink = customerGpsUrl
+                    ? customerGpsUrl
+                    : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address + " Chirawa")}`;
+
+                locationDetail = `📍 *Address:* ${address}\n🗺️ *Delivery Map Link:* ${mapLink}`;
+            }
+            if (orderMode === "DINEIN") locationDetail = `🍽️ *Table No:* ${tableNo}`;
+            if (orderMode === "TAKEAWAY") locationDetail = `🛍️ *Order Type:* Self-Pickup / Takeaway`;
 
 
 

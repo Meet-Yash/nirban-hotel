@@ -12,6 +12,10 @@ body {
   scrollbar-width: none;
 }
 
+.nl-badge{
+    display: none !important;
+}
+
 /* ================= 58MM BLUETOOTH THERMAL PRINTER CSS ================= */
 @media print {
   @page {

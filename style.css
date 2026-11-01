@@ -1,0 +1,50 @@
+body {
+  background-color: #09090b;
+  color: #f4f4f5;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ================= 58MM BLUETOOTH THERMAL PRINTER CSS ================= */
+@media print {
+  @page {
+    size: 58mm auto;
+    margin: 0mm;
+  }
+  html, body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 58mm !important;
+  }
+  body > *:not(#thermalReceiptModal) {
+    display: none !important;
+  }
+  #thermalReceiptModal {
+    position: static !important;
+    display: block !important;
+    background: #ffffff !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  #thermalModalBackdrop, #thermalActionButtons {
+    display: none !important;
+  }
+  #thermalPrintArea {
+    width: 54mm !important;
+    margin: 0 auto !important;
+    padding: 2mm 1mm !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+}

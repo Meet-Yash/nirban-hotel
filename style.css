@@ -12,7 +12,11 @@ body {
   scrollbar-width: none;
 }
 
-
+/* Keep Floating Cart Bar above Netlify Badge on Mobile */
+#floatingCartBar {
+  bottom: 24px !important;
+  /* z-index: 9999 !important; */
+}
 
 /* ================= 58MM BLUETOOTH THERMAL PRINTER CSS ================= */
 @media print {

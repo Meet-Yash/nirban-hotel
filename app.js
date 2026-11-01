@@ -6,6 +6,9 @@ let orderMode = "DELIVERY";
 let paymentMethod = "UPI";
 let customerGpsUrl = "";
 
+// Quick Add-On Items in Cart (Tandoori Butter Roti, Plain Roti, Chhach, Papad, Green Salad)
+const QUICK_ADD_IDS = [61, 60, 69, 66, 64];
+
 MENU_ITEMS.forEach(item => {
   selectedVariants[item.id] = Object.keys(item.variants)[0];
 });
@@ -41,23 +44,107 @@ function translateVariantLabel(vKey) {
   return map[vKey] || vKey;
 }
 
+// ================= AUTO-SAVE CUSTOMER INFO (LOCALSTORAGE) =================
+function saveCustomerDetails() {
+  const info = {
+    name: document.getElementById("custName").value,
+    phone: document.getElementById("custPhone").value,
+    address: document.getElementById("custAddress").value
+  };
+  localStorage.setItem("nirban_customer_info", JSON.stringify(info));
+  const badge = document.getElementById("autoSaveBadge");
+  if (badge && (info.name || info.phone)) {
+    badge.classList.remove("hidden");
+  }
+}
+
+function loadSavedCustomerDetails() {
+  try {
+    const saved = JSON.parse(localStorage.getItem("nirban_customer_info"));
+    if (saved) {
+      if (saved.name) document.getElementById("custName").value = saved.name;
+      if (saved.phone) document.getElementById("custPhone").value = saved.phone;
+      if (saved.address) document.getElementById("custAddress").value = saved.address;
+      if (saved.name || saved.phone) {
+        document.getElementById("autoSaveBadge").classList.remove("hidden");
+      }
+    }
+  } catch (e) {}
+}
+
+// ================= 1-TAP QUICK ADD-ON STRIP IN CART =================
+function renderQuickAddStrip() {
+  const container = document.getElementById("quickAddButtons");
+  if (!container) return;
+
+  const titleEl = document.getElementById("quickAddTitle");
+  if (titleEl) {
+    titleEl.innerText = currentLang === "EN"
+      ? "🫓 Forgot Roti, Chhach or Salad? (1-Tap Add):"
+      : "🫓 रोटी, छाछ या सलाद जोड़ें (1-क्लिक में):";
+  }
+
+  container.innerHTML = QUICK_ADD_IDS.map(id => {
+    const item = MENU_ITEMS.find(i => i.id === id);
+    if (!item) return "";
+    const vKey = Object.keys(item.variants)[0];
+    const price = item.variants[vKey];
+    const label = currentLang === "EN" ? item.name : item.hi;
+    return `
+      <button 
+        type="button"
+        onclick="quickAddItem(${item.id})"
+        class="px-2.5 py-1.5 rounded-lg bg-zinc-950 hover:bg-amber-500/20 border border-zinc-800 hover:border-amber-500 text-[11px] font-bold text-zinc-200 whitespace-nowrap transition flex items-center gap-1 shrink-0"
+      >
+        <i class="fa-solid fa-plus text-amber-400 text-[10px]"></i>
+        <span>${label} (₹${price})</span>
+      </button>
+    `;
+  }).join("");
+}
+
+function quickAddItem(itemId) {
+  const item = MENU_ITEMS.find(i => i.id === itemId);
+  if (!item) return;
+  const variant = Object.keys(item.variants)[0];
+  const price = item.variants[variant];
+  const cartKey = `${itemId}_${variant}`;
+
+  const existing = cart.find(c => c.cartKey === cartKey);
+  if (existing) {
+    existing.qty += 1;
+  } else {
+    cart.push({
+      cartKey,
+      name: item.name,
+      hi: item.hi,
+      variant,
+      price,
+      qty: 1
+    });
+  }
+  updateCartUI();
+}
+
 function toggleLanguage() {
   currentLang = currentLang === "EN" ? "HI" : "EN";
   
-  // Update UI Text based on Language
   document.getElementById("langBtnLabel").innerText = currentLang === "EN" ? "अ हिंदी" : "A English";
+  document.getElementById("navHomeLink").innerText = currentLang === "EN" ? "Home" : "होम";
   document.getElementById("navMenuLink").innerText = currentLang === "EN" ? "Digital Menu" : "डिजिटल मेनू";
   document.getElementById("navReviewsLink").innerText = currentLang === "EN" ? "Reviews" : "ग्राहकों की राय";
   document.getElementById("navLocationLink").innerText = currentLang === "EN" ? "Location" : "लोकेशन";
   document.getElementById("navCartLabel").innerText = currentLang === "EN" ? "Cart" : "कार्ट";
   
-  document.getElementById("heroBadgeText").innerText = currentLang === "EN" ? "Open Now • GST Verified Restaurant (08CSUPK5608Q3ZN)" : "अभी खुला है • जीएसटी प्रमाणित रेस्टोरेंट (08CSUPK5608Q3ZN)";
+  document.getElementById("heroBadgeText").innerText = currentLang === "EN" 
+    ? "Open Now • GST Verified Restaurant (08CSUPK5608Q3ZN)" 
+    : "अभी खुला है • जीएसटी प्रमाणित रेस्टोरेंट (08CSUPK5608Q3ZN)";
   document.getElementById("heroTitle").innerHTML = currentLang === "EN" 
     ? `Asli Rajasthani <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-red-500">Zayka</span> in Chirawa.` 
-    : `चिड़ावा का असली राजस्थानी <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-red-500">जैका</span>।`;
+    : `चिड़ावा का असली राजस्थानी <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-red-500">ज़ायका</span>।`;
   document.getElementById("heroSubtitle").innerText = currentLang === "EN" 
     ? "Famous for our rich Rajasthani Laal Maas, Nirban Special Mutton, Chicken Taka-Tak, Roasted Snacks & Fresh Veg Paneer delicacies. Scan Table QR or order online!" 
-    : "हमारे प्रसिद्ध राजस्थानी लाल मास, निर्बाण स्पेशल मटन, चिकन टका-टक, रोस्टेड स्नैक्स और ताजे पनीर व्यंजनों का आनंद लें।";
+    : "हमारे प्रसिद्ध राजस्थानी लाल मास, निर्बाण स्पेशल मटन, चिकन टका-टक, रोस्टेड स्नैक्स और ताजे पनीर व्यंजनों का आनंद लें। टेबल क्यूआर स्कैन करें या ऑनलाइन ऑर्डर करें!";
   document.getElementById("heroExploreBtn").innerText = currentLang === "EN" ? "Explore Full Menu (75 Dishes)" : "पूरा मेनू देखें (75 आइटम)";
   
   document.getElementById("menuTagline").innerText = currentLang === "EN" ? "Official Rate Card Menu (Inclusive of 5% GST)" : "आधिकारिक रेट कार्ड मेनू (5% जीएसटी सहित)";
@@ -67,14 +154,20 @@ function toggleLanguage() {
   
   document.getElementById("reviewsHeading").innerText = currentLang === "EN" ? "What Our Guests Say" : "हमारे मेहमानों की राय";
   document.getElementById("locationHeading").innerText = currentLang === "EN" ? "Visit Or Contact Us" : "विज़िट करें या संपर्क करें";
-  document.getElementById("locationSub").innerText = currentLang === "EN" ? "Veg & Non-Veg Family Restaurant • Dine-In, Takeaway & Delivery" : "वेज और नॉन-वेज फैमिली रेस्टोरेंट • डाइन-इन, टेकअवे और डिलीवरी";
+  document.getElementById("locationSub").innerText = currentLang === "EN" ? "GSTN: 08CSUPK5608Q3ZN • Dine-In, Takeaway & Delivery" : "GSTN: 08CSUPK5608Q3ZN • डाइन-इन, टेकअवे और होम डिलीवरी";
   
-  document.getElementById("drawerTitle").innerText = currentLang === "EN" ? "Your Order Cart" : "आपकी आर्डर कार्ट";
-  document.getElementById("bottomTrayLabel").innerText = currentLang === "EN" ? "Your Order Tray (Incl. GST)" : "आपकी आर्डर ट्रे (जीएसटी सहित)";
-  document.getElementById("bottomCheckoutText").innerText = currentLang === "EN" ? "Checkout / Print Slip" : "चेकआउट / पर्ची प्रिंट करें";
+  document.getElementById("drawerTitle").innerText = currentLang === "EN" ? "Your Order Cart" : "आपकी ऑर्डर कार्ट";
+  document.getElementById("bottomTrayLabel").innerText = currentLang === "EN" ? "Your Order Tray (Incl. GST)" : "आपकी ऑर्डर ट्रे (जीएसटी सहित)";
+  document.getElementById("bottomCheckoutText").innerText = currentLang === "EN" ? "View Cart" : "कार्ट देखें";
+  document.getElementById("orderTypeHeading").innerText = currentLang === "EN" ? "1. Select Order Type" : "1. ऑर्डर का प्रकार चुनें";
+  document.getElementById("paymentHeading").innerText = currentLang === "EN" ? "2. Payment Option" : "2. पेमेंट का तरीका चुनें";
+  document.getElementById("totalPayableLabel").innerText = currentLang === "EN" ? "Total Payable (Incl. 5% GST)" : "कुल बिल (5% जीएसटी सहित)";
+  document.getElementById("placeOrderBtnText").innerText = currentLang === "EN" ? "Place Order on WhatsApp" : "व्हाट्सऐप पर ऑर्डर भेजें";
+  document.getElementById("printPreviewBtnText").innerText = currentLang === "EN" ? "View / Print 58mm Thermal Parchi" : "58mm थर्मल पर्ची देखें / प्रिंट करें";
 
   renderCategoryTabs();
   renderMenu();
+  renderQuickAddStrip();
   updateCartUI();
 }
 
@@ -247,7 +340,7 @@ function updateCartUI() {
 
   const listEl = document.getElementById("cartItemsList");
   if (cart.length === 0) {
-    listEl.innerHTML = `<p class="text-center text-zinc-500 text-xs py-6">Your cart is empty. Add dishes from the menu!</p>`;
+    listEl.innerHTML = `<p class="text-center text-zinc-500 text-xs py-6">${currentLang === "EN" ? "Your cart is empty. Add dishes from the menu!" : "आपकी कार्ट खाली है। मेनू से आइटम जोड़ें!"}</p>`;
   } else {
     listEl.innerHTML = cart.map(c => `
       <div class="flex items-center justify-between bg-zinc-900 p-3 rounded-xl border border-zinc-800">
@@ -322,7 +415,6 @@ function setPaymentMethod(method) {
     ? "py-2.5 px-2.5 rounded-xl border border-amber-500 bg-amber-500/10 text-amber-400"
     : "py-2.5 px-2.5 rounded-xl border border-zinc-700 bg-zinc-800 text-zinc-300";
   document.getElementById("upiScannerBox").classList.toggle("hidden", method !== "UPI");
-  document.getElementById("codInfoBox").classList.toggle("hidden", method !== "CASH");
 }
 
 function addLandmark(areaText) {
@@ -332,6 +424,7 @@ function addLandmark(areaText) {
       ? `${addressInput.value.trim()}, ${areaText}`
       : areaText;
   }
+  saveCustomerDetails();
   addressInput.focus();
 }
 
@@ -463,6 +556,8 @@ function sendOrderToWhatsApp() {
     return;
   }
 
+  saveCustomerDetails();
+
   const totalQty = cart.reduce((sum, i) => sum + i.qty, 0);
   const totalAmount = cart.reduce((sum, i) => sum + i.qty * i.price, 0);
   const gst = calculateGstBreakdown(totalAmount);
@@ -516,8 +611,39 @@ ${oneClickPrintUrl}`;
 }
 
 window.addEventListener("DOMContentLoaded", () => {
+  loadSavedCustomerDetails();
+
   const params = new URLSearchParams(window.location.search);
-  
+
+  // ================= TABLE SESSION LOCK (SINGLE PHONE PER TABLE RULE) =================
+  const tableParam = params.get("table");
+  if (tableParam) {
+    setOrderMode("DINEIN");
+    setPaymentMethod("CASH");
+    document.getElementById("custTable").value = tableParam;
+    
+    const activeTableKey = `nirban_table_session_${tableParam}`;
+    const existingCaptain = localStorage.getItem(activeTableKey);
+    const myDeviceUuid = localStorage.getItem("nirban_device_uuid") || Math.random().toString(36).substring(7);
+    localStorage.setItem("nirban_device_uuid", myDeviceUuid);
+
+    const banner = document.getElementById("activeTableBanner");
+    const bannerText = document.getElementById("activeTableText");
+    banner.classList.remove("hidden");
+
+    if (!existingCaptain) {
+      // First person to scan this table becomes the Master Captain
+      localStorage.setItem(activeTableKey, myDeviceUuid);
+      banner.className = "bg-emerald-950/90 border-b border-emerald-500/40 px-4 py-2.5 text-center";
+      bannerText.innerText = `🍽️ Ticket:<${tableParam}> Selected (Master Phone Active)`;
+    } else if (existingCaptain !== myDeviceUuid) {
+      // Another device scanned the same table
+      banner.className = "bg-amber-950/90 border-b border-amber-500/40 px-4 py-2.5 text-center";
+      bannerText.innerHTML = `⚠️ Table #${tableParam} order is already active on another phone! Please order from a single device.`;
+    }
+  }
+
+  // ================= THERMAL PRINT LINK HANDLER =================
   const printData = params.get("printbill");
   if (printData) {
     try {
@@ -545,18 +671,8 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  const tableParam = params.get("table");
-  if (tableParam) {
-    setOrderMode("DINEIN");
-    setPaymentMethod("CASH");
-    document.getElementById("custTable").value = tableParam;
-    const banner = document.getElementById("activeTableBanner");
-    const bannerText = document.getElementById("activeTableText");
-    banner.classList.remove("hidden");
-    bannerText.innerText = `🍽️ Ticket:<${tableParam}> Selected (Table Order Mode Active)`;
-  }
-
   renderCategoryTabs();
   renderMenu();
+  renderQuickAddStrip();
   updateCartUI();
 });

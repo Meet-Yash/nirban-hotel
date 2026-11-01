@@ -12,10 +12,8 @@ body {
   scrollbar-width: none;
 }
 
-#floatingCartBar {
-  bottom: 20px !important; /* Netlify badge ke upar rahega */
-  z-index: 9999 !important;
-}
+
+
 /* ================= 58MM BLUETOOTH THERMAL PRINTER CSS ================= */
 @media print {
   @page {

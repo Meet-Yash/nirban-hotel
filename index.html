@@ -67,22 +67,27 @@
         <a href="#location" class="hover:text-amber-400 transition" id="navLocationLink">Location</a>
       </nav>
 
+      <!-- Action Buttons (Mobile cleaned: Call & QR Scanner hidden on small screens) -->
       <div class="flex items-center gap-1.5 sm:gap-2.5">
+        <!-- Language Switcher -->
         <button onclick="toggleLanguage()" id="langBtn" class="px-2.5 py-2 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-amber-500/40 text-amber-400 font-bold text-xs flex items-center gap-1 transition">
           <i class="fa-solid fa-language text-sm"></i>
           <span id="langBtnLabel">अ हिंदी</span>
         </button>
 
-        <a href="tel:+919509590978" class="flex items-center gap-1.5 px-2.5 sm:px-3.5 py-2 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-xs font-bold text-zinc-100 border border-zinc-700 transition">
-          <i class="fa-solid fa-phone text-green-400 animate-bounce"></i>
-          <span class="hidden sm:inline">Call</span>
+        <!-- Call Button (Desktop Only) -->
+        <a href="tel:+919509590978" class="hidden sm:flex items-center gap-1.5 px-3 py-2 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-xs font-bold text-zinc-100 border border-zinc-700 transition">
+          <i class="fa-solid fa-phone text-green-400"></i>
+          <span>Call</span>
         </a>
 
-        <button onclick="toggleQrModal(true)" class="flex items-center gap-1.5 px-2.5 sm:px-3 py-2 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-xs font-bold text-amber-400 transition">
+        <!-- Pay QR Button (Desktop Only) -->
+        <button onclick="toggleQrModal(true)" class="hidden sm:flex items-center gap-1.5 px-3 py-2 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-xs font-bold text-amber-400 transition">
           <i class="fa-solid fa-qrcode"></i>
-          <span class="hidden sm:inline">Pay QR</span>
+          <span>Pay QR</span>
         </button>
 
+        <!-- Cart Button (Always Visible) -->
         <button onclick="toggleCart(true)" class="relative flex items-center gap-1.5 px-3 sm:px-4 py-2 rounded-xl bg-gradient-to-r from-red-600 to-amber-600 hover:from-red-500 hover:to-amber-500 text-white font-bold text-xs sm:text-sm shadow-lg shadow-red-600/30 transition">
           <i class="fa-solid fa-bag-shopping"></i>
           <span id="navCartLabel">Cart</span>

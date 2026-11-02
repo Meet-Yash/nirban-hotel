@@ -405,7 +405,7 @@
 
       <div class="p-4 sm:p-5 border-t border-zinc-800 bg-zinc-900/95 space-y-2.5 z-10">
         <div class="flex justify-between items-center text-sm text-zinc-300">
-          <span id="totalPayableLabel">Total Payable (Incl. 5% GST)</span>SSSS
+          <span id="totalPayableLabel">Total Payable (Incl. 5% GST)</span>
           <span id="drawerTotal" class="text-xl font-extrabold text-amber-400">₹0.00</span>
         </div>
         <button onclick="sendOrderToWhatsApp()" class="w-full py-3.5 rounded-xl bg-green-600 hover:bg-green-500 text-white font-bold text-sm sm:text-base flex items-center justify-center gap-2 shadow-lg shadow-green-600/30 transition">
@@ -564,12 +564,51 @@
   </div>
 
   <!-- FOOTER -->
-  <footer class="border-t border-zinc-900 py-8 text-center text-xs text-zinc-500 space-y-2">
-    <p>© 2026 <strong>Nirban Veg & Nonveg Tanduri Hotel</strong> • Surajgarh Road, Near Bypass Tiraha, Chirawa</p>
-    <p>GSTN: 08CSUPK5608Q3ZN • Mob: 9509590978, 7851012255</p>
-    <button onclick="toggleTableQrModal(true)" class="text-[11px] text-zinc-600 hover:text-amber-400 underline pt-1">
-      <i class="fa-solid fa-qrcode mr-1"></i>Staff: Generate Table QR Stickers
-    </button>
+<!-- FOOTER -->
+  <footer class="border-t border-zinc-900 bg-zinc-950 pt-8 pb-12 text-center text-xs text-zinc-500">
+    <div class="max-w-7xl mx-auto px-4 space-y-5">
+      
+      <!-- Restaurant Info -->
+      <div class="space-y-1.5">
+        <p class="text-zinc-300 font-serif text-sm sm:text-base font-bold tracking-wide">
+          NIRBAN VEG & NONVEG TANDURI HOTEL
+        </p>
+        <p>Surajgarh Road, Near Bypass Tiraha, Chirawa, Dist. Jhunjhunu (RJ)</p>
+        <p class="text-zinc-400 font-mono text-[11px]">
+          GSTN: 08CSUPK5608Q3ZN • Mob: 9509590978, 7851012255
+        </p>
+      </div>
+
+      <!-- Staff Utility Button -->
+      <div>
+        <button onclick="toggleTableQrModal(true)" class="px-3.5 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-[11px] text-zinc-400 hover:text-amber-400 transition inline-flex items-center gap-1.5">
+          <i class="fa-solid fa-qrcode text-amber-500"></i>
+          <span>Staff: Generate Table QR Stickers</span>
+        </button>
+      </div>
+
+      <!-- Divider -->
+      <div class="border-t border-zinc-900/80 max-w-md mx-auto"></div>
+
+      <!-- Developer Branding & Lead Generation Bar -->
+      <div class="pt-1 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-[11px] text-zinc-400">
+        <div class="flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+          <span>Designed & Managed by</span>
+          <!-- Yahan Apna Naam Likh -->
+          <strong class="text-white font-semibold tracking-wide">Yash Kumar</strong>
+        </div>
+
+        <div class="flex items-center gap-2.5">
+          <!-- LinkedIn Link -->
+          <a href="https://www.linkedin.com/in/yash-kumar-66820b16b" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded-md bg-zinc-900 hover:bg-blue-600/20 border border-zinc-800 hover:border-blue-500/50 text-zinc-300 hover:text-blue-400 transition flex items-center gap-1">
+            <i class="fa-brands fa-linkedin text-blue-400"></i>
+            <span>LinkedIn</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
   </footer>
 
   <!-- Modular JS Files -->
